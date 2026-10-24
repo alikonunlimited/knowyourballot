@@ -24,6 +24,9 @@ const UN_SLAVERY_VOTE = {
 };
 
 const WORLD = {
+  "jon husted": [
+    {topic:"Iran war", type:"support", date:"Mar 2026", detail:"Said Iran \"chose to export death, terrorism, extremism, and instability\" and the president \"took action to address the threat\"; voted against war powers limits.", src:"https://ohiocapitaljournal.com/2026/03/05/on-war-with-iran-no-ohio-u-s-senate-candidate-gives-his-unqualified-support/"},
+  ],
   "donald trump": [
     {topic:"UN slavery resolution (A/RES/80/250)", type:"oppose", date:"Mar 25, 2026", detail:"His administration cast one of only three \"no\" votes, alongside Israel and Argentina, on the UN declaration calling the transatlantic slave trade the gravest crime against humanity.", src:"https://news.un.org/en/story/2026/03/1167199"},
     {topic:"Iran war", type:"action", date:"Feb 28, 2026", detail:"Launched joint U.S.–Israeli strikes on Iran without congressional authorization. The White House says hostilities ended with an April 7 ceasefire; in June the Senate passed a war powers resolution 50–48 in a rebuke.", src:"https://www.goodmorningamerica.com/news/story/senate-house-pass-war-powers-resolution-1st-time-134145998"},
@@ -63,6 +66,15 @@ const WORLD = {
 };
 
 const CIVIL = {
+  "jon husted": [
+    {topic:"Voter-roll purge case (Husted v. A. Philip Randolph Institute)", type:"legal", date:"2018", detail:"As Secretary of State, defended Ohio's process for removing inactive voters against a challenge brought by the A. Philip Randolph Institute, an organization of Black trade unionists; the U.S. Supreme Court upheld Ohio's process 5–4.", src:"https://sgp.fas.org/crs/misc/LSB10175.pdf"},
+  ],
+  "vivek ramaswamy": [
+    {topic:"Juneteenth remarks", type:"criticized", date:"Aug 2023", detail:"Told Iowa voters to \"cancel Juneteenth or one of the other useless ones we made up\" to make room for a national voting holiday; two months earlier he had posted a video celebrating Juneteenth.", src:"https://www.blackenterprise.com/vivek-ramaswamy-calls-juneteenth-a-useless-holiday/"},
+  ],
+  "annette blackwell": [
+    {topic:"First Black mayor of Maple Heights", type:"action", date:"2016", detail:"Became the city's first African American and first woman mayor.", src:"https://ohiocapitaljournal.com/2026/08/05/democratic-candidate-for-ohio-auditor-continues-a-life-of-learning-as-she-aims-for-top-job/"},
+  ],
   "donald trump": [
     {topic:"Housing discrimination lawsuit", type:"legal", date:"1973–1975", detail:"The Justice Department sued Trump and his father for refusing to rent to Black tenants across 39 buildings. Settled by consent decree in 1975 with no admission of wrongdoing; the company had to advertise to minorities and give the Urban League vacancy lists.", src:"https://clearinghouse.net/case/15342/"},
     {topic:"Central Park Five", type:"legal", date:"1989–2025", detail:"Took out 1989 newspaper ads calling for the death penalty in the case; the five were later exonerated. They sued him for defamation over 2024 debate remarks; in April 2025 a federal judge let the suit proceed.", src:"https://whyy.org/articles/central-park-five-defamation-case-president-trump/"},

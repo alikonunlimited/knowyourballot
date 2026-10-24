@@ -4,9 +4,9 @@ const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 const problems = [];
 const load = f => fs.readFileSync(path.join(root, 'data', f), 'utf8');
-const ctx = new Function(load('candidates.js') + load('world.js') + load('ads.js') +
-  ';return {CANDIDATES, WORLD, CIVIL, UN_SLAVERY_VOTE, ADS, RACE_AD_TOTALS};')();
-const { CANDIDATES, WORLD, CIVIL, ADS } = ctx;
+const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') +
+  ';return {CANDIDATES, WORLD, CIVIL, UN_SLAVERY_VOTE, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES};')();
+const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES } = ctx;
 
 const isUrl = u => /^https:\/\/[^\s"]+$/.test(u || '');
 const banned = /wikipedia\.org/i; // Wikipedia is for photos only, never a data source
@@ -14,6 +14,10 @@ function checkSrc(where, src) {
   if (!isUrl(src)) problems.push(`${where}: missing or invalid source URL`);
   else if (banned.test(src)) problems.push(`${where}: Wikipedia is not allowed as a data source`);
 }
+for (const k of Object.keys(SOURCES)) if (!CANDIDATES[k]) problems.push(`SOURCES.${k}: no matching candidate`);
+for (const k of Object.keys(CANDIDATES)) if (!SOURCES[k]) problems.push(`${k}: no entry in data/sources.js`);
+for (const [k,l] of Object.entries(SOURCES)) l.forEach((x,i)=>{ if(!isUrl(x.url)) problems.push(`SOURCES.${k}[${i}]: bad url`); });
+GLOBAL_SOURCES.forEach((x,i)=>{ if(!isUrl(x.url)) problems.push(`GLOBAL_SOURCES[${i}]: bad url`); });
 for (const [k, c] of Object.entries(CANDIDATES)) {
   for (const f of ['name','initials','party','partyLabel','level','state','office','status','bio'])
     if (!c[f]) problems.push(`${k}: missing field ${f}`);
