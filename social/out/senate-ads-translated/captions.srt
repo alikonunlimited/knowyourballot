@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:03,300
+Every political ad: ominous music, black-and-white slow motion, a grainy photo, RED ALL-CAPS TEXT.
+
+2
+00:00:03,300 --> 00:00:04,400
+Let's translate.
+
+3
+00:00:04,400 --> 00:00:08,000
+The ad says: FirstEnergy spent at least $3.5 million to help Husted’s campaign. (Paid for by Sherrod Brown campaign)
+
+4
+00:00:08,350 --> 00:00:10,800
+The record says: About $1M went to a dark-money group that funded a super PAC backing him, and $2.5M to an RGA-linked group backing the DeWine–Husted ticket. Not his own campaign.
+
+5
+00:00:10,800 --> 00:00:13,000
+Verdict: Misleading. The money is real. The route it took is not what the ad implies.
+
+6
+00:00:13,000 --> 00:00:16,600
+The ad says: During Brown’s 50 years in office, prices rose faster than paychecks. (Paid for by NRSC · approved by Jon Husted)
+
+7
+00:00:16,950 --> 00:00:19,400
+The record says: Federal labor data shows weekly earnings outpaced prices from 1975 to 2025. And he wasn’t in office all 50 of those years.
+
+8
+00:00:19,400 --> 00:00:21,600
+Verdict: Misleading. Paychecks would like a word.
+
+9
+00:00:21,600 --> 00:00:25,200
+The ad says: Husted led the push for data centers and gave billions in tax breaks. (Paid for by Sherrod Brown campaign)
+
+10
+00:00:25,550 --> 00:00:28,000
+The record says: He championed data centers and defended the tax breaks. A state board formally approved them.
+
+11
+00:00:28,000 --> 00:00:30,200
+Verdict: Mostly accurate. Rare sighting: an ad that mostly checks out.
+
+12
+00:00:30,200 --> 00:00:33,800
+The ad says: Brown became a politician in 1975, when Husted was 7. (Paid for by NRSC · approved by Jon Husted)
+
+13
+00:00:34,150 --> 00:00:36,600
+The record says: True. Brown was elected to the Ohio House in 1975, at age 22.
+
+14
+00:00:36,600 --> 00:00:38,800
+Verdict: Accurate. Plot twist: this one is just true.
+
+15
+00:00:38,800 --> 00:00:43,200
+Ads are built to persuade. The record is built to check. We check every side: knowyourballot.netlify.app. Ohio votes Nov. 3.

@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,000
+"Paid for by..." Political ad names, decoded.
+
+2
+00:00:02,000 --> 00:00:04,000
+The name tells you who paid. Not who paid them.
+
+3
+00:00:04,000 --> 00:00:05,400
+Paid for by: Ohio Flyer PAC
+
+4
+00:00:05,400 --> 00:00:07,200
+Sounds like: A Dayton air show.
+
+5
+00:00:07,200 --> 00:00:10,800
+Actually: A super PAC set up to back Jon Husted. Its top donor ($1M) is a dark-money group that doesn’t disclose its own donors.
+
+6
+00:00:10,800 --> 00:00:12,200
+Paid for by: WinSenate
+
+7
+00:00:12,200 --> 00:00:14,000
+Sounds like: A game show.
+
+8
+00:00:14,000 --> 00:00:17,600
+Actually: Backs Sherrod Brown. An arm of Senate Majority PAC; its biggest funder is Majority Forward, a dark-money group.
+
+9
+00:00:17,600 --> 00:00:19,000
+Paid for by: No Going Back PAC
+
+10
+00:00:19,000 --> 00:00:20,800
+Sounds like: A breakup song.
+
+11
+00:00:20,800 --> 00:00:24,400
+Actually: Spent $20M+ against Brown. Its filings listed no donors as of mid-October; the NYT and Reuters report it’s funded by Trump’s super PAC, MAGA Inc.
+
+12
+00:00:24,400 --> 00:00:25,800
+Paid for by: Buckeye Freedom PAC
+
+13
+00:00:25,800 --> 00:00:27,600
+Sounds like: A tailgate.
+
+14
+00:00:27,600 --> 00:00:31,200
+Actually: Spent about $1.6M attacking Husted and promoting the Libertarian candidate. Donors disclosed so far: none.
+
+15
+00:00:31,200 --> 00:00:32,600
+Paid for by: Enough Promises Ohio
+
+16
+00:00:32,600 --> 00:00:34,400
+Sounds like: A progressive grassroots group.
+
+17
+00:00:34,400 --> 00:00:38,000
+Actually: Its mailers attack Brown and promote an independent. Its only donor Oct. 1–14: a Republican super PAC ($2.5M). The independent says he has no ties to it.
+
+18
+00:00:38,000 --> 00:00:42,400
+Ads are built to persuade. The record is built to check. We check every side: knowyourballot.netlify.app. Ohio votes Nov. 3.

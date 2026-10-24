@@ -1,0 +1,52 @@
+AD GROUP NAMES, DECODED  (42.4 s, vertical 1080x1920, sound effects included)
+
+==================== FACEBOOK (post or Reel) ====================
+"Paid for by..." tells you the group's name — not who's funding it. 💸
+
+We decoded 5 groups running ads in Ohio's U.S. Senate race (Sherrod Brown and Jon Husted), from both sides:
+
+• Ohio Flyer PAC: A super PAC set up to back Jon Husted. Its top donor ($1M) is a dark-money group that doesn’t disclose its own donors.
+• WinSenate: Backs Sherrod Brown. An arm of Senate Majority PAC; its biggest funder is Majority Forward, a dark-money group.
+• No Going Back PAC: Spent $20M+ against Brown. Its filings listed no donors as of mid-October; the NYT and Reuters report it’s funded by Trump’s super PAC, MAGA Inc.
+• Buckeye Freedom PAC: Spent about $1.6M attacking Husted and promoting the Libertarian candidate. Donors disclosed so far: none.
+• Enough Promises Ohio: Its mailers attack Brown and promote an independent. Its only donor Oct. 1–14: a Republican super PAC ($2.5M). The independent says he has no ties to it.
+
+"Dark money" groups are nonprofits that don't have to name their donors. Every group, every donor we could verify, with sources: https://knowyourballot.netlify.app
+
+Sources:
+• https://votelog.org/investigations/ohio-senate-general-money
+• https://www.newsfromthestates.com/article/sherrod-brown-comfortably-outraises-jon-husted-outside-groups-enter-ohios-us-senate-race
+• https://www.fec.gov/data/committees/?q=Ohio%20Flyer%20PAC
+• https://signalohio.org/heres-who-bought-political-ads-during-the-ohio-state-indiana-football-game/
+• https://legis1.com/news/no-going-back-pac-tops-159m-outside-spending
+• https://www.applevalleynewsnow.com/news/politics/national-politics/conservatives-funded-efforts-to-undercut-sherrod-brown-with-black-voters-in-ohio-filing-shows/article_20dfca1d-72e7-5e85-bd61-283c304ee92c.html
+• https://www.wcax.com/2026/10/12/mailers-promoting-socialist-candidate-ohios-us-senate-race-have-links-maga-super-pac-vendor/
+
+#Ohio #OhioPolitics #Election2026 #FollowTheMoney
+
+==================== INSTAGRAM (Reel caption) ====================
+"Paid for by..." — but who's paying THEM? 💸
+
+Ohio Senate ad groups, decoded: Ohio Flyer PAC, WinSenate, No Going Back PAC, Buckeye Freedom PAC, Enough Promises Ohio.
+
+Dark money = groups that don't have to name their donors. Every donor we could verify, with sources — link in bio.
+
+Ohio votes Nov. 3.
+
+#Ohio #OhioPolitics #Election2026 #DarkMoney #FollowTheMoney #PoliticalAds #Vote #KnowYourBallot
+
+==================== X / TWITTER (141/280 characters) ====================
+"Paid for by Ohio Flyer PAC" sounds like an air show. It's not.
+
+Ohio Senate ad groups, decoded, both sides. Sources:
+https://knowyourballot.netlify.app
+
+==================== ON-SCREEN TEXT TIMELINE ====================
+(Already burned into the video. captions.srt has the same text for closed captions.)
+00:00–00:04  mintro
+00:04–00:10  Paid for by: Ohio Flyer PAC | Sounds like: A Dayton air show. | Actually: A super PAC set up to back Jon Husted. Its top donor ($1M) is a dark-money group that doesn’t disclose its own donors. | Tag: Some donors hidden
+00:10–00:17  Paid for by: WinSenate | Sounds like: A game show. | Actually: Backs Sherrod Brown. An arm of Senate Majority PAC; its biggest funder is Majority Forward, a dark-money group. | Tag: Some donors hidden
+00:17–00:24  Paid for by: No Going Back PAC | Sounds like: A breakup song. | Actually: Spent $20M+ against Brown. Its filings listed no donors as of mid-October; the NYT and Reuters report it’s funded by Trump’s super PAC, MAGA Inc. | Tag: Some donors hidden
+00:24–00:31  Paid for by: Buckeye Freedom PAC | Sounds like: A tailgate. | Actually: Spent about $1.6M attacking Husted and promoting the Libertarian candidate. Donors disclosed so far: none. | Tag: No donors disclosed
+00:31–00:38  Paid for by: Enough Promises Ohio | Sounds like: A progressive grassroots group. | Actually: Its mailers attack Brown and promote an independent. Its only donor Oct. 1–14: a Republican super PAC ($2.5M). The independent says he has no ties to it. | Tag: Donor: GOP super PAC
+00:38–00:42  outro
