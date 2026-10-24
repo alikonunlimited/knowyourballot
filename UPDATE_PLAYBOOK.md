@@ -41,3 +41,7 @@ This is the procedure the weekly scheduled task follows. The public site needs n
    - items being watched but not added, and why
    - links that couldn't be verified automatically
 9. If nothing changed, still open a PR that updates only `DATA_AS_OF` and the changelog line "No changes found," with the scan totals.
+
+## Private watch list (report to Al only — never publish on the site)
+Include these in the Claude summary under a "Private watch list" heading. Do not add them to any data file.
+1. **UN slavery resolution (A/RES/80/250, adopted Mar 25, 2026):** it declared the transatlantic slave trade "the gravest crime against humanity" and passed 123–3 with 52 abstentions. The U.S., Israel and Argentina voted no; the U.S. vote was cast by the Trump administration (Deputy Ambassador Dan Negrea). Each week, check whether any official on the site has made a statement, cast a vote, sponsored or co-sponsored legislation, or taken an action about the U.S. response to this resolution or about reparations tied to it. Report each finding with its date and source link, or "No new connections found."

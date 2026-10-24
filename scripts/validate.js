@@ -5,7 +5,7 @@ const root = path.join(__dirname, '..');
 const problems = [];
 const load = f => fs.readFileSync(path.join(root, 'data', f), 'utf8');
 const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') +
-  ';return {CANDIDATES, WORLD, CIVIL, UN_SLAVERY_VOTE, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES};')();
+  ';return {CANDIDATES, WORLD, CIVIL, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES};')();
 const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES } = ctx;
 
 const isUrl = u => /^https:\/\/[^\s"]+$/.test(u || '');
