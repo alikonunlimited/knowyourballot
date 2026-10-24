@@ -58,7 +58,7 @@ const VIDEOS = [
         ref: ['vpac-acton', 1], verdict: 'Missing context',
         quip: 'The dog gate has been cleared of all charges.' },
       { sponsor: 'Amy Acton campaign', ad: 'Acton attack on Ramaswamy',
-        says: '“We are making money… that’s what’s most important.”',
+        says: 'Ramaswamy said: “We are making money… that’s what’s most important.”',
         record: 'It’s a paraphrase from a 2023 Forbes story recalling a 2011 conversation. Ramaswamy denies saying it.',
         ref: ['acton-on-ramaswamy', 3], verdict: 'False',
         quip: 'Those quotation marks are doing a lot of work.' }

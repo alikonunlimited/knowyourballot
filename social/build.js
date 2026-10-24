@@ -100,7 +100,7 @@ body{width:${W}px;height:${H}px;overflow:hidden;font-family:'Inter',sans-serif;b
 .k{font-family:'Inter Display';font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .abs{position:absolute;left:80px;right:110px}
 .word{display:inline-block;opacity:0;margin-right:.22em}
-.stamp{display:inline-block;font-family:'Inter Display';font-weight:900;text-transform:uppercase;letter-spacing:.03em;color:#fff;border-radius:22px;padding:22px 40px;font-size:88px;border:8px solid rgba(255,255,255,.85);box-shadow:0 0 0 8px currentColor}
+.stamp{display:inline-block;white-space:nowrap;font-family:'Inter Display';font-weight:900;text-transform:uppercase;letter-spacing:.03em;color:#fff;border-radius:22px;padding:22px 40px;font-size:88px;border:8px solid rgba(255,255,255,.85);box-shadow:0 0 0 8px currentColor}
 .chk{display:flex;align-items:center;gap:34px;margin-top:48px;opacity:0;color:#F4F1EA}
 .box{width:76px;height:76px;border:6px solid #F4F1EA;border-radius:16px;position:relative;flex:none}
 .tickm{position:absolute;left:12px;top:-14px;font:900 86px 'Inter Display';color:#5DE8A2;transform:scale(0)}
@@ -262,13 +262,13 @@ function copy(v) {
     : v.items.map(it => `• ${it.name}: ${it.actually}`);
   const srcs = isT ? [...new Set(v.claims.flatMap(c => [c.src]))] : [...new Set(v.items.flatMap(it => it.src))];
   const fb = isT
-    ? `Ominous music. Slow-motion black-and-white. RED ALL-CAPS TEXT. 🎻\n\nWe ran ${v.claims.length} claims from Ohio's ${v.race} ads (${people}) through the Ad Translator: what the ad says vs. what the record says.\n\n${lines.join('\n')}\n\nWe check ads from every side and link every source. Full candidate profiles: ${link}\n\nSources:\n${srcs.map(u => '• ' + u).join('\n')}\n\n#Ohio #OhioPolitics #Election2026 #FactCheck`
+    ? `Ominous music. Slow-motion black-and-white. RED ALL-CAPS TEXT. 🎻\n\nWe ran ${v.claims.length} claims from Ohio's ${v.race === 'Governor' ? 'governor' : v.race} ads (${people}) through the Ad Translator: what the ad says vs. what the record says.\n\n${lines.join('\n')}\n\nWe check ads from every side and link every source. Full candidate profiles: ${link}\n\nSources:\n${srcs.map(u => '• ' + u).join('\n')}\n\n#Ohio #OhioPolitics #Election2026 #FactCheck`
     : `"Paid for by..." tells you the group's name — not who's funding it. 💸\n\nWe decoded ${v.items.length} groups running ads in Ohio's U.S. Senate race (${people}), from both sides:\n\n${lines.join('\n')}\n\n"Dark money" groups are nonprofits that don't have to name their donors. Every group, every donor we could verify, with sources: ${link}\n\nSources:\n${srcs.map(u => '• ' + u).join('\n')}\n\n#Ohio #OhioPolitics #Election2026 #FollowTheMoney`;
   const ig = isT
-    ? `What the ad says 🎻 vs. what the record says ✅\n\nOhio ${v.race} ads, translated. ${v.claims.map(c => `${c.verdict}`).join(' · ')}\n\nWe check every side. Every source is on our site — link in bio.\n\nOhio votes Nov. 3.\n\n#Ohio #OhioPolitics #Election2026 #FactCheck #PoliticalAds #Vote #Columbus #Cleveland #Cincinnati #KnowYourBallot`
+    ? `What the ad says 🎻 vs. what the record says ✅\n\nOhio ${v.race === 'Governor' ? 'governor' : v.race} ads, translated. ${v.claims.map(c => `${c.verdict}`).join(' · ')}\n\nWe check every side. Every source is on our site — link in bio.\n\nOhio votes Nov. 3.\n\n#Ohio #OhioPolitics #Election2026 #FactCheck #PoliticalAds #Vote #Columbus #Cleveland #Cincinnati #KnowYourBallot`
     : `"Paid for by..." — but who's paying THEM? 💸\n\nOhio Senate ad groups, decoded: ${v.items.map(i => i.name).join(', ')}.\n\nDark money = groups that don't have to name their donors. Every donor we could verify, with sources — link in bio.\n\nOhio votes Nov. 3.\n\n#Ohio #OhioPolitics #Election2026 #DarkMoney #FollowTheMoney #PoliticalAds #Vote #KnowYourBallot`;
   const x = isT
-    ? `Ominous music ✔ Slow-mo ✔ RED ALL CAPS ✔\n\nWe translated Ohio ${v.race} ads: ${v.claims.map(c => c.verdict).join(', ')}. Every side, every source:\n${link}`
+    ? `Ominous music ✔ Slow-mo ✔ RED ALL CAPS ✔\n\nWe translated Ohio ${v.race === 'Governor' ? 'governor' : v.race} ads: ${v.claims.map(c => c.verdict).join(', ')}. Every side, every source:\n${link}`
     : `"Paid for by Ohio Flyer PAC" sounds like an air show. It's not.\n\nOhio Senate ad groups, decoded, both sides. Sources:\n${link}`;
   return { fb, ig, x };
 }
