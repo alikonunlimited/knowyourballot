@@ -3,7 +3,7 @@
 This is the procedure the weekly scheduled task follows. The public site needs no login. Nothing goes live until the owner (Al iKon) replies **approve** in the Claude conversation for that week's run. He does not use GitHub or Netlify, so give him a plain-language summary there, not GitHub or preview links. On approval, the task merges the pull request into `main`, and Netlify deploys knowyourballot.netlify.app automatically.
 
 ## Ground rules
-1. **Every new or changed fact needs a working source URL** from a news outlet, court, government record, or the candidate's own verified channel. **Wikipedia is never a data source.** It is used only for photos.
+1. **Every new or changed fact needs a working source URL** from a news outlet, court, government record, or the candidate's own verified channel. **Wikipedia is never a data source.** It is used only for photos. Photos Al supplies live in `images/candidates/` and are listed in `LOCAL_PHOTOS` in `index.html`; they always take priority over Wikipedia, so never replace them.
 2. **New allegations need two independent sources** before they're added. Otherwise, list them in the PR as "watching — not yet added." A candidate's own post counts only as proof that they said it, not that it's true.
 3. **Neutral wording.** State what happened, who said it, and the outcome. No adjectives like "shocking" or "disgraceful." Civil-rights entries include supportive actions as well as criticized ones.
 4. **Update outcomes.** If a lawsuit, investigation, or race resolves, update the `outcome` or `status` text and note the change in the PR.

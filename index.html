@@ -1720,6 +1720,19 @@ const WIKI_TITLES = {
 };
 let PHOTOS = {};
 try { PHOTOS = JSON.parse(localStorage.getItem('kyb_photos_v3') || '{}'); } catch(e) {}
+// Photos supplied by the site owner (images/candidates/) take priority over Wikipedia thumbnails.
+const LOCAL_PHOTOS = {
+  "john kulewicz": "images/candidates/john-kulewicz.jpg",
+  "annette blackwell": "images/candidates/annette-blackwell.jpg",
+  "jay edwards": "images/candidates/jay-edwards.jpg",
+  "sharon kennedy": "images/candidates/sharon-kennedy.jpg",
+  "pat fischer": "images/candidates/pat-fischer.jpg",
+  "colleen o'donnell": "images/candidates/colleen-odonnell.jpg",
+  "dan hawkins": "images/candidates/dan-hawkins.jpg",
+  "shannon hardin": "images/candidates/shannon-hardin.jpg",
+  "seth walsh": "images/candidates/seth-walsh.jpg"
+};
+Object.assign(PHOTOS, LOCAL_PHOTOS);
 
 function photoImg(c) {
   const url = PHOTOS[keyOf(c)];
