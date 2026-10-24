@@ -51,3 +51,8 @@ Adopted Mar 25, 2026, it declared the transatlantic slave trade "the gravest cri
 - After adding ad checks, run `node youtube/build.js` and tell Al which Shorts and full videos are new or changed. Never commit `youtube/out/`.
 - **Follow the money** (`data/funders.js`): each week, refresh the groups paying for ads in every race on the site and their top disclosed donors (FEC independent expenditures and donor filings, Ohio SOS reports, and news coverage such as Ohio Capital Journal, Signal Ohio, Legis1 and VoteLog). Add any new group that runs ads, mark dark-money and undisclosed donors plainly, note "cycle-wide" for national groups' donor totals, and link every new ad check to its funders in `AD_FUNDERS`. Never guess a donor or amount.
 - When Al sends YouTube links, put them in that ad's `youtube.short` / `youtube.full` (and `YOUTUBE_CHANNEL`); the site's Ad Check section shows only these links.
+
+## Social videos (Facebook, Instagram, X)
+- `social/videos.js` defines the 30–45 s "Ad Translator" videos. Each claim points to an `AD_CHECKS` record (`ref`), and the build stops if a verdict no longer matches. Money videos point to `FUNDERS`.
+- When new ad checks or funders are added, consider a new video: add an entry with balanced claims from both sides, then run `node social/build.js` (about 5 minutes per video; preview stills with `PREVIEW="2,6" node social/build.js <dir> <id>`). Never commit `social/out/`.
+- Keep the humor on ad tropes and group names, never on a candidate personally. Leave sensitive ads (crime, abuse, Epstein) out of this format.

@@ -139,7 +139,7 @@ const FUNDERS = {
     ], src: ["https://decrypt.co/381238/crypto-super-pac-fairshake-pours-millions-more-into-defeating-sherrod-brown", SRC_VOTELOG]
   },
   "enough-promises": {
-    brief: "Funded entirely by Conservative Americans PAC, a Republican super PAC ($2.5M)",
+    brief: "Its only donor Oct. 1–14 was Conservative Americans PAC, a Republican super PAC ($2.5M)",
     name: "Enough Promises Ohio PAC", type: "super PAC", race: "U.S. Senate", side: null, against: "sherrod brown", disclosure: "partial",
     facts: [
       "Formed Sept. 29, 2026. Spent at least $2 million on mail and online ads criticizing Brown and promoting independent Greg Levy, including mailers aimed at Black voters (CNN).",
