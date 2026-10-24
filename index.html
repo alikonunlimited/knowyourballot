@@ -1516,6 +1516,8 @@ body::before {
 
 .chan-group{margin-bottom:10px}
 .chan-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:2px}
+
+.adcheck-box{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid var(--red);border-radius:14px;padding:18px;margin-bottom:24px}
 </style>
 
 <div class="app-header">
@@ -1627,6 +1629,8 @@ body::before {
 
       <div class="races-box" id="racesBox"></div>
 
+      <div class="adcheck-box" id="adCheckBox" style="display:none"></div>
+
       <div class="browse-section">
         <div class="browse-header">
           <div class="browse-title" id="browseTitle">All officials</div>
@@ -1673,6 +1677,7 @@ body::before {
 <script src="data/world.js"></script>
 <script src="data/ads.js"></script>
 <script src="data/sources.js"></script>
+<script src="data/adchecks.js"></script>
 <script>
 let activeFilter = "all";
 let recentSearches = [];
@@ -1824,7 +1829,24 @@ function renderRaces(){
     ${RACES_2026.map(r=>`<div class="race-row"><div class="race-name">${esc(r.race)}</div><div class="race-pair">${pill(r.a)}<span class="race-vs">vs</span>${pill(r.b)}</div></div>`).join('')}`;
 }
 
+
+function renderAdCheckLinks(){
+  const el = document.getElementById('adCheckBox'); if (!el || typeof AD_CHECKS === 'undefined') return;
+  const vids = [];
+  AD_CHECKS.forEach(a => { if (a.youtube && a.youtube.short) vids.push({label: `${a.race}: ${a.title}`, url: a.youtube.short}); });
+  const fulls = {};
+  AD_CHECKS.forEach(a => { if (a.youtube && a.youtube.full) fulls[a.youtube.full] = `${a.race}: every ad checked`; });
+  Object.entries(fulls).forEach(([url, label]) => vids.unshift({label, url}));
+  if (!vids.length && !YOUTUBE_CHANNEL) return;
+  el.style.display = '';
+  el.innerHTML = `<div class="un-kicker" style="color:var(--red)">Ad Check · on YouTube</div>
+    <div class="un-title" style="margin-bottom:10px">Election ads: fact or fiction?</div>
+    <div class="links-row">${vids.map(v => `<a class="ext-link" href="${esc(v.url)}" target="_blank" rel="noopener"><span>▶</span>${esc(v.label)}</a>`).join('')}
+    ${YOUTUBE_CHANNEL ? `<a class="ext-link" href="${esc(YOUTUBE_CHANNEL)}" target="_blank" rel="noopener"><span>↗</span>All Ad Check videos</a>` : ''}</div>`;
+}
+
 function initLanding() {
+  renderAdCheckLinks();
   try { document.getElementById('statSources').textContent = SOURCE_COUNT; } catch(e) {}
   renderRaces();
   const all = Object.values(CANDIDATES);
