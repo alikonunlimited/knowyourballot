@@ -1627,8 +1627,6 @@ body::before {
 
       <div class="races-box" id="racesBox"></div>
 
-      <div class="un-spotlight" id="unSpotlight"></div>
-
       <div class="browse-section">
         <div class="browse-header">
           <div class="browse-title" id="browseTitle">All officials</div>
@@ -1829,7 +1827,6 @@ function renderRaces(){
 function initLanding() {
   try { document.getElementById('statSources').textContent = SOURCE_COUNT; } catch(e) {}
   renderRaces();
-  renderUNSpotlight();
   const all = Object.values(CANDIDATES);
   document.getElementById('statProfiles').textContent = all.length;
   document.getElementById('statControv').textContent = all.reduce((n,c) => n + (c.controversies||[]).length, 0);
@@ -1973,15 +1970,10 @@ function buildStances(list, kind, c) {
   const intro = kind==='civil'
     ? `<p class="bio-text" style="margin:0 0 8px">Documented actions, lawsuits, votes and statements affecting Black Americans — both criticized and supportive — each with its source and outcome.</p>`
     : `<p class="bio-text" style="margin:0 0 8px">Public statements and official actions on foreign policy and global events.</p>`;
-  let unNote='';
-  if(kind==='world'){
-    const isTrump = keyOf(c)==='donald trump';
-    unNote = `<div class="un-note"><b>UN slavery resolution (A/RES/80/250, Mar 25, 2026):</b> ${isTrump ? 'The U.S. "no" vote was cast by this administration.' : 'UN votes are cast by governments, not individual officials. No public statement from '+esc(c.name)+' on this resolution was found.'} <a href="#" onclick="goHome();setTimeout(()=>document.getElementById('unSpotlight').scrollIntoView({behavior:'smooth'}),50);return false">See the vote ↗</a></div>`;
-  }
-  if(!list.length) return intro + unNote + emptyNote(kind==='civil'
+  if(!list.length) return intro + emptyNote(kind==='civil'
     ? 'No documented record specific to Black Americans was found in news, court or government sources.'
     : 'No public position on world events was found for this official.');
-  return intro + unNote + list.map(v=>`
+  return intro + list.map(v=>`
   <div class="rec-item">
     <div class="rec-head"><span class="rec-name">${esc(v.topic)}</span><span class="stance-badge stance-${cls[v.type]||'mixed'}">${lab[v.type]||v.type}</span></div>
     <div class="rec-detail"><span class="rec-date">${esc(v.date)}</span> ${esc(v.detail)}</div>
@@ -1989,22 +1981,6 @@ function buildStances(list, kind, c) {
   </div>`).join('');
 }
 
-function renderUNSpotlight(){
-  const u=UN_SLAVERY_VOTE, el=document.getElementById('unSpotlight'); if(!el) return;
-  const t=u.tally, total=t.yes+t.no+t.abstain+t.absent;
-  const bar=(n,c)=>`<span style="width:${(n/total*100).toFixed(1)}%;background:${c}"></span>`;
-  el.innerHTML=`
-    <div class="un-kicker">Spotlight · UN General Assembly · ${esc(u.date)}</div>
-    <div class="un-title">Slave trade declared "the gravest crime against humanity"</div>
-    <div class="un-sub">${esc(u.symbol)} · sponsored by ${esc(u.sponsor)}. ${esc(u.summary)}</div>
-    <div class="un-bar">${bar(t.yes,'var(--accent2)')}${bar(t.abstain,'var(--warn)')}${bar(t.no,'var(--red)')}${bar(t.absent,'var(--border)')}</div>
-    <div class="un-legend"><span><i style="background:var(--accent2)"></i>${t.yes} yes</span><span><i style="background:var(--warn)"></i>${t.abstain} abstained</span><span><i style="background:var(--red)"></i>${t.no} no</span><span><i style="background:var(--border)"></i>${t.absent} absent</span></div>
-    <div class="un-row"><b>Voted no:</b> ${u.against.map(esc).join(', ')}</div>
-    <div class="un-row"><b>Abstained (named in reporting):</b> ${u.abstainedNamed.map(esc).join(', ')}, and others</div>
-    <div class="un-row"><b>U.S. position:</b> ${esc(u.usPosition)}</div>
-    <div class="un-row un-muted">${esc(u.note)}</div>
-    <div class="links-row">${u.sources.map(l=>`<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
-}
 
 
 function buildAds(c, k) {

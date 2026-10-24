@@ -3,32 +3,12 @@
    type: support | oppose | action | criticized | legal
    Only documented, sourced statements and actions are listed.
    ============================================================ */
-const UN_SLAVERY_VOTE = {
-  symbol: "A/RES/80/250",
-  date: "March 25, 2026",
-  title: "Declaration of the Trafficking of Enslaved Africans and Racialized Chattel Enslavement of Africans as the Gravest Crime against Humanity",
-  sponsor: "Ghana",
-  summary: "Declares the transatlantic slave trade \"the gravest crime against humanity,\" recognizes that its legacies persist, and encourages dialogue on reparatory justice, including formal apology, restitution and compensation.",
-  tally: {yes:123, no:3, abstain:52, absent:15},
-  against: ["United States", "Israel", "Argentina"],
-  abstainedNamed: ["United Kingdom", "All 27 European Union members", "Canada", "Australia", "Japan"],
-  usPosition: "Cast by the Trump administration. Deputy U.S. Ambassador Dan Negrea called the text \"highly problematic in countless respects,\" said the U.S. does not recognize a legal right to reparations for historical wrongs that were not illegal under international law at the time, and objected to ranking crimes against humanity.",
-  note: "UN General Assembly votes are cast by national governments, not by individual officials. None of the officials on this site voted on the resolution, and none of them made a public statement about it that we could find.",
-  sources: [
-    {label:"UN News", url:"https://news.un.org/en/story/2026/03/1167199"},
-    {label:"NPR", url:"https://npr.org/2026/03/26/nx-s1-5761896/un-reparations-slavery-africa"},
-    {label:"ASIL summary", url:"https://asil.org/ilib/un-general-assembly-adopts-resolution-on-the-transatlantic-slave-trade/"},
-    {label:"Swiss voting record (tally)", url:"https://www.eda.admin.ch/dam/it/sd-web/cJ7ciqzo1WZA/abstimmungsverhalten-der-CH-in-der-80-UNO-GV.pdf"},
-    {label:"EJIL:Talk (abstainers)", url:"https://www.ejiltalk.org/analysing-objections-to-the-un-declaration-on-the-trafficking-of-enslaved-africans/"},
-  ]
-};
 
 const WORLD = {
   "jon husted": [
     {topic:"Iran war", type:"support", date:"Mar 2026", detail:"Said Iran \"chose to export death, terrorism, extremism, and instability\" and the president \"took action to address the threat\"; voted against war powers limits.", src:"https://ohiocapitaljournal.com/2026/03/05/on-war-with-iran-no-ohio-u-s-senate-candidate-gives-his-unqualified-support/"},
   ],
   "donald trump": [
-    {topic:"UN slavery resolution (A/RES/80/250)", type:"oppose", date:"Mar 25, 2026", detail:"His administration cast one of only three \"no\" votes, alongside Israel and Argentina, on the UN declaration calling the transatlantic slave trade the gravest crime against humanity.", src:"https://news.un.org/en/story/2026/03/1167199"},
     {topic:"Iran war", type:"action", date:"Feb 28, 2026", detail:"Launched joint U.S.–Israeli strikes on Iran without congressional authorization. The White House says hostilities ended with an April 7 ceasefire; in June the Senate passed a war powers resolution 50–48 in a rebuke.", src:"https://www.goodmorningamerica.com/news/story/senate-house-pass-war-powers-resolution-1st-time-134145998"},
     {topic:"Venezuela", type:"action", date:"Jan 3, 2026", detail:"Ordered the military operation that captured President Nicolás Maduro and said the U.S. would run Venezuela.", src:"https://www.npr.org/2026/01/03/nx-s1-5665729/u-s-will-run-venezuela-after-military-seized-maduro-president-trump-says"},
     {topic:"Israel–Gaza", type:"action", date:"Oct 2025", detail:"Backed the U.S.-proposed ceasefire deal under which Hamas freed all 20 remaining living hostages.", src:"https://www.fox9.com/news/hamas-hostages-release-israel-gaza"},
@@ -83,7 +63,6 @@ const CIVIL = {
     {topic:"First Step Act", type:"support", date:"Dec 2018", detail:"Signed the bipartisan criminal-justice law shortening some federal sentences and expanding early release.", src:"https://www.aljazeera.com/news/2018/12/22/trump-signs-sweeping-criminal-justice-first-step-act-into-law"},
     {topic:"HBCU funding (FUTURE Act)", type:"support", date:"Dec 2019", detail:"Signed a law permanently restoring more than $250 million a year for HBCUs and other minority-serving institutions.", src:"https://www.nbcnewyork.com/news/politics/trump-signs-bill-restoring-funding-for-black-colleges/2245788/"},
     {topic:"Smithsonian and Black history", type:"criticized", date:"Mar 2025", detail:"Ordered removal of \"improper, divisive or anti-American ideology\" from Smithsonian museums and restoration of monuments changed since 2020; historians such as Erin Thompson said it downplays darker chapters of U.S. history.", src:"https://www.wuga.org/2025-03-31/trump-signs-order-to-restore-american-history-with-smithsonian-institution-overhaul"},
-    {topic:"UN slavery resolution", type:"oppose", date:"Mar 2026", detail:"His administration voted against declaring the slave trade the gravest crime against humanity (see World tab).", src:"https://news.un.org/en/story/2026/03/1167199"},
   ],
   "kamala harris": [
     {topic:"Federal anti-lynching bill", type:"support", date:"2018–2019", detail:"Co-led, with Sens. Cory Booker and Tim Scott, a bill making lynching a federal crime; the Senate passed it unanimously in Dec 2018 and again in Feb 2019.", src:"https://www.booker.senate.gov/news/press/booker-harris-scott-lead-unanimous-passage-of-federal-anti-lynching-legislation"},
