@@ -1,6 +1,6 @@
 # KnowYourBallot — Weekly Update Playbook
 
-This is the procedure the weekly scheduled task follows. Nothing goes live until the owner (Al iKon) approves the pull request. Merging to `main` makes Netlify deploy knowyourballot.netlify.app automatically.
+This is the procedure the weekly scheduled task follows. The public site needs no login. Nothing goes live until the owner (Al iKon) replies **approve** in the Claude conversation for that week's run. He does not use GitHub or Netlify, so give him a plain-language summary there, not GitHub or preview links. On approval, the task merges the pull request into `main`, and Netlify deploys knowyourballot.netlify.app automatically.
 
 ## Ground rules
 1. **Every new or changed fact needs a working source URL** from a news outlet, court, government record, or the candidate's own verified channel. **Wikipedia is never a data source.** It is used only for photos.
