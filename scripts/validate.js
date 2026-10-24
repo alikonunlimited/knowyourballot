@@ -4,9 +4,9 @@ const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 const problems = [];
 const load = f => fs.readFileSync(path.join(root, 'data', f), 'utf8');
-const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') + load('adchecks.js') +
-  ';return {CANDIDATES, WORLD, CIVIL, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES, AD_CHECKS};')();
-const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES, AD_CHECKS } = ctx;
+const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') + load('adchecks.js') + load('funders.js') +
+  ';return {CANDIDATES, WORLD, CIVIL, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES, AD_CHECKS, FUNDERS, AD_FUNDERS, RACE_MONEY};')();
+const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES, AD_CHECKS, FUNDERS, AD_FUNDERS, RACE_MONEY } = ctx;
 const VERDICTS = ['Accurate','Mostly accurate','Missing context','Misleading','False','Opinion','Unverifiable'];
 
 const isUrl = u => /^https:\/\/[^\s"]+$/.test(u || '');
@@ -41,6 +41,19 @@ AD_CHECKS.forEach((a,i) => {
   a.about.forEach(k => { if (!CANDIDATES[k]) problems.push(`AD_CHECKS[${i}]: about unknown candidate ${k}`); });
   a.claims.forEach((c,j) => { checkSrc(`AD_CHECKS[${i}].claims[${j}]`, c.src); if (!VERDICTS.includes(c.verdict)) problems.push(`AD_CHECKS[${i}].claims[${j}]: unknown verdict ${c.verdict}`); if (!c.rater) problems.push(`AD_CHECKS[${i}].claims[${j}]: missing rater`); });
 });
+Object.entries(FUNDERS).forEach(([id,f]) => {
+  ['name','type','race','against','disclosure','brief'].forEach(x => { if (!f[x]) problems.push(`FUNDERS.${id}: missing ${x}`); });
+  if ((f.side && !CANDIDATES[f.side]) || !CANDIDATES[f.against]) problems.push(`FUNDERS.${id}: unknown candidate`);
+  if (!['full','partial','none'].includes(f.disclosure)) problems.push(`FUNDERS.${id}: bad disclosure`);
+  if (!f.src.length) problems.push(`FUNDERS.${id}: no sources`);
+  f.src.forEach((u,j) => checkSrc(`FUNDERS.${id}.src[${j}]`, u));
+});
+Object.entries(AD_FUNDERS).forEach(([ad, ids]) => {
+  if (!AD_CHECKS.some(a => a.id === ad)) problems.push(`AD_FUNDERS: unknown ad ${ad}`);
+  ids.forEach(i => { if (!FUNDERS[i]) problems.push(`AD_FUNDERS.${ad}: unknown funder ${i}`); });
+});
+AD_CHECKS.forEach(a => { if (!AD_FUNDERS[a.id]) problems.push(`AD_CHECKS ${a.id}: no AD_FUNDERS entry`); });
+Object.values(RACE_MONEY).forEach(r => checkSrc('RACE_MONEY', r.src));
 (async () => {
   let chromium; try { ({ chromium } = require('playwright')); } catch (e) {}
   if (chromium) {

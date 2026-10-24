@@ -8,10 +8,15 @@ const { chromium } = require('playwright');
 const root = path.join(__dirname, '..');
 const OUT = path.resolve(process.argv[2] || path.join(__dirname, 'out'));
 const load = f => fs.readFileSync(path.join(root, 'data', f), 'utf8');
-const { CANDIDATES, AD_CHECKS, AD_CHECK_RACES } = new Function(
-  load('candidates.js') + load('candidates-2026.js') + load('adchecks.js') +
-  ';return {CANDIDATES, AD_CHECKS, AD_CHECK_RACES};')();
+const { CANDIDATES, AD_CHECKS, AD_CHECK_RACES, FUNDERS, AD_FUNDERS, RACE_MONEY } = new Function(
+  load('candidates.js') + load('candidates-2026.js') + load('adchecks.js') + load('funders.js') +
+  ';return {CANDIDATES, AD_CHECKS, AD_CHECK_RACES, FUNDERS, AD_FUNDERS, RACE_MONEY};')();
+const fundersOf = a => (AD_FUNDERS[a.id] || []).map(k => FUNDERS[k]).filter(Boolean);
+const fundedLine = a => fundersOf(a).map(f => f.brief).join('; ');
+// Biggest outside groups per side in a race (non-campaign groups listed in FUNDERS)
+const raceGroups = race => Object.values(FUNDERS).filter(f => f.race === race);
 const SITE = 'knowyourballot.netlify.app';
+const FUNDERS_AS_OF_TXT = 'October 2026';
 
 const SEVERITY = ['False','Misleading','Missing context','Unverifiable','Opinion','Mostly accurate','Accurate'];
 const COLOR = {'Accurate':'#2E9E68','Mostly accurate':'#6FB34F','Missing context':'#E3A008','Misleading':'#E8681F','False':'#D33A2C','Opinion':'#7C8796','Unverifiable':'#7C8796'};
@@ -63,6 +68,7 @@ const V = {
         <div class="kicker muted" style="font-size:26px">The ad</div>
         <div class="h" style="font-size:72px;margin-top:14px">${esc(a.title)}</div>
         <div style="font-size:36px;margin-top:28px;line-height:1.35"><b>Paid for by:</b> ${esc(a.sponsor)}</div>
+        ${fundedLine(a) ? `<div style="font-size:30px;margin-top:12px;line-height:1.35;color:#FFB84D"><b>Who's behind it:</b> ${esc(fundedLine(a))}</div>` : ''}
         <div style="font-size:36px;margin-top:12px;line-height:1.35"><b>Targets:</b> ${a.about.map(k=>`<span class="party-${party(k)}">${esc(name(k))}</span>`).join(', ')}</div>
         <div class="muted" style="font-size:30px;margin-top:12px">${esc(a.date)} · ${esc(a.platform)}</div>
       </div>
@@ -118,6 +124,7 @@ const H = {
       <div class="kicker muted" style="font-size:28px">Ad ${idx} of ${total}</div>
       <div class="h" style="font-size:110px;margin-top:26px">${esc(a.title)}</div>
       <div style="font-size:42px;margin-top:40px"><b>Paid for by:</b> ${esc(a.sponsor)}</div>
+      ${fundedLine(a) ? `<div style="font-size:34px;margin-top:14px;color:#FFB84D;max-width:1600px;line-height:1.35"><b>Who's behind it:</b> ${esc(fundedLine(a))}</div>` : ''}
       <div style="font-size:42px;margin-top:14px"><b>Targets:</b> ${a.about.map(k=>`<span class="party-${party(k)}">${esc(name(k))}</span>`).join(', ')}</div>
       <div style="font-size:36px;margin-top:30px;max-width:1500px;line-height:1.4" class="muted">${esc(a.summary)}</div>
       <div style="margin-top:auto" class="muted"><span style="font-size:28px">${esc(a.date)} · ${esc(a.platform)}</span></div>
@@ -157,6 +164,20 @@ const H = {
       <div class="brand" style="font-size:56px;margin-top:24px">${SITE}</div>
       <div class="muted" style="font-size:30px;margin-top:50px">Nonpartisan · We check ads from every side · Election Day is Nov 3</div>
     </div>`),
+  money: (race) => {
+    const g = raceGroups(race).filter(f => f.type !== 'campaign');
+    const sides = [...new Set(g.map(f => f.side).filter(Boolean))];
+    return shell(1920,1080,`
+    <div style="position:relative;padding:90px 140px">
+      <div class="kicker" style="font-size:30px;color:#FFB84D">Follow the money · ${esc(race)}</div>
+      <div class="h" style="font-size:72px;margin-top:18px">Who's paying for the ads</div>
+      <div style="display:flex;gap:50px;margin-top:44px">
+        ${sides.map(sd => `<div style="flex:1;padding:34px;border:3px solid rgba(255,255,255,.15);border-radius:28px">
+          <div class="h party-${party(sd)}" style="font-size:44px">Helping ${esc(name(sd))}</div>
+          <div style="margin-top:20px;display:flex;flex-direction:column;gap:16px">${g.filter(f => f.side === sd).slice(0,6).map(f => `<div style="font-size:26px;line-height:1.3"><b>${esc(f.name)}</b><br><span class="muted">${esc(f.brief)}</span></div>`).join('')}</div></div>`).join('')}
+      </div>
+    </div>`);
+  },
   thumb: (race) => shell(1280,720,`
     <div style="position:relative;padding:60px 70px;display:flex;flex-direction:column;height:100%">
       <div class="kicker" style="font-size:30px;color:#FFB84D">Ohio ${esc(race)} · Ad Check</div>
@@ -170,7 +191,8 @@ function shortScript(a, cs) {
   cs = cs || pickShortClaims(a);
   const target = a.about.map(name).join(' and ');
   const lines = [];
-  lines.push(['01-hook.jpg', `This ad, paid for by the ${a.sponsor.replace(/ \(.*\)/,'')}, goes after ${target}. ${a.summary} Fact or fiction? Let's check.`]);
+  const fl = fundersOf(a).filter(f => f.type !== 'campaign');
+  lines.push(['01-hook.jpg', `This ad, paid for by the ${a.sponsor.replace(/ \(.*\)/,'')}, goes after ${target}.${fl.length ? ' Who\'s behind it? ' + fl.map(f => f.brief.replace(/;.*/,'')).join('; ') + '.' : ''} ${a.summary} Fact or fiction? Let's check.`]);
   cs.forEach((c, i) => lines.push([`${String(i+2).padStart(2,'0')}-claim-${i+1}.jpg`, `Claim${cs.length>1?` ${i+1}`:''}: ${c.claim.replace(/^Quote: /,'')} Verdict: ${c.verdict}. ${firstSentence(c.finding)}`]));
   lines.push([`${String(cs.length+2).padStart(2,'0')}-bottom-line.jpg`, `Bottom line: ${a.bottomLine}`]);
   lines.push([`${String(cs.length+3).padStart(2,'0')}-end.jpg`, `Sources are in the description. Know your ballot.`]);
@@ -181,9 +203,11 @@ function fullScript(race, ads) {
   const people = [...new Set(ads.flatMap(a => [a.supports, ...a.about]))].map(name);
   out.push(['00-title.jpg', `Ohio's ${race} race is one of the most expensive in the country, and most of that money is going into ads. Today we're checking ${ads.length} of them, from both sides, claim by claim. The candidates: ${people.join(' and ')}. Every source we use is linked in the description.`]);
   out.push(['01-how-we-rate.jpg', `Here's how this works. We rely on professional fact-checkers — PolitiFact, FactCheck.org, and local TV fact-check teams — and the public records they cite. Each claim gets a rating: Accurate, Mostly accurate, Missing context, Misleading, False, or Opinion. When a fact-checker reported the evidence without giving a formal rating, we apply the label ourselves and say so on screen.`]);
-  let n = 2;
+  const og = raceGroups(race).filter(f => f.type !== 'campaign');
+  out.push(['02-follow-the-money.jpg', `Before the ads, follow the money. ${RACE_MONEY[race] ? RACE_MONEY[race].text + ' ' : ''}` + [...new Set(og.map(f => f.side).filter(Boolean))].map(sd => `Groups helping ${name(sd)} include ` + og.filter(f => f.side === sd).slice(0,4).map(f => `${f.name}: ${f.brief}`).join('; ') + '.').join(' ') + ` Donor figures for national groups cover all their races this cycle, not just Ohio.`]);
+  let n = 3;
   ads.forEach((a, i) => {
-    out.push([`${String(n++).padStart(2,'0')}-ad-${i+1}.jpg`, `Ad ${i+1}: "${a.title.replace(/"/g,'')}", paid for by ${a.sponsor}. ${a.summary}`]);
+    out.push([`${String(n++).padStart(2,'0')}-ad-${i+1}.jpg`, `Ad ${i+1}: "${a.title.replace(/"/g,'')}", paid for by ${a.sponsor}. ${fundedLine(a) ? 'Who is behind it: ' + fundedLine(a) + '. ' : ''}${a.summary}`]);
     a.claims.forEach((c, j) => out.push([`${String(n++).padStart(2,'0')}-ad-${i+1}-claim-${j+1}.jpg`, `The claim: ${c.claim.replace(/^Quote: /,'')} Our rating: ${c.verdict}. ${c.finding} That rating comes from ${c.rater}.`]));
     out.push([null, `So, on this ad: ${a.bottomLine}`]);
   });
@@ -206,6 +230,11 @@ function uploadText(dir, ytTitle, ads, isShort) {
     ? `We fact-check "${ads[0].title.replace(/"/g,'')}", an ad paid for by ${ads[0].sponsor}, claim by claim.\n\n`
     : `We fact-check ${ads.length} ads in Ohio's ${ads[0].race} race, from both sides, claim by claim.\n\n`;
   ads.forEach(a => { t += `${a.title.replace(/"/g,'')} (${a.sponsor}):\n` + a.claims.map(c => `• ${c.claim.replace(/^Quote: /,'')} — ${c.verdict} (${c.rater})`).join('\n') + '\n\n'; });
+  const fs_ = [...new Set((ads.length === 1 ? fundersOf(ads[0]) : raceGroups(ads[0].race)))];
+  if (fs_.length) {
+    t += `WHO PAID FOR ${ads.length === 1 ? 'THIS AD' : 'THE ADS'} (as of ${FUNDERS_AS_OF_TXT}):\n` + fs_.map(f => `• ${f.name}: ${f.facts.join(' ')}${f.donors.length ? ' Top disclosed donors: ' + f.donors.map(d => `${d.name} ${d.amount}${d.note ? ' (' + d.note + ')' : ''}`).join('; ') + '.' : ''}`).join('\n') + '\n\n';
+    fs_.forEach(f => f.src.forEach(u => srcs.push([u, `Funding: ${f.name}`])));
+  }
   t += `SOURCES:\n` + srcs.map(([u, l]) => `• ${l}: ${u}`).join('\n') + `\n\n`;
   t += `Full candidate profiles with sources: https://${SITE}\n\nKnowYourBallot is nonpartisan. We check ads from every side and link every source. Ratings come from PolitiFact, FactCheck.org and local TV fact-checks; where we applied a label to their reporting, we say so.\n\n`;
   t += `TAGS:\nOhio election 2026, fact check, political ads, ${[...new Set(ads.flatMap(a => [a.supports, ...a.about]).map(name))].join(', ')}, ${ads[0].race === 'Governor' ? 'Ohio governor race' : 'Ohio Senate race'}, KnowYourBallot${isShort ? ', #Shorts' : ''}\n`;
@@ -240,7 +269,8 @@ function uploadText(dir, ytTitle, ads, isShort) {
     await shot(H.thumb(race), 1280, 720, path.join(dir, 'thumbnail.jpg'));
     await shot(H.title(race, ads), 1920, 1080, path.join(dir, '00-title.jpg'));
     await shot(H.scale(), 1920, 1080, path.join(dir, '01-how-we-rate.jpg'));
-    let n = 2;
+    await shot(H.money(race), 1920, 1080, path.join(dir, '02-follow-the-money.jpg'));
+    let n = 3;
     for (let i = 0; i < ads.length; i++) {
       await shot(H.ad(ads[i], i+1, ads.length), 1920, 1080, path.join(dir, `${String(n++).padStart(2,'0')}-ad-${i+1}.jpg`));
       for (let j = 0; j < ads[i].claims.length; j++) await shot(H.claim(ads[i], ads[i].claims[j]), 1920, 1080, path.join(dir, `${String(n++).padStart(2,'0')}-ad-${i+1}-claim-${j+1}.jpg`));

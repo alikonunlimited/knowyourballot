@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-24 — Follow the money: who funds the ads
+- New `data/funders.js`: 20 groups paying for ads in the Ohio Senate and governor races (campaigns, party committees, super PACs, dark-money groups), with top disclosed donors and sources (FEC data via VoteLog, Ohio Capital Journal, Signal Ohio, Legis1, CNN, AP, Decrypt, NBC4, Newsweek).
+- Ads tab on Brown, Husted, Ramaswamy and Acton profiles now shows "Who's paying for the ads in this race."
+- YouTube kit: "Who's behind it" on every ad graphic, a new "Follow the money" segment in each full video, and funding details plus sources in every upload description.
+
 ## 2026-10-24
 - Split site into `index.html` + `data/` files so weekly updates are reviewable.
 - Added Ads tab with sourced ad campaigns (Brown–Husted race, Brunner 2020) and live ad-library links.
