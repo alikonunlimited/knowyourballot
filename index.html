@@ -1,0 +1,2492 @@
+<title>KnowYourBallot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+/* === LAYOUT: full-screen app, header + search + results panel === */
+:root {
+  --bg: #F7F6F2;
+  --surface: #FFFFFF;
+  --surface2: #F0EEE9;
+  --border: #E2DDD6;
+  --fg: #1A1916;
+  --fg2: #5A564F;
+  --fg3: #9A958C;
+  --accent: #1B4D3E;
+  --accent2: #2E7D5A;
+  --accent-light: #D4EDE2;
+  --red: #C0392B;
+  --red-light: #FDECEA;
+  --blue: #1A3A6B;
+  --blue-light: #E8EDF6;
+  --gold: #B8860B;
+  --gold-light: #FDF6DC;
+  --warn: #D97706;
+  --warn-light: #FEF3C7;
+  --tag-r: #C0392B;
+  --tag-d: #1A3A6B;
+  --tag-i: #5B4FCF;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111210;
+    --surface: #1C1D1A;
+    --surface2: #252620;
+    --border: #2E2F2A;
+    --fg: #ECEAE4;
+    --fg2: #A8A49C;
+    --fg3: #6A6660;
+    --accent: #3AA876;
+    --accent2: #4DC48A;
+    --accent-light: #0E2E1F;
+    --red: #E05A4E;
+    --red-light: #2A1210;
+    --blue: #5B8DD9;
+    --blue-light: #101828;
+    --gold: #D4A017;
+    --gold-light: #2A2008;
+    --warn: #F59E0B;
+    --warn-light: #1C1600;
+    --tag-r: #E05A4E;
+    --tag-d: #5B8DD9;
+    --tag-i: #8B7EE8;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #111210;
+  --surface: #1C1D1A;
+  --surface2: #252620;
+  --border: #2E2F2A;
+  --fg: #ECEAE4;
+  --fg2: #A8A49C;
+  --fg3: #6A6660;
+  --accent: #3AA876;
+  --accent2: #4DC48A;
+  --accent-light: #0E2E1F;
+  --red: #E05A4E;
+  --red-light: #2A1210;
+  --blue: #5B8DD9;
+  --blue-light: #101828;
+  --gold: #D4A017;
+  --gold-light: #2A2008;
+  --warn: #F59E0B;
+  --warn-light: #1C1600;
+  --tag-r: #E05A4E;
+  --tag-d: #5B8DD9;
+  --tag-i: #8B7EE8;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--accent);
+}
+
+/* === HEADER === */
+.app-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: var(--accent);
+  margin: 0 -16px;
+  margin-left: max(-16px, calc(-1 * env(safe-area-inset-left, 0px)));
+  margin-right: max(-16px, calc(-1 * env(safe-area-inset-right, 0px)));
+  padding: 14px max(20px, env(safe-area-inset-right, 0px)) 14px max(20px, env(safe-area-inset-left, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* === TIP LINE BUTTON === */
+.tip-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.tip-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
+.tip-btn:active { transform: none; }
+
+/* === TIP MODAL OVERLAY === */
+.tip-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.tip-overlay.open { display: flex; }
+
+.tip-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  padding: 28px;
+  position: relative;
+}
+
+.tip-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--surface2);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: var(--fg2);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.tip-modal-close:hover { background: var(--border); color: var(--fg); }
+
+.tip-modal-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.tip-modal-sub {
+  font-size: 13px;
+  color: var(--fg3);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.tip-field { margin-bottom: 16px; }
+.tip-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 6px;
+}
+.tip-field input,
+.tip-field textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--fg);
+  outline: none;
+  resize: vertical;
+  transition: border-color .15s;
+  box-sizing: border-box;
+}
+.tip-field input:focus,
+.tip-field textarea:focus { border-color: var(--accent2); }
+.tip-field textarea { min-height: 110px; }
+
+.tip-char-counter {
+  text-align: right;
+  font-size: 11px;
+  color: var(--fg3);
+  margin-top: 4px;
+}
+
+.tip-guidelines {
+  background: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--fg2);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.tip-guidelines b { color: var(--fg); }
+
+.tip-submit-btn {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+}
+.tip-submit-btn:hover { background: var(--accent2); }
+.tip-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.tip-error {
+  background: var(--red-light);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 12px;
+  display: none;
+}
+.tip-error.visible { display: block; }
+
+.tip-success {
+  text-align: center;
+  padding: 20px 10px;
+  display: none;
+}
+.tip-success.visible { display: block; }
+.tip-success-icon { font-size: 48px; margin-bottom: 12px; }
+.tip-success-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+.tip-success-body {
+  font-size: 13px;
+  color: var(--fg3);
+  line-height: 1.5;
+}
+
+.tip-ai-status {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--fg2);
+}
+.tip-ai-status.visible { display: flex; }
+.tip-ai-spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent2);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* === OWNER TIPS PANEL === */
+.tips-panel {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-top: 24px;
+}
+.tips-panel.visible { display: block; }
+.tips-panel-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tips-count-badge {
+  background: var(--red);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+.tip-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.tip-card-meta {
+  font-size: 11px;
+  color: var(--fg3);
+  display: flex;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.tip-card-meta b { color: var(--fg2); }
+.tip-card-subject {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.tip-card-body {
+  font-size: 13px;
+  color: var(--fg2);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.tip-card-ai-summary {
+  background: var(--accent-light);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--fg2);
+  line-height: 1.4;
+}
+.tip-card-ai-summary b { color: var(--accent2); }
+.tip-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+.tip-ai-badge.approved { background: var(--accent-light); color: var(--accent2); }
+.tip-ai-badge.flagged { background: var(--warn-light); color: var(--warn); }
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: -0.3px;
+}
+
+.header-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* === SEARCH BAR === */
+.search-section {
+  padding: 20px 0 16px;
+  flex-shrink: 0;
+}
+
+.search-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 8px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.search-input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--fg3);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 11px 12px 11px 38px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--fg);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input::placeholder { color: var(--fg3); }
+.search-input:focus { border-color: var(--accent2); }
+
+.search-btn {
+  padding: 11px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.search-btn:hover { background: var(--accent2); }
+.search-btn:active { transform: scale(0.97); }
+
+.search-filters {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--fg2);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: all 0.12s;
+  white-space: nowrap;
+}
+
+.filter-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.filter-chip:hover:not(.active) { border-color: var(--accent2); color: var(--accent2); }
+
+/* === RECENT SEARCHES === */
+.recent-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.recent-label {
+  font-size: 11px;
+  color: var(--fg3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.recent-pill {
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: var(--surface2);
+  color: var(--fg2);
+  font-size: 11px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.12s;
+}
+
+.recent-pill:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* === RESULTS AREA === */
+.results-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 24px;
+}
+
+/* === LANDING STATE === */
+/* === 2027 LANDING PAGE === */
+.landing-state {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  gap: 0;
+  min-height: 0;
+}
+
+/* Hero banner */
+.landing-hero {
+  background: linear-gradient(135deg, var(--accent) 0%, #0e3328 60%, #1a1410 100%);
+  border-radius: 16px;
+  padding: 36px 28px 32px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.landing-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 0%, rgba(74,200,140,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 10% 100%, rgba(26,77,62,0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+.landing-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.landing-hero-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.landing-hero-label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.landing-hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.landing-hero-title em {
+  font-style: normal;
+  background: linear-gradient(90deg, #5de8a2, #a8f0cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.landing-hero-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  max-width: 380px;
+  margin-bottom: 20px;
+}
+.landing-hero-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.hero-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Browse section */
+.browse-section { margin-bottom: 8px; }
+.browse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.browse-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.search-filters { display: none !important; }
+.browse-tabs {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  gap: 4px;
+  background: var(--surface2);
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.browse-tab {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Syne', sans-serif;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: var(--fg3);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all .12s;
+}
+.browse-tab.active {
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+/* Candidate browse grid */
+.candidate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .candidate-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.cand-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px 12px;
+  cursor: pointer;
+  transition: all .14s;
+  position: relative;
+  overflow: hidden;
+}
+.cand-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.cand-card.party-r::before { background: var(--tag-r); }
+.cand-card.party-d::before { background: var(--tag-d); }
+.cand-card.party-i::before { background: var(--tag-i); }
+.cand-card:hover {
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.cand-card:active { transform: translateY(0); }
+
+.cand-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 9px;
+  letter-spacing: -0.02em;
+}
+.avatar-r { background: rgba(192,57,43,0.12); color: var(--tag-r); }
+.avatar-d { background: rgba(26,58,107,0.12); color: var(--tag-d); }
+.avatar-i { background: rgba(91,79,207,0.12); color: var(--tag-i); }
+
+.cand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.cand-office {
+  font-size: 10px;
+  color: var(--fg3);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cand-level-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 5px;
+  margin-top: 6px;
+}
+.lvl-federal { background: var(--blue-light); color: var(--blue); }
+.lvl-state { background: var(--warn-light); color: var(--warn); }
+.lvl-local { background: var(--accent-light); color: var(--accent2); }
+.lvl-judicial { background: var(--gold-light); color: var(--gold); }
+
+.no-results-msg {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--fg3);
+  font-size: 13px;
+}
+
+/* Legacy aliases kept for loading state refs */
+.example-card { display:none; }
+.example-icon { display:none; }
+.example-text strong { display:none; }
+.example-text span { display:none; }
+
+/* === LOADING STATE === */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.pulse-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent2);
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg2);
+}
+
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.loading-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--fg3);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.loading-step.done { color: var(--accent2); }
+.loading-step.active { color: var(--fg); background: var(--accent-light); }
+
+.step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.loading-step.done .step-dot { background: var(--accent2); }
+.loading-step.active .step-dot { background: var(--accent); animation: pulse 1s ease-in-out infinite; }
+
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.4);opacity:0.7;} }
+
+/* === PROFILE HEADER === */
+.profile-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.profile-header-band {
+  background: var(--accent);
+  height: 6px;
+}
+
+.profile-body {
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  border: 2px solid var(--accent);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.profile-info { flex: 1; min-width: 0; }
+
+.profile-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.4px;
+  color: var(--fg);
+  line-height: 1.2;
+}
+
+.profile-title {
+  font-size: 13px;
+  color: var(--fg2);
+  margin-top: 3px;
+}
+
+.profile-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.ptag {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ptag-party-r { background: var(--red-light); color: var(--tag-r); }
+.ptag-party-d { background: var(--blue-light); color: var(--tag-d); }
+.ptag-party-i { background: #F0EEFF; color: var(--tag-i); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ptag-party-i { background: #1E1A3A; }
+}
+:root[data-theme="dark"] .ptag-party-i { background: #1E1A3A; }
+.ptag-level { background: var(--gold-light); color: var(--gold); }
+.ptag-state { background: var(--surface2); color: var(--fg2); }
+
+.profile-score-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+}
+
+.score-cell {
+  background: var(--surface);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.score-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.score-num.good { color: var(--accent2); }
+.score-num.warn { color: var(--warn); }
+.score-num.bad { color: var(--red); }
+.score-lbl { font-size: 10px; color: var(--fg3); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 2px; }
+
+/* === SECTION TABS === */
+.section-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1.5px solid var(--border);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.section-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: var(--fg3);
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  transition: all 0.15s;
+}
+
+.tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent2); }
+.tab-btn:hover:not(.active) { color: var(--fg); }
+
+/* === SECTION PANELS === */
+.section-panel { display: none; }
+.section-panel.active { display: block; }
+
+/* === INFO BLOCKS === */
+.info-block {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.info-block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.info-block-icon { font-size: 15px; }
+
+.info-block-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--fg);
+  flex: 1;
+}
+
+.info-block-badge {
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-green { background: var(--accent-light); color: var(--accent2); }
+.badge-red { background: var(--red-light); color: var(--red); }
+.badge-gold { background: var(--gold-light); color: var(--gold); }
+.badge-blue { background: var(--blue-light); color: var(--blue); }
+.badge-gray { background: var(--surface2); color: var(--fg3); }
+
+.expand-arrow {
+  font-size: 12px;
+  color: var(--fg3);
+  transition: transform 0.2s;
+}
+
+.info-block.collapsed .expand-arrow { transform: rotate(-90deg); }
+.info-block.collapsed .info-block-body { display: none; }
+
+.info-block-body { padding: 14px; }
+
+/* === DATA ROWS === */
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-row:last-child { border-bottom: none; padding-bottom: 0; }
+.data-row:first-child { padding-top: 0; }
+
+.data-label {
+  font-size: 12px;
+  color: var(--fg3);
+  font-weight: 500;
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 45%;
+}
+
+.data-value {
+  font-size: 13px;
+  color: var(--fg);
+  font-weight: 500;
+  text-align: right;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* === VOTE RECORD BARS === */
+.vote-bar-wrap {
+  margin: 8px 0;
+}
+
+.vote-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: var(--fg2);
+}
+
+.vote-bar-track {
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.vote-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fill-green { background: var(--accent2); }
+.fill-red { background: var(--red); }
+.fill-gold { background: var(--gold); }
+.fill-blue { background: var(--blue); }
+
+/* === ISSUE GRID === */
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 400px) { .issue-grid { grid-template-columns: 1fr; } }
+
+.issue-tile {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+}
+
+.issue-tile-topic {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.issue-tile-stance {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.stance-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+.stance-for { background: var(--accent-light); color: var(--accent2); }
+.stance-against { background: var(--red-light); color: var(--red); }
+.stance-mixed { background: var(--warn-light); color: var(--warn); }
+.stance-unknown { background: var(--surface2); color: var(--fg3); }
+
+/* === DONATION TABLE === */
+.donor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.donor-table th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  font-weight: 600;
+  padding: 0 8px 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.donor-table td {
+  padding: 7px 8px 7px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+  vertical-align: top;
+}
+
+.donor-table tr:last-child td { border-bottom: none; }
+
+.donor-amt { color: var(--accent2); font-weight: 600; }
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 16px 14px;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -13px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.timeline-year {
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.timeline-event {
+  font-size: 13px;
+  color: var(--fg);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.timeline-detail {
+  font-size: 11px;
+  color: var(--fg2);
+  margin-top: 2px;
+}
+
+/* === CONTROVERSY CARDS === */
+.controversy-item {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 8px;
+}
+
+.controversy-item:last-child { margin-bottom: 0; }
+
+.controversy-header {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.sev-high { background: var(--red); }
+.sev-mid { background: var(--warn); }
+.sev-low { background: var(--gold); }
+
+.controversy-title { font-size: 13px; font-weight: 600; color: var(--fg); flex: 1; }
+.controversy-date { font-size: 10px; color: var(--fg3); white-space: nowrap; }
+.controversy-body { font-size: 12px; color: var(--fg2); line-height: 1.55; }
+
+/* === LINKS ROW === */
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--fg2);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.12s;
+}
+
+.ext-link:hover { color: var(--accent2); border-color: var(--accent2); background: var(--accent-light); }
+
+/* === RATING PILL === */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.rating-row:last-child { border-bottom: none; padding-bottom: 0; }
+.rating-row:first-child { padding-top: 0; }
+
+.rating-org { font-size: 12px; font-weight: 500; color: var(--fg2); flex: 1; min-width: 100px; }
+.rating-grade {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  min-width: 28px;
+  text-align: center;
+}
+
+.grade-a { color: var(--accent2); }
+.grade-b { color: #5B9BD5; }
+.grade-c { color: var(--warn); }
+.grade-d { color: #D97706; }
+.grade-f { color: var(--red); }
+.grade-nr { color: var(--fg3); font-size: 11px; }
+
+.rating-desc { font-size: 11px; color: var(--fg3); width: 100%; margin-top: 1px; }
+
+/* === SOURCE CITATION === */
+.source-note {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--surface2);
+  font-size: 11px;
+  color: var(--fg3);
+  border-left: 3px solid var(--accent);
+}
+
+.source-note strong { color: var(--fg2); }
+
+/* === NO RESULTS === */
+.no-results {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--fg3);
+}
+
+.no-results-icon { font-size: 40px; margin-bottom: 12px; }
+.no-results-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--fg2); margin-bottom: 6px; }
+.no-results-desc { font-size: 13px; color: var(--fg3); max-width: 280px; margin: 0 auto; }
+
+/* === DISCLAIMER === */
+.disclaimer-bar {
+  background: var(--warn-light);
+  border: 1px solid var(--warn);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.disclaimer-icon { font-size: 14px; flex-shrink: 0; }
+.disclaimer-text { font-size: 11px; color: var(--fg2); line-height: 1.5; }
+
+/* === COMPARISON MODE === */
+.compare-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.compare-lbl { font-size: 12px; font-weight: 600; color: var(--accent2); flex: 1; min-width: 100px; }
+
+.compare-btn {
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent2);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.compare-btn:hover { background: var(--accent-light); }
+.compare-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+
+/* === PHOTOS + BACK BUTTON === */
+.cand-avatar, .profile-avatar { overflow: hidden; }
+.cand-avatar { width: 100%; height: auto; aspect-ratio: 1/1; border-radius: 10px; font-size: 22px; }
+.cand-avatar img, .profile-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.back-home-btn {
+  background: var(--surface); border: 1px solid var(--border); color: var(--fg2);
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px; cursor: pointer; margin-bottom: 12px;
+}
+.back-home-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* === SOURCED PROFILE === */
+.status-strip{padding:10px 16px;font-size:12px;line-height:1.5;color:var(--fg2);border-top:1px solid var(--border);background:var(--surface2)}
+.status-strip.on-ballot{background:var(--gold-light);color:var(--fg);font-weight:600}
+.rec-item{padding:10px 0;border-bottom:1px solid var(--border)}
+.rec-item:last-child{border-bottom:none}
+.rec-head{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.rec-name{font-size:13px;font-weight:600;color:var(--fg);flex:1}
+.rec-detail{font-size:12px;color:var(--fg2);line-height:1.5}
+.rec-date{font-size:11px;font-weight:600;color:var(--fg3);font-variant-numeric:tabular-nums}
+.src-link{display:inline-block;margin-top:5px;font-size:11px;color:var(--accent2);text-decoration:none;font-weight:500}
+.src-link:hover{text-decoration:underline}
+.controversy-outcome{margin-top:6px;font-size:12px;color:var(--fg);background:var(--surface2);border-radius:6px;padding:6px 8px;line-height:1.45}
+.sev-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:10px;color:var(--fg3);margin-bottom:10px}
+.sev-legend span{display:inline-flex;align-items:center;gap:5px}
+.sev-legend .severity-dot{display:inline-block;margin:0}
+.empty-note{font-size:12px;color:var(--fg3);padding:6px 0;line-height:1.5}
+.bio-text{margin-top:12px;font-size:13px;color:var(--fg2);line-height:1.6}
+.money-val{font-family:'Syne',sans-serif;font-weight:700;color:var(--accent2)}
+.data-footer{font-size:11px;color:var(--fg3);text-align:center;padding:16px 8px 4px;line-height:1.5}
+.score-num.good{color:var(--accent2)}.score-num.warn{color:var(--warn)}.score-num.bad{color:var(--red)}
+
+/* === WORLD / CIVIL / UN === */
+.un-note{font-size:12px;line-height:1.5;color:var(--fg2);background:var(--blue-light);border-radius:8px;padding:8px 10px;margin-bottom:10px}
+.un-note a{color:var(--accent2);text-decoration:none;font-weight:600}
+.un-spotlight{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid var(--gold);border-radius:14px;padding:18px;margin-bottom:24px}
+.un-kicker{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.un-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--fg);line-height:1.25;margin-bottom:6px}
+.un-sub{font-size:12px;color:var(--fg2);line-height:1.55;margin-bottom:12px}
+.un-bar{display:flex;height:10px;border-radius:6px;overflow:hidden;margin-bottom:6px}
+.un-bar span{display:block;height:100%}
+.un-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--fg2);margin-bottom:10px}
+.un-legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.un-row{font-size:12px;color:var(--fg2);line-height:1.5;margin-bottom:6px}
+.un-row b{color:var(--fg)}
+.un-muted{color:var(--fg3);font-style:italic}
+</style>
+
+<div class="app-header">
+  <div class="header-brand">
+    <div class="header-icon">🗳️</div>
+    <div>
+      <div class="header-title">KnowYourBallot</div>
+      <div class="header-sub">Political Research · Every Level</div>
+    </div>
+  </div>
+  <button class="tip-btn" onclick="openTipModal()">📬 Submit a Tip</button>
+</div>
+
+<!-- Tip line modal -->
+<div class="tip-overlay" id="tipOverlay" onclick="closeTipOnBackdrop(event)">
+  <div class="tip-modal" id="tipModal">
+    <button class="tip-modal-close" onclick="closeTipModal()" aria-label="Close">×</button>
+
+    <!-- Form view -->
+    <div id="tipFormView">
+      <div class="tip-modal-title">📬 Submit a Tip</div>
+      <div class="tip-modal-sub">Know something about a candidate that voters should see? Submit a tip — our AI reviews every submission before it reaches our editors.</div>
+
+      <div class="tip-guidelines">
+        <b>Guidelines:</b> Tips must be factual, relevant to public office, and based on first-hand knowledge or verifiable sources. No personal attacks, rumors, or unverifiable claims. Professional language required.
+      </div>
+
+      <div class="tip-field">
+        <label>Your Email <span style="color:var(--red)">*</span></label>
+        <input type="email" id="tipEmail" placeholder="your@email.com" autocomplete="email">
+      </div>
+
+      <div class="tip-field">
+        <label>Candidate / Subject <span style="color:var(--red)">*</span></label>
+        <input type="text" id="tipSubject" placeholder="e.g. Mike DeWine, Franklin County Commissioner…" maxlength="100">
+      </div>
+
+      <div class="tip-field">
+        <label>Your Tip <span style="color:var(--red)">*</span></label>
+        <textarea id="tipBody" placeholder="Describe what you know. The more specific the better — include dates, documents, sources, or context when possible." maxlength="2000" oninput="updateTipCounter()"></textarea>
+        <div class="tip-char-counter"><span id="tipCharCount">0</span> / 2000</div>
+      </div>
+
+      <button class="tip-submit-btn" id="tipSubmitBtn" onclick="submitTip()">Submit Tip for Review</button>
+
+      <div class="tip-ai-status" id="tipAiStatus">
+        <div class="tip-ai-spinner"></div>
+        <span id="tipAiMsg">AI is reviewing your tip for relevance and credibility…</span>
+      </div>
+
+      <div class="tip-error" id="tipError"></div>
+    </div>
+
+    <!-- Success view -->
+    <div class="tip-success" id="tipSuccessView">
+      <div class="tip-success-icon">✅</div>
+      <div class="tip-success-title">Tip Received</div>
+      <div class="tip-success-body">Your tip has been reviewed by our AI and submitted for editorial consideration. If it meets our standards, an editor will follow up. Thank you for helping voters stay informed.</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="search-section">
+    <div class="search-label">Search Candidate</div>
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input
+          class="search-input"
+          id="searchInput"
+          type="text"
+          placeholder="Name, office, or location…"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <button class="search-btn" id="searchBtn" onclick="runSearch()">Research</button>
+    </div>
+    <div class="search-filters">
+      <div class="filter-chip active" data-filter="all" onclick="setFilter(this,'all')">All Levels</div>
+      <div class="filter-chip" data-filter="federal" onclick="setFilter(this,'federal')">Federal</div>
+      <div class="filter-chip" data-filter="state" onclick="setFilter(this,'state')">State</div>
+      <div class="filter-chip" data-filter="local" onclick="setFilter(this,'local')">Local</div>
+      <div class="filter-chip" data-filter="judicial" onclick="setFilter(this,'judicial')">Judicial</div>
+    </div>
+    <div class="recent-bar" id="recentBar" style="display:none">
+      <span class="recent-label">Recent:</span>
+      <span id="recentPills"></span>
+    </div>
+  </div>
+
+  <div class="results-area" id="resultsArea">
+    <!-- Landing -->
+    <div id="landingState" class="landing-state">
+      <div class="landing-hero">
+        <div class="landing-hero-grid"></div>
+        <div style="position:relative">
+          <div class="landing-hero-label">Election Intelligence · 2026–2027</div>
+          <div class="landing-hero-title">Know your ballot.<br><em>Before you vote.</em></div>
+          <div class="landing-hero-sub">Voting records, campaign money, scandals, ratings and career history for every official on your ballot — federal down to city council and the courts.</div>
+          <div class="landing-hero-stats">
+            <div class="hero-stat"><span class="hero-stat-num" id="statProfiles">0</span><span class="hero-stat-label">Profiles</span></div>
+            <div class="hero-stat"><span class="hero-stat-num" id="statControv">0</span><span class="hero-stat-label">Controversies tracked</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Levels of gov't</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="un-spotlight" id="unSpotlight"></div>
+
+      <div class="browse-section">
+        <div class="browse-header">
+          <div class="browse-title" id="browseTitle">All officials</div>
+          <div class="browse-tabs" id="browseTabs">
+            <button class="browse-tab active" data-cat="all" onclick="setBrowse('all')">All</button>
+            <button class="browse-tab" data-cat="federal" onclick="setBrowse('federal')">Federal</button>
+            <button class="browse-tab" data-cat="state" onclick="setBrowse('state')">State</button>
+            <button class="browse-tab" data-cat="judicial" onclick="setBrowse('judicial')">Courts</button>
+            <button class="browse-tab" data-cat="local" onclick="setBrowse('local')">Local</button>
+          </div>
+        </div>
+        <div class="candidate-grid" id="candidateGrid"></div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loadingState" class="loading-state" style="display:none">
+      <div class="pulse-ring"></div>
+      <div class="loading-label" id="loadingLabel">Researching candidate…</div>
+      <div class="loading-steps" id="loadingSteps">
+        <div class="loading-step active" id="step1"><div class="step-dot"></div>Finding candidate profile</div>
+        <div class="loading-step" id="step2"><div class="step-dot"></div>Loading voting record</div>
+        <div class="loading-step" id="step3"><div class="step-dot"></div>Pulling campaign finance</div>
+        <div class="loading-step" id="step4"><div class="step-dot"></div>Checking endorsements &amp; ratings</div>
+        <div class="loading-step" id="step5"><div class="step-dot"></div>Scanning controversy history</div>
+        <div class="loading-step" id="step6"><div class="step-dot"></div>Compiling issue positions</div>
+      </div>
+    </div>
+
+    <!-- No results -->
+    <div id="noResults" class="no-results" style="display:none">
+      <div class="no-results-icon">🔎</div>
+      <div class="no-results-title">No profile found</div>
+      <div class="no-results-desc">Try adding a state, office, or year to narrow the search. Example: "John Smith Texas Senate 2024"</div>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsContent" style="display:none"></div>
+  </div>
+</div>
+
+<script src="data/candidates.js"></script>
+<script src="data/world.js"></script>
+<script src="data/ads.js"></script>
+<script>
+let activeFilter = "all";
+let recentSearches = [];
+let currentCandidate = null;
+let activeTab = "overview";
+
+try {
+  const saved = localStorage.getItem("ci_recent");
+  if (saved) recentSearches = JSON.parse(saved);
+  renderRecent();
+} catch(e) {}
+
+function setFilter(el, val) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  activeFilter = val;
+  setBrowse(val, true);
+  goHome();
+}
+
+/* ---------- Categories ---------- */
+function catOf(c) {
+  if (c.cat) return c.cat;
+  if (/justice|judge|court/i.test(c.office)) return 'judicial';
+  return (c.level || '').toLowerCase();
+}
+function keyOf(c) {
+  return Object.keys(CANDIDATES).find(k => CANDIDATES[k] === c) || '';
+}
+const CAT_LABEL = {all:'All officials', federal:'Federal', state:'State government', judicial:'Courts & judges', local:'Local · Columbus & Franklin Co.'};
+
+/* ---------- Photos (Wikipedia, cached; initials fallback) ---------- */
+const WIKI_TITLES = {
+  "donald trump":"Donald Trump","kamala harris":"Kamala Harris","bernie sanders":"Bernie Sanders",
+  "mike dewine":"Mike DeWine","andrew ginther":"Andrew Ginther","shannon hardin":"Shannon Hardin",
+  "kevin boyce":"Kevin Boyce","sherrod brown":"Sherrod Brown","bernie moreno":"Bernie Moreno",
+  "dave yost":"Dave Yost","sharon kennedy":"Sharon L. Kennedy","jennifer brunner":"Jennifer Brunner",
+  "pat fischer":"Patrick F. Fischer","keith faber":"Keith Faber","robert sprague":"Robert Sprague",
+  "frank larose":"Frank LaRose"
+};
+let PHOTOS = {};
+try { PHOTOS = JSON.parse(localStorage.getItem('kyb_photos_v2') || '{}'); } catch(e) {}
+
+function photoImg(c) {
+  const url = PHOTOS[keyOf(c)];
+  return url
+    ? `<img src="${url}" alt="${c.name}" loading="lazy" onerror="this.replaceWith(document.createTextNode('${c.initials}'))">`
+    : c.initials;
+}
+
+async function loadPhotos() {
+  const keys = Object.keys(WIKI_TITLES).filter(k => CANDIDATES[k] && !PHOTOS[k]);
+  if (!keys.length) return;
+  const titles = keys.map(k => WIKI_TITLES[k]);
+  const url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=320&titles=' + encodeURIComponent(titles.join('|'));
+  try {
+    const r = await fetch(url);
+    const j = await r.json();
+    const q = j.query || {};
+    const alias = {};
+    (q.normalized || []).forEach(n => alias[n.to] = n.from);
+    (q.redirects || []).forEach(n => alias[n.to] = alias[n.from] || n.from);
+    Object.values(q.pages || {}).forEach(pg => {
+      if (!pg.thumbnail) return;
+      const asked = alias[pg.title] || pg.title;
+      const key = keys.find(k => WIKI_TITLES[k] === asked || WIKI_TITLES[k] === pg.title);
+      if (key) PHOTOS[key] = pg.thumbnail.source;
+    });
+    // Second pass: search Wikipedia for anyone still missing
+    const missing = keys.filter(k => !PHOTOS[k]);
+    await Promise.all(missing.map(async k => {
+      const c = CANDIDATES[k];
+      const sq = `${c.name.replace(/\b[A-Z]\.\s?/g,'')} ${c.state || ''} ${c.office.split(/[,(·]/)[0]}`;
+      const u = 'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=1&prop=pageimages&piprop=thumbnail&pithumbsize=320&gsrsearch=' + encodeURIComponent(sq);
+      try {
+        const jj = await (await fetch(u)).json();
+        const pg = Object.values((jj.query || {}).pages || {})[0];
+        const last = c.name.split(' ').pop().toLowerCase();
+        if (pg && pg.thumbnail && pg.title.toLowerCase().includes(last)) PHOTOS[k] = pg.thumbnail.source;
+      } catch(e) {}
+    }));
+    try { localStorage.setItem('kyb_photos_v2', JSON.stringify(PHOTOS)); } catch(e) {}
+    // Paint photos into anything already on screen
+    document.querySelectorAll('[data-photo-key]').forEach(el => {
+      const c = CANDIDATES[el.dataset.photoKey];
+      if (c && PHOTOS[el.dataset.photoKey]) el.innerHTML = photoImg(c);
+    });
+  } catch(e) { /* offline or blocked — initials stay */ }
+}
+
+/* ---------- Browse grid ---------- */
+let browseCat = 'all';
+function setBrowse(cat, fromFilter) {
+  browseCat = cat;
+  document.querySelectorAll('.browse-tab').forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+  if (!fromFilter) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.filter === cat));
+  }
+  renderGrid();
+}
+
+function renderGrid() {
+  const grid = document.getElementById('candidateGrid');
+  if (!grid) return;
+  const order = {federal:0, state:1, judicial:2, local:3};
+  const list = Object.entries(CANDIDATES)
+    .filter(([k,c]) => browseCat === 'all' || catOf(c) === browseCat)
+    .sort((a,b) => (order[catOf(a[1])] ?? 9) - (order[catOf(b[1])] ?? 9));
+  document.getElementById('browseTitle').textContent = `${CAT_LABEL[browseCat]} · ${list.length}`;
+  if (!list.length) { grid.innerHTML = '<div class="no-results-msg">No profiles in this category yet.</div>'; return; }
+  grid.innerHTML = list.map(([k,c]) => {
+    const p = (c.party || 'I').toLowerCase();
+    const cat = catOf(c);
+    const lvl = cat === 'judicial' ? 'Courts' : (c.level || '');
+    return `
+    <div class="cand-card party-${p}" onclick="openCandidate('${k.replace(/'/g,"\\'")}')">
+      <div class="cand-avatar avatar-${p}" data-photo-key="${k}">${photoImg(c)}</div>
+      <div class="cand-name">${c.name}</div>
+      <div class="cand-office">${c.office}</div>
+      <span class="cand-level-badge lvl-${cat}">${lvl}</span>
+    </div>`;
+  }).join('');
+}
+
+function openCandidate(key) {
+  const c = CANDIDATES[key];
+  if (!c) return;
+  document.getElementById('searchInput').value = c.name;
+  const prev = activeFilter;
+  activeFilter = 'all';
+  runSearch();
+  activeFilter = prev;
+}
+
+function goHome() {
+  ['loadingState','noResults','resultsContent'].forEach(hide);
+  show('landingState');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function initLanding() {
+  renderUNSpotlight();
+  const all = Object.values(CANDIDATES);
+  document.getElementById('statProfiles').textContent = all.length;
+  document.getElementById('statControv').textContent = all.reduce((n,c) => n + (c.controversies||[]).length, 0);
+  renderGrid();
+  loadPhotos();
+}
+
+function fillSearch(name) {
+  document.getElementById('searchInput').value = name;
+  runSearch();
+}
+
+function saveRecent(name) {
+  recentSearches = [name, ...recentSearches.filter(r => r !== name)].slice(0, 5);
+  try { localStorage.setItem("ci_recent", JSON.stringify(recentSearches)); } catch(e) {}
+  renderRecent();
+}
+
+function renderRecent() {
+  const bar = document.getElementById('recentBar');
+  const pills = document.getElementById('recentPills');
+  if (recentSearches.length === 0) { bar.style.display = 'none'; return; }
+  bar.style.display = 'flex';
+  pills.innerHTML = recentSearches.map(r =>
+    `<span class="recent-pill" onclick="fillSearch('${r.replace(/'/g,"\\'")}')">
+      ${r}
+    </span>`
+  ).join('');
+}
+
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') runSearch();
+});
+
+function findCandidate(query) {
+  const q = query.toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  if (!q) return null;
+  const tokens = q.split(' ').filter(t => t.length >= 3);
+  let best = null, bestScore = 0;
+  for (const [key, c] of Object.entries(CANDIDATES)) {
+    if (activeFilter !== 'all' && catOf(c) !== activeFilter) continue;
+    const name = c.name.toLowerCase();
+    const hay = `${key} ${name} ${c.office} ${c.birthplace || ''} ${c.partyLabel} ${c.status || ''}`.toLowerCase();
+    let score = 0;
+    if (q === key || q === name) score += 100;
+    if (q.includes(key) || q.includes(name) || name.includes(q)) score += 60;
+    tokens.forEach(t => {
+      if (name.split(' ').includes(t) || key.split(' ').includes(t)) score += 20;
+      else if (hay.includes(t)) score += 6;
+    });
+    if (score > bestScore) { bestScore = score; best = c; }
+  }
+  return bestScore >= 6 ? best : null;
+}
+
+function runSearch() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (!query) return;
+
+  hide('landingState'); hide('noResults'); hide('resultsContent');
+  show('loadingState');
+
+  const steps = ['step1','step2','step3','step4','step5','step6'];
+  let stepIdx = 0;
+  steps.forEach(s => {
+    const el = document.getElementById(s);
+    el.classList.remove('done','active');
+  });
+  document.getElementById('step1').classList.add('active');
+  document.getElementById('loadingLabel').textContent = `Researching "${query}"…`;
+
+  const stepInterval = setInterval(() => {
+    if (stepIdx < steps.length) {
+      document.getElementById(steps[stepIdx]).classList.remove('active');
+      document.getElementById(steps[stepIdx]).classList.add('done');
+      stepIdx++;
+      if (stepIdx < steps.length) {
+        document.getElementById(steps[stepIdx]).classList.add('active');
+      }
+    }
+  }, 320);
+
+  setTimeout(() => {
+    clearInterval(stepInterval);
+    steps.forEach(s => document.getElementById(s).classList.add('done'));
+
+    setTimeout(() => {
+      hide('loadingState');
+      const candidate = findCandidate(query);
+      if (candidate) {
+        saveRecent(candidate.name);
+        currentCandidate = candidate;
+        activeTab = 'overview';
+        renderResults(candidate);
+        show('resultsContent');
+        loadPhotos();
+      } else {
+        show('noResults');
+      }
+    }, 200);
+  }, 2100);
+}
+
+function hide(id) { document.getElementById(id).style.display = 'none'; }
+function show(id) { document.getElementById(id).style.display = ''; }
+
+function setTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+    if (b.dataset.tab === tab) try { b.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); } catch(e) {}
+  });
+  document.querySelectorAll('.section-panel').forEach(p => {
+    p.classList.toggle('active', p.dataset.panel === tab);
+  });
+}
+
+function toggleBlock(el) {
+  const block = el.closest('.info-block');
+  block.classList.toggle('collapsed');
+}
+
+function partyClass(p) {
+  if (p === 'R') return 'ptag-party-r';
+  if (p === 'D') return 'ptag-party-d';
+  return 'ptag-party-i';
+}
+
+function esc(t){return String(t??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function srcLink(u){ if(!u) return ''; let d=''; try{d=new URL(u).hostname.replace(/^www\./,'')}catch(e){}
+  return `<a class="src-link" href="${esc(u)}" target="_blank" rel="noopener">Source: ${esc(d)} ↗</a>`; }
+function ageFrom(iso){ if(!iso) return ''; const b=new Date(iso+'T12:00:00'), n=new Date(); let a=n.getFullYear()-b.getFullYear();
+  if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate())) a--; return a; }
+function fmtDate(iso){ return new Date(iso+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); }
+function emptyNote(t){ return `<div class="empty-note">${t}</div>`; }
+
+
+function buildStances(list, kind, c) {
+  const lab={support:'Supported',oppose:'Opposed',action:'Action',criticized:'Criticized',legal:'Legal case'};
+  const cls={support:'for',oppose:'against',action:'mixed',criticized:'against',legal:'mixed'};
+  const intro = kind==='civil'
+    ? `<p class="bio-text" style="margin:0 0 8px">Documented actions, lawsuits, votes and statements affecting Black Americans — both criticized and supportive — each with its source and outcome.</p>`
+    : `<p class="bio-text" style="margin:0 0 8px">Public statements and official actions on foreign policy and global events.</p>`;
+  let unNote='';
+  if(kind==='world'){
+    const isTrump = keyOf(c)==='donald trump';
+    unNote = `<div class="un-note"><b>UN slavery resolution (A/RES/80/250, Mar 25, 2026):</b> ${isTrump ? 'The U.S. "no" vote was cast by this administration.' : 'UN votes are cast by governments, not individual officials. No public statement from '+esc(c.name)+' on this resolution was found.'} <a href="#" onclick="goHome();setTimeout(()=>document.getElementById('unSpotlight').scrollIntoView({behavior:'smooth'}),50);return false">See the vote ↗</a></div>`;
+  }
+  if(!list.length) return intro + unNote + emptyNote(kind==='civil'
+    ? 'No documented record specific to Black Americans was found in news, court or government sources.'
+    : 'No public position on world events was found for this official.');
+  return intro + unNote + list.map(v=>`
+  <div class="rec-item">
+    <div class="rec-head"><span class="rec-name">${esc(v.topic)}</span><span class="stance-badge stance-${cls[v.type]||'mixed'}">${lab[v.type]||v.type}</span></div>
+    <div class="rec-detail"><span class="rec-date">${esc(v.date)}</span> ${esc(v.detail)}</div>
+    ${srcLink(v.src)}
+  </div>`).join('');
+}
+
+function renderUNSpotlight(){
+  const u=UN_SLAVERY_VOTE, el=document.getElementById('unSpotlight'); if(!el) return;
+  const t=u.tally, total=t.yes+t.no+t.abstain+t.absent;
+  const bar=(n,c)=>`<span style="width:${(n/total*100).toFixed(1)}%;background:${c}"></span>`;
+  el.innerHTML=`
+    <div class="un-kicker">Spotlight · UN General Assembly · ${esc(u.date)}</div>
+    <div class="un-title">Slave trade declared "the gravest crime against humanity"</div>
+    <div class="un-sub">${esc(u.symbol)} · sponsored by ${esc(u.sponsor)}. ${esc(u.summary)}</div>
+    <div class="un-bar">${bar(t.yes,'var(--accent2)')}${bar(t.abstain,'var(--warn)')}${bar(t.no,'var(--red)')}${bar(t.absent,'var(--border)')}</div>
+    <div class="un-legend"><span><i style="background:var(--accent2)"></i>${t.yes} yes</span><span><i style="background:var(--warn)"></i>${t.abstain} abstained</span><span><i style="background:var(--red)"></i>${t.no} no</span><span><i style="background:var(--border)"></i>${t.absent} absent</span></div>
+    <div class="un-row"><b>Voted no:</b> ${u.against.map(esc).join(', ')}</div>
+    <div class="un-row"><b>Abstained (named in reporting):</b> ${u.abstainedNamed.map(esc).join(', ')}, and others</div>
+    <div class="un-row"><b>U.S. position:</b> ${esc(u.usPosition)}</div>
+    <div class="un-row un-muted">${esc(u.note)}</div>
+    <div class="links-row">${u.sources.map(l=>`<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
+}
+
+
+function buildAds(c, k) {
+  const list = ADS[k] || [], tot = RACE_AD_TOTALS[k];
+  let h = `<p class="bio-text" style="margin:0 0 8px">Ads run for or against ${esc(c.name)}, by sponsor, with spending where reported. Updated weekly (as of ${ADS_AS_OF}).</p>`;
+  if (tot) h += `<div class="data-row"><span class="data-label">${esc(tot.label)}</span><span class="data-value money-val">${esc(tot.value)}</span></div>${srcLink(tot.src)}`;
+  h += list.length ? list.map(a => `
+  <div class="rec-item">
+    <div class="rec-head"><span class="rec-name">${esc(a.sponsor)}</span><span class="stance-badge stance-${a.side==='for'?'for':'against'}">${a.side==='for'?'Supports':'Opposes'}</span></div>
+    <div class="rec-detail"><span class="rec-date">${esc(a.date)}</span> ${esc(a.message)}</div>
+    <div class="rec-detail" style="color:var(--fg3)">${esc(a.platform)} · ${esc(a.spend)}</div>
+    ${srcLink(a.src)}
+  </div>`).join('') : emptyNote('No reported ad campaigns found yet. Check the live ad libraries below.');
+  h += `<div style="margin-top:12px;font-size:11px;font-weight:600;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em">Live ad libraries</div><div class="links-row">${adLibraries(c,k).map(l=>`<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
+  return h;
+}
+
+function renderResults(c) {
+  const onBallot = /^ON THE 2026 BALLOT/.test(c.status||'');
+  const wins = c.elections.filter(e=>e.result==='won').length, losses = c.elections.filter(e=>e.result==='lost').length;
+  const k = keyOf(c), W = WORLD[k]||[], CR = CIVIL[k]||[];
+  const tabs = [['overview','Overview'],['record','Record'],['world',`World (${W.length})`],['civil',`Civil Rights (${CR.length})`],['elections','Elections'],['controversies',`Controversies (${c.controversies.length})`],['ads',`Ads (${(ADS[k]||[]).length})`],['money','Money'],['career','Career']];
+  const html = `
+  <button class="back-home-btn" onclick="goHome()">← All officials</button>
+  <div class="profile-card">
+    <div class="profile-header-band"></div>
+    <div class="profile-body">
+      <div class="profile-avatar" data-photo-key="${keyOf(c)}">${photoImg(c)}</div>
+      <div class="profile-info">
+        <div class="profile-name">${esc(c.name)}</div>
+        <div class="profile-title">${esc(c.office)}${c.since?` · <span style="color:var(--fg3)">${esc(c.since)}</span>`:''}</div>
+        <div class="profile-tags">
+          <span class="ptag ${partyClass(c.party)}">${esc(c.partyLabel)}</span>
+          <span class="ptag ptag-level">${catOf(c)==='judicial'?'Courts':esc(c.level)}</span>
+          <span class="ptag ptag-state">${esc(c.state)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="status-strip ${onBallot?'on-ballot':''}">${onBallot?'🗳️ ':''}${esc(c.status)}</div>
+    <div class="profile-score-bar">
+      <div class="score-cell"><div class="score-num">${c.elections.length?`${wins}–${losses}`:'—'}</div><div class="score-lbl">Races won–lost</div></div>
+      <div class="score-cell"><div class="score-num">${c.record.length}</div><div class="score-lbl">Sourced actions</div></div>
+      <div class="score-cell"><div class="score-num ${c.controversies.some(x=>x.sev==='high')?'bad':c.controversies.length?'warn':'good'}">${c.controversies.length}</div><div class="score-lbl">Controversies</div></div>
+    </div>
+  </div>
+
+  <div class="section-tabs">${tabs.map(([k,l],i)=>`<button class="tab-btn ${i?'':'active'}" data-tab="${k}" onclick="setTab('${k}')">${l}</button>`).join('')}</div>
+
+  <div class="section-panel active" data-panel="overview">
+    ${infoBlock("🧑‍💼","Profile","gray",buildBio(c))}
+    ${infoBlock("🔗","Official & research links","gray",buildLinks(c))}
+  </div>
+  <div class="section-panel" data-panel="record">
+    ${infoBlock("🗳️", catOf(c)==='judicial'?"Rulings & actions":"Votes, bills & actions","green",buildRecord(c))}
+    ${c.endorsements.length?infoBlock("🤝","Endorsements","blue",buildEndorsements(c)):''}
+  </div>
+  <div class="section-panel" data-panel="world">
+    ${infoBlock("🌍","Stances on world events","blue",buildStances(W,'world',c))}
+  </div>
+  <div class="section-panel" data-panel="civil">
+    ${infoBlock("✊🏾","Civil rights & Black Americans","gold",buildStances(CR,'civil',c))}
+  </div>
+  <div class="section-panel" data-panel="elections">
+    ${infoBlock("📊","Election history","blue",buildElections(c))}
+  </div>
+  <div class="section-panel" data-panel="controversies">
+    ${infoBlock("🚨","Controversies, investigations & lawsuits","red",buildControversies(c))}
+  </div>
+  <div class="section-panel" data-panel="ads">
+    ${infoBlock("📺","Political ads","red",buildAds(c,k))}
+  </div>
+  <div class="section-panel" data-panel="money">
+    ${infoBlock("💰","Campaign money","gold",buildMoney(c))}
+  </div>
+  <div class="section-panel" data-panel="career">
+    ${infoBlock("📅","Career timeline","blue",buildTimeline(c))}
+  </div>
+  <div class="data-footer">Facts checked against news, court and government sources as of ${DATA_AS_OF}; updated weekly. Every item links to its source. Photos via Wikimedia Commons.</div>`;
+  document.getElementById('resultsContent').innerHTML = html;
+}
+
+function infoBlock(icon, title, badge, content) {
+  return `
+  <div class="info-block">
+    <div class="info-block-header" onclick="toggleBlock(this)">
+      <span class="info-block-icon">${icon}</span>
+      <span class="info-block-title">${title}</span>
+      <span class="expand-arrow">▾</span>
+    </div>
+    <div class="info-block-body">${content}</div>
+  </div>`;
+}
+
+function buildBio(c) {
+  const row=(l,v)=>v?`<div class="data-row"><span class="data-label">${l}</span><span class="data-value">${esc(v)}</span></div>`:'';
+  return `
+  ${row('Current role', c.office)}
+  ${row('Party', c.partyLabel)}
+  ${c.born?row('Born', `${fmtDate(c.born)} (age ${ageFrom(c.born)})`):''}
+  ${row('Birthplace', c.birthplace)}
+  ${row('Education', c.education)}
+  <p class="bio-text">${esc(c.bio)}</p>`;
+}
+
+function buildLinks(c) {
+  return `<div class="links-row">${c.links.map(l =>
+    `<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
+}
+
+function buildRecord(c) {
+  if(!c.record.length) return emptyNote('No sourced votes or official actions on file yet.');
+  const icon={signed:'✍️',for:'✅',against:'❌',action:'📌',ruling:'⚖️'};
+  const name={signed:'Signed',for:'Supported',against:'Opposed',action:'Action',ruling:'Ruling'};
+  const cls={signed:'for',for:'for',against:'against',action:'mixed',ruling:'mixed'};
+  return c.record.map(v=>`
+  <div class="rec-item">
+    <div class="rec-head"><span>${icon[v.stance]||'◦'}</span><span class="rec-name">${esc(v.name)}</span><span class="stance-badge stance-${cls[v.stance]||'mixed'}">${name[v.stance]||v.stance}</span></div>
+    <div class="rec-detail"><span class="rec-date">${esc(v.date)}</span> ${esc(v.detail)}</div>
+    ${srcLink(v.src)}
+  </div>`).join('');
+}
+
+function buildElections(c) {
+  if(!c.elections.length) return emptyNote('This is not an individually elected office.');
+  const badge={won:'stance-for',lost:'stance-against',pending:'stance-mixed'};
+  return c.elections.map(e=>`
+  <div class="rec-item">
+    <div class="rec-head"><span class="rec-date" style="min-width:38px">${esc(e.year)}</span><span class="rec-name">${esc(e.race)}</span><span class="stance-badge ${badge[e.result]||''}">${esc(e.result)}</span></div>
+    <div class="rec-detail">${esc(e.detail)}</div>
+    ${srcLink(e.src)}
+  </div>`).join('');
+}
+
+function buildEndorsements(c) {
+  return c.endorsements.map(e=>`
+  <div class="rec-item"><div class="rec-head"><span class="rec-name">${esc(e.name)}</span></div>
+  <div class="rec-detail">${esc(e.detail)}</div>${srcLink(e.src)}</div>`).join('');
+}
+
+function buildControversies(c) {
+  const legend=`<div class="sev-legend"><span><i class="severity-dot sev-high"></i>Conviction, liability or indictment</span><span><i class="severity-dot sev-mid"></i>Investigation, lawsuit or settlement</span><span><i class="severity-dot sev-low"></i>Public criticism</span></div>`;
+  if(!c.controversies.length) return legend+emptyNote('No documented scandals, investigations or lawsuits found in news or court records.');
+  return legend+c.controversies.map(item=>`
+  <div class="controversy-item">
+    <div class="controversy-header">
+      <div class="severity-dot sev-${item.sev}"></div>
+      <div class="controversy-title">${esc(item.title)}</div>
+      <div class="controversy-date">${esc(item.date)}</div>
+    </div>
+    <div class="controversy-body">${esc(item.body)}</div>
+    ${item.outcome?`<div class="controversy-outcome"><b>Outcome:</b> ${esc(item.outcome)}</div>`:''}
+    ${srcLink(item.src)}
+  </div>`).join('');
+}
+
+function buildMoney(c) {
+  const m=c.money||{figures:[],filings:[]};
+  let h='';
+  if(m.figures.length) h+=m.figures.map(f=>`<div class="data-row"><span class="data-label">${esc(f.label)}</span><span class="data-value money-val">${esc(f.value)}</span></div>${srcLink(f.src)}`).join('');
+  h+=`<p class="bio-text">${m.note?esc(m.note)+' ':''}Totals change with every filing, so the official reports below are the live record rather than a number copied here.</p>`;
+  if(m.filings.length) h+=`<div class="links-row">${m.filings.map(l=>`<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
+  if(!m.figures.length && !m.filings.length) h=emptyNote('Not an elected campaign — no campaign finance filings.');
+  return h;
+}
+
+function buildTimeline(c) {
+  return `<div class="timeline">${c.career.map(item => `
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div class="timeline-year">${esc(item.year)}</div>
+    <div class="timeline-event">${esc(item.event)}</div>
+    ${item.detail?`<div class="timeline-detail">${esc(item.detail)}</div>`:''}
+  </div>`).join('')}</div>`;
+}
+
+/* ========================================================
+   TIP LINE — profanity filter + AI screening + db storage
+   ======================================================== */
+
+// --- Comprehensive profanity / vulgarity blocklist ---
+const BLOCKED_WORDS = [
+  // Core profanity
+  "fuck","fucking","fucked","fucker","fucks","f*ck","f**k",
+  "shit","shitting","shitted","shitty","shits","sh*t","s**t",
+  "ass","asshole","asses","asshat","asswipe","arse","arsehole",
+  "bitch","bitches","bitching","bitchy","b*tch",
+  "cunt","cunts","c*nt",
+  "damn","dammit","goddamn","goddammit",
+  "piss","pissed","pissing","pisser",
+  "bastard","bastards",
+  "dick","dicks","dickhead","dickface","dickweed",
+  "cock","cocks","cockhead","cocksucker",
+  "pussy","pussies",
+  "whore","whores","whorehouse",
+  "slut","sluts","slutty",
+  "twat","twats",
+  "crap","crappy","craps",
+  "hell","hellhole",
+  "prick","pricks",
+  "douche","douchebag","douchebags","douchecanoe",
+  "wank","wanker","wankers","wanking","wanks",
+  "bollocks","bullshit","bulls**t","bull**it",
+  "motherfucker","motherf*cker","mf","mofo",
+  "shithead","shitheads","shithole","shitholes",
+  "assclown","assbag","assfuck","assmunch",
+  "butthole","buttsex","buttfuck",
+  "fag","fags","faggot","faggots","f*g","f*ggot",
+  "dyke","dykes","lesbo","lezbo",
+  "tranny","trannies","shemale",
+  "nigger","niggers","n*gger","n-word","nigga","niggas",
+  "kike","kikes","spic","spics","wetback","wetbacks",
+  "chink","chinks","gook","gooks","zipperhead",
+  "beaner","beaners","spook","spooks","coon","coons",
+  "cracker","crackers","honky","honkies",
+  "raghead","towelhead","sandnigger","camel jockey",
+  "retard","retarded","retards","r*tard",
+  "spaz","spastic",
+  "whack","wacked","jacka**","jackass","jackasses",
+  "idiot","idiots","moron","morons","imbecile","imbeciles",
+  "stupid","stupidity",
+  "loser","losers","dumbass","dumbasses","dumbf**k","dumbfuck",
+  "scumbag","scumbags","scum",
+  "sleazebag","sleazeball","sleazy",
+  "pervert","perverts","pervy",
+  "pedophile","pedophiles","pedo","pedos",
+  "rapist","rape","raped","raping",
+  "kill","killing","killed","killer","killers",
+  "murder","murdered","murderer","murders",
+  "terrorist","terrorists","terrorism",
+  "nazi","nazis","fascist","fascists","fascism",
+  "racist","racists","racism",
+  "sexist","sexism","sexists",
+  "homo","homos","homophobe","homophobic",
+  "tramp","trollop","harlot",
+  "skank","skanky","skanks",
+  "thot","thotty","hoe","hoes",
+  "pimp","pimping","pimped",
+  "porn","porno","pornography",
+  "sex","sexual","sexually","sexting","sext",
+  "nude","nudes","naked","nudity",
+  "boobs","boob","tits","tit","titties","titty",
+  "penis","penises","vagina","vaginas",
+  "orgasm","masturbate","masturbation","jerk off","jerking off",
+  "dildo","vibrator","butt plug",
+  "fetish","kink","kinky",
+  "drugged","drugging","junkie","junkies","crackhead",
+  "meth","methhead","tweaker","crackpipe",
+  "degenerate","degenerates","vermin","filth",
+  "trash","garbage","rot","rot in hell",
+  "die","drop dead","go to hell","burn in hell",
+  "lynch","lynching","lynched",
+  "shoot","shooting","shot him","shot her","shoot him","shoot her",
+  "bomb","bombing","blow up","blow them up",
+  "stfu","gtfo","gtfoh","kys","kys self","kill yourself",
+  "kms","suck my","eat shit","eat a bag","bite me","kiss my ass",
+  "piece of shit","p.o.s","pos","pos candidate",
+  "f u","fu ","screw you","go f yourself","go f* yourself",
+  "hell no","dumb as","ugly ass","fat ass","fat bitch",
+  "stupid bitch","stupid ass","dumb bitch","crazy bitch",
+  "racist pig","son of a bitch","sob","s.o.b",
+];
+
+// Normalize text for matching
+function containsBlockedWord(text) {
+  const normalized = text.toLowerCase()
+    .replace(/[@#$%&*!]/g, c => ({'@':'a','3':'e','1':'i','0':'o','5':'s','$':'s'}[c]||''))
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return BLOCKED_WORDS.some(w => {
+    const re = new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    return re.test(normalized) || normalized.includes(w.toLowerCase());
+  });
+}
+
+// Simple email validator
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+}
+
+// Tip char counter
+function updateTipCounter() {
+  const v = document.getElementById('tipBody').value;
+  document.getElementById('tipCharCount').textContent = v.length;
+}
+
+function openTipModal() {
+  document.getElementById('tipOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('tipEmail').focus(), 100);
+}
+
+function closeTipModal() {
+  document.getElementById('tipOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeTipOnBackdrop(e) {
+  if (e.target === document.getElementById('tipOverlay')) closeTipModal();
+}
+
+function showTipError(msg) {
+  const el = document.getElementById('tipError');
+  el.textContent = msg;
+  el.classList.add('visible');
+  el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function clearTipError() {
+  const el = document.getElementById('tipError');
+  el.classList.remove('visible');
+  el.textContent = '';
+}
+
+async function submitTip() {
+  clearTipError();
+  const email = document.getElementById('tipEmail').value.trim();
+  const subject = document.getElementById('tipSubject').value.trim();
+  const body = document.getElementById('tipBody').value.trim();
+
+  // Client-side validation
+  if (!email) return showTipError('Please provide your email address so we can follow up if needed.');
+  if (!isValidEmail(email)) return showTipError('Please enter a valid email address.');
+  if (!subject) return showTipError('Please name the candidate or subject your tip concerns.');
+  if (body.length < 40) return showTipError('Please provide more detail — tips need at least a few sentences to be actionable.');
+  if (body.length > 2000) return showTipError('Tip is too long. Please keep it under 2,000 characters.');
+
+  // Profanity check (all three fields)
+  const allText = `${subject} ${body}`;
+  if (containsBlockedWord(allText)) {
+    return showTipError('Your submission contains prohibited language. Please revise before submitting.');
+  }
+
+  // Disable form, show AI status
+  const btn = document.getElementById('tipSubmitBtn');
+  btn.disabled = true;
+  const aiStatus = document.getElementById('tipAiStatus');
+  const aiMsg = document.getElementById('tipAiMsg');
+  aiStatus.classList.add('visible');
+  aiMsg.textContent = 'AI is reviewing your tip for relevance and credibility…';
+
+  // Initialize capabilities
+  let db = null, sample = null;
+  try {
+    [db, sample] = await Promise.all([
+      window.claude ? claude.use('db') : null,
+      window.claude ? claude.use('sample') : null,
+    ]);
+  } catch(e) { /* capabilities unavailable — still try to process */ }
+
+  // --- AI Screening ---
+  let aiVerdict = 'pending';
+  let aiSummary = '';
+  let aiScore = 0;
+
+  if (sample) {
+    try {
+      aiMsg.textContent = 'AI is evaluating credibility and relevance…';
+      const prompt = `You are a fact-checking editor at a nonpartisan political news organization. Review this citizen tip about a political candidate.
+
+CANDIDATE/SUBJECT: ${subject}
+TIP: ${body}
+
+Evaluate using these criteria:
+1. RELEVANCE — Does it concern a public official's conduct in or related to their public role?
+2. SPECIFICITY — Does it include specific facts, dates, names, or incidents (not just vague opinions)?
+3. CREDIBILITY — Does it read like first-hand knowledge or reference verifiable events (not conspiracy-level claims)?
+4. PUBLIC INTEREST — Would this genuinely help voters make informed decisions?
+5. CIVILITY — Is it professional and focused on conduct, not personal attacks?
+
+Respond in JSON only (no markdown):
+{
+  "verdict": "approve" or "reject",
+  "score": 0-100,
+  "summary": "2-sentence editorial summary of what this tip claims",
+  "reason": "1-2 sentence explanation of your verdict",
+  "flags": ["flag1", "flag2"] or []
+}
+
+Score 70+ = approve. Common reject reasons: vague opinion ("he's corrupt" with no specifics), personal life with no public role nexus, clearly false or conspiratorial, obvious partisan hit piece with no evidence.`;
+
+      const result = await sample(prompt, {modelTier: 'default'});
+      let parsed;
+      try {
+        // Strip any markdown fences if present
+        const clean = result.text.replace(/```json?|```/g,'').trim();
+        parsed = JSON.parse(clean);
+      } catch(e) {
+        // If JSON parse fails, do a best-effort read
+        parsed = { verdict: result.text.toLowerCase().includes('"approve"') ? 'approve' : 'reject', score: 50, summary: 'AI review completed.', reason: '', flags: [] };
+      }
+      aiScore = parsed.score || 0;
+      aiSummary = (parsed.summary || '') + (parsed.reason ? ' ' + parsed.reason : '');
+      aiVerdict = parsed.verdict === 'approve' ? 'approved' : 'rejected';
+    } catch(e) {
+      aiVerdict = 'ai_unavailable';
+      aiSummary = 'AI screening unavailable — tip queued for manual review.';
+    }
+  } else {
+    aiVerdict = 'ai_unavailable';
+    aiSummary = 'AI screening not available in this session — tip queued for manual review.';
+  }
+
+  aiMsg.textContent = aiVerdict === 'approved'
+    ? '✅ Tip passed AI review — submitting…'
+    : aiVerdict === 'rejected'
+      ? '❌ Tip did not pass AI credibility review.'
+      : '⚠️ AI unavailable — forwarding for manual review…';
+
+  // If AI rejected, show reason and stop
+  if (aiVerdict === 'rejected') {
+    btn.disabled = false;
+    aiStatus.classList.remove('visible');
+    return showTipError(`Your tip didn't pass our AI credibility review: ${aiSummary} Please add more specific details, dates, or verifiable information and resubmit.`);
+  }
+
+  // --- Store in db ---
+  const tipRecord = {
+    email,
+    subject,
+    body,
+    aiVerdict,
+    aiScore,
+    aiSummary,
+    ts: Date.now(),
+    date: new Date().toISOString(),
+    flaggedForReview: aiVerdict === 'approved' || aiVerdict === 'ai_unavailable',
+  };
+
+  if (db) {
+    try {
+      await db.collection('tips').add(tipRecord);
+    } catch(e) {
+      // Store failed silently — don't block the UX
+    }
+  }
+
+  // Show success
+  aiStatus.classList.remove('visible');
+  document.getElementById('tipFormView').style.display = 'none';
+  document.getElementById('tipSuccessView').classList.add('visible');
+
+  // Reset form for next use
+  setTimeout(() => {
+    document.getElementById('tipEmail').value = '';
+    document.getElementById('tipSubject').value = '';
+    document.getElementById('tipBody').value = '';
+    updateTipCounter();
+    document.getElementById('tipFormView').style.display = '';
+    document.getElementById('tipSuccessView').classList.remove('visible');
+  }, 8000);
+}
+
+// --- Owner-only tips review panel ---
+// Loads approved tips from db and renders them in #tipsReviewPanel if owner
+async function loadTipsPanel() {
+  if (!window.claude) return;
+  const [user, db] = await Promise.all([claude.use('user'), claude.use('db')]);
+  if (!user || !db) return;
+  if (!user.isOwner()) return; // Only owner sees panel
+
+  let tips = [];
+  try {
+    const snap = await db.collection('tips').where('flaggedForReview', '==', true).orderBy('ts', 'desc').limit(50).get();
+    tips = snap.docs.map(d => d.data());
+  } catch(e) {
+    // Fallback — list all
+    try {
+      const snap = await db.collection('tips').limit(50).get();
+      tips = snap.docs.map(d => d.data()).filter(t => t.flaggedForReview);
+    } catch(e2) { return; }
+  }
+  if (!tips.length) return;
+
+  let panel = document.getElementById('tipsReviewPanel');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'tipsReviewPanel';
+    panel.className = 'tips-panel visible';
+    document.querySelector('.main-content').appendChild(panel);
+  }
+
+  panel.innerHTML = `
+    <div class="tips-panel-title">
+      📥 Tips for Review
+      <span class="tips-count-badge">${tips.length}</span>
+    </div>
+    ${tips.map(t => `
+    <div class="tip-card">
+      <div class="tip-card-meta">
+        <span><b>From:</b> ${t.email}</span>
+        <span><b>Date:</b> ${t.date ? new Date(t.date).toLocaleDateString() : 'Unknown'}</span>
+        <span class="tip-ai-badge ${t.aiVerdict === 'approved' ? 'approved' : 'flagged'}">
+          ${t.aiVerdict === 'approved' ? '✅ AI Approved' : '⚠️ Manual Review'}
+          ${t.aiScore ? ` · Score: ${t.aiScore}` : ''}
+        </span>
+      </div>
+      <div class="tip-card-subject">${t.subject || '—'}</div>
+      <div class="tip-card-body">${t.body || ''}</div>
+      ${t.aiSummary ? `<div class="tip-card-ai-summary"><b>AI Summary:</b> ${t.aiSummary}</div>` : ''}
+    </div>`).join('')}
+  `;
+}
+
+// Load tips panel after page init (silently)
+(async () => {
+  try { await loadTipsPanel(); } catch(e) {}
+})();
+
+initLanding();
+
+// Close tip modal on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeTipModal();
+});
+</script>
