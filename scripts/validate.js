@@ -4,9 +4,10 @@ const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 const problems = [];
 const load = f => fs.readFileSync(path.join(root, 'data', f), 'utf8');
-const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') +
-  ';return {CANDIDATES, WORLD, CIVIL, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES};')();
-const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES } = ctx;
+const ctx = new Function(load('candidates.js') + load('candidates-2026.js') + load('world.js') + load('ads.js') + load('sources.js') + load('adchecks.js') +
+  ';return {CANDIDATES, WORLD, CIVIL, ADS, RACE_AD_TOTALS, SOURCES, GLOBAL_SOURCES, AD_CHECKS};')();
+const { CANDIDATES, WORLD, CIVIL, ADS, SOURCES, GLOBAL_SOURCES, AD_CHECKS } = ctx;
+const VERDICTS = ['Accurate','Mostly accurate','Missing context','Misleading','False','Opinion','Unverifiable'];
 
 const isUrl = u => /^https:\/\/[^\s"]+$/.test(u || '');
 const banned = /wikipedia\.org/i; // Wikipedia is for photos only, never a data source
@@ -35,6 +36,11 @@ for (const [name, obj] of [['WORLD',WORLD],['CIVIL',CIVIL],['ADS',ADS]])
     list.forEach((e,i) => checkSrc(`${name}.${k}[${i}]`, e.src));
   }
 
+AD_CHECKS.forEach((a,i) => {
+  if (!CANDIDATES[a.supports]) problems.push(`AD_CHECKS[${i}]: supports unknown candidate`);
+  a.about.forEach(k => { if (!CANDIDATES[k]) problems.push(`AD_CHECKS[${i}]: about unknown candidate ${k}`); });
+  a.claims.forEach((c,j) => { checkSrc(`AD_CHECKS[${i}].claims[${j}]`, c.src); if (!VERDICTS.includes(c.verdict)) problems.push(`AD_CHECKS[${i}].claims[${j}]: unknown verdict ${c.verdict}`); if (!c.rater) problems.push(`AD_CHECKS[${i}].claims[${j}]: missing rater`); });
+});
 (async () => {
   let chromium; try { ({ chromium } = require('playwright')); } catch (e) {}
   if (chromium) {

@@ -44,3 +44,9 @@ This is the procedure the weekly scheduled task follows. The public site needs n
 
 ## Tracked event: UN slavery resolution (A/RES/80/250)
 Adopted Mar 25, 2026, it declared the transatlantic slave trade "the gravest crime against humanity" (123–3, 52 abstaining; the U.S., Israel and Argentina voted no). The U.S. vote was cast by the Trump administration. Each week, check whether any official on the site has made a statement, cast a vote, sponsored or co-sponsored legislation, or taken an action about the U.S. response to it or reparations tied to it. **When a documented connection exists, add it to that official's profile** as a `WORLD` entry (and a `CIVIL` entry when it concerns reparations or Black Americans), with date and source, following the ground rules. Do not create a standalone page or home-page section for the event. If no new connections are found, say so in the summary.
+
+## Ad Check (YouTube)
+- `data/adchecks.js` holds every fact-checked ad: sponsor, who it supports and targets, each claim with a verdict, the rater, and the source. Use professional fact-checkers' ratings (PolitiFact, FactCheck.org, local TV "ad watch"/"truth test" segments). When a fact-checker reported evidence without a formal rating, apply the label yourself and set `rater` to "KnowYourBallot, from <outlet> reporting."
+- Each week, search for new ad fact-checks for every race on the site and add them. Mention new ad checks in the summary so Al can make videos.
+- After adding ad checks, run `node youtube/build.js` and tell Al which Shorts and full videos are new or changed. Never commit `youtube/out/`.
+- When Al sends YouTube links, put them in that ad's `youtube.short` / `youtube.full` (and `YOUTUBE_CHANNEL`); the site's Ad Check section shows only these links.
