@@ -14,8 +14,19 @@ const ADS = {
   "jennifer brunner": [
     {date:"Oct 2020", sponsor:"Republican State Leadership Committee", side:"against", platform:"TV", spend:"Not reported", message:"Said Brunner freed a child predator; the Columbus Dispatch found the ad misleading. (Past race — included for context.)", src:"https://www.justicebrunner.com/news/campaign-ad-watch-gop-groups-attack-on-brunner-misleading-in-race-for-ohio-suprem"},
   ],
+  "jon husted": [
+    {date:"Jun 2026", sponsor:"Americans for Prosperity Ohio", side:"for", platform:"TV / digital", spend:"$1.75M one-week buy", message:"Supports Husted.", src:"https://spectrumnews1.com/oh/columbus/news/2026/06/05/ad-spending-ohio-senate"},
+    {date:"Sep 2026", sponsor:"No Going Back PAC, America PAC and other GOP-aligned super PACs", side:"for", platform:"TV, digital, mail", spend:"~$14M combined in one week (Senate Leadership Fund + 5 others)", message:"Attack Sherrod Brown to bolster Husted.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
+  ],
+  "vivek ramaswamy": [
+    {date:"May–Jun 2026", sponsor:"Ramaswamy campaign + V-PAC: Victors, Not Victims (super PAC)", side:"for", platform:"Broadcast TV, streaming, cable, digital, radio", spend:"Nearly $9M (May 15–June 30)", message:"Themes of reinvigorating the \"American dream.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
+  ],
+  "amy acton": [
+    {date:"May–Jun 2026", sponsor:"Acton campaign + 314 Action PAC", side:"for", platform:"Digital", spend:"Nearly $100K (AdImpact)", message:"Affordability; \"You can't buy Ohio.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
+  ],
 };
 const RACE_AD_TOTALS = {
+  "jon husted": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"$298M (AdImpact, Sep 2026) — most of any Senate race this cycle", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
   "sherrod brown": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"$298M (AdImpact, Sep 2026) — most of any Senate race this cycle", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
 };
 /* Live ad libraries — built from each official's name. */

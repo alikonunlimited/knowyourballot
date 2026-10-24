@@ -1501,6 +1501,21 @@ body::before {
 .un-row{font-size:12px;color:var(--fg2);line-height:1.5;margin-bottom:6px}
 .un-row b{color:var(--fg)}
 .un-muted{color:var(--fg3);font-style:italic}
+
+/* === 2026 RACES === */
+.races-box{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid var(--accent2);border-radius:14px;padding:18px;margin-bottom:24px}
+.race-row{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-top:1px solid var(--border)}
+.race-name{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+.race-pair{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.race-vs{font-size:11px;color:var(--fg3);font-weight:600}
+.race-cand{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 12px 5px 5px;font:600 12px 'Inter',sans-serif;color:var(--fg);cursor:pointer}
+.race-cand:hover{border-color:var(--accent2)}
+.race-dot{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:800 10px 'Syne',sans-serif}
+.vs-row{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-weight:500}
+.vs-chip{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:4px 10px;font:600 11px 'Inter',sans-serif;color:var(--accent2);cursor:pointer}
+
+.chan-group{margin-bottom:10px}
+.chan-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:2px}
 </style>
 
 <div class="app-header">
@@ -1605,10 +1620,12 @@ body::before {
           <div class="landing-hero-stats">
             <div class="hero-stat"><span class="hero-stat-num" id="statProfiles">0</span><span class="hero-stat-label">Profiles</span></div>
             <div class="hero-stat"><span class="hero-stat-num" id="statControv">0</span><span class="hero-stat-label">Controversies tracked</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Levels of gov't</span></div>
+            <div class="hero-stat"><span class="hero-stat-num" id="statSources">0</span><span class="hero-stat-label">Sources monitored weekly</span></div>
           </div>
         </div>
       </div>
+
+      <div class="races-box" id="racesBox"></div>
 
       <div class="un-spotlight" id="unSpotlight"></div>
 
@@ -1654,8 +1671,10 @@ body::before {
 </div>
 
 <script src="data/candidates.js"></script>
+<script src="data/candidates-2026.js"></script>
 <script src="data/world.js"></script>
 <script src="data/ads.js"></script>
+<script src="data/sources.js"></script>
 <script>
 let activeFilter = "all";
 let recentSearches = [];
@@ -1694,10 +1713,10 @@ const WIKI_TITLES = {
   "kevin boyce":"Kevin Boyce","sherrod brown":"Sherrod Brown","bernie moreno":"Bernie Moreno",
   "dave yost":"Dave Yost","sharon kennedy":"Sharon L. Kennedy","jennifer brunner":"Jennifer Brunner",
   "pat fischer":"Patrick F. Fischer","keith faber":"Keith Faber","robert sprague":"Robert Sprague",
-  "frank larose":"Frank LaRose"
+  "frank larose":"Frank LaRose","jon husted":"Jon Husted","vivek ramaswamy":"Vivek Ramaswamy","amy acton":"Amy Acton","allison russo":"Allison Russo","dan hawkins":"Dan Hawkins (judge)","marilyn zayas":"Marilyn Zayas","jay edwards":"Jay Edwards (politician)"
 };
 let PHOTOS = {};
-try { PHOTOS = JSON.parse(localStorage.getItem('kyb_photos_v2') || '{}'); } catch(e) {}
+try { PHOTOS = JSON.parse(localStorage.getItem('kyb_photos_v3') || '{}'); } catch(e) {}
 
 function photoImg(c) {
   const url = PHOTOS[keyOf(c)];
@@ -1737,7 +1756,7 @@ async function loadPhotos() {
         if (pg && pg.thumbnail && pg.title.toLowerCase().includes(last)) PHOTOS[k] = pg.thumbnail.source;
       } catch(e) {}
     }));
-    try { localStorage.setItem('kyb_photos_v2', JSON.stringify(PHOTOS)); } catch(e) {}
+    try { localStorage.setItem('kyb_photos_v3', JSON.stringify(PHOTOS)); } catch(e) {}
     // Paint photos into anything already on screen
     document.querySelectorAll('[data-photo-key]').forEach(el => {
       const c = CANDIDATES[el.dataset.photoKey];
@@ -1797,7 +1816,19 @@ function goHome() {
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
+
+function renderRaces(){
+  const el=document.getElementById('racesBox'); if(!el||typeof RACES_2026==='undefined') return;
+  const pill=k=>{const c=CANDIDATES[k]; if(!c) return ''; const p=(c.party||'I').toLowerCase();
+    return `<button class="race-cand party-${p}" onclick="openCandidate('${k.replace(/'/g,"\\'")}')"><span class="race-dot avatar-${p}">${esc(c.party)}</span>${esc(c.name)}</button>`;};
+  el.innerHTML=`<div class="un-kicker" style="color:var(--accent2)">Your Nov 3, 2026 ballot · Ohio</div>
+    <div class="un-title" style="margin-bottom:10px">Compare the candidates, race by race</div>
+    ${RACES_2026.map(r=>`<div class="race-row"><div class="race-name">${esc(r.race)}</div><div class="race-pair">${pill(r.a)}<span class="race-vs">vs</span>${pill(r.b)}</div></div>`).join('')}`;
+}
+
 function initLanding() {
+  try { document.getElementById('statSources').textContent = SOURCE_COUNT; } catch(e) {}
+  renderRaces();
   renderUNSpotlight();
   const all = Object.values(CANDIDATES);
   document.getElementById('statProfiles').textContent = all.length;
@@ -1991,6 +2022,17 @@ function buildAds(c, k) {
   return h;
 }
 
+
+function buildChannels(c) {
+  const list = (typeof SOURCES !== 'undefined' && SOURCES[keyOf(c)]) || [];
+  if (!list.length) return emptyNote('No verified official or campaign channels on file.');
+  const order = ['official','campaign','press','social','documents','court','finance','news'];
+  const names = {official:'Official',campaign:'Campaign',press:'Press & statements',social:'Social media',documents:'Documents & records',court:'Court records',finance:'Money & filings',news:'Reference'};
+  return `<p class="bio-text" style="margin:0 0 8px">Verified channels monitored in every weekly update. Social accounts are only listed when the official's own website or Ballotpedia links to them.</p>` +
+    order.filter(k => list.some(x => x.kind === k)).map(k => `
+    <div class="chan-group"><div class="chan-title">${names[k]}</div><div class="links-row">${list.filter(x => x.kind === k).map(l => `<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div></div>`).join('');
+}
+
 function renderResults(c) {
   const onBallot = /^ON THE 2026 BALLOT/.test(c.status||'');
   const wins = c.elections.filter(e=>e.result==='won').length, losses = c.elections.filter(e=>e.result==='lost').length;
@@ -2012,7 +2054,7 @@ function renderResults(c) {
         </div>
       </div>
     </div>
-    <div class="status-strip ${onBallot?'on-ballot':''}">${onBallot?'🗳️ ':''}${esc(c.status)}</div>
+    <div class="status-strip ${onBallot?'on-ballot':''}">${onBallot?'🗳️ ':''}${esc(c.status)}${(typeof OPPONENT_PAIRS!=='undefined' && OPPONENT_PAIRS[keyOf(c)]) ? `<div class="vs-row">Compare: ${OPPONENT_PAIRS[keyOf(c)].map(o=>CANDIDATES[o]?`<button class="vs-chip" onclick="goHome();openCandidate('${o.replace(/'/g,"\\'")}')">${esc(CANDIDATES[o].name)} →</button>`:'').join('')}</div>` : ''}</div>
     <div class="profile-score-bar">
       <div class="score-cell"><div class="score-num">${c.elections.length?`${wins}–${losses}`:'—'}</div><div class="score-lbl">Races won–lost</div></div>
       <div class="score-cell"><div class="score-num">${c.record.length}</div><div class="score-lbl">Sourced actions</div></div>
@@ -2024,6 +2066,7 @@ function renderResults(c) {
 
   <div class="section-panel active" data-panel="overview">
     ${infoBlock("🧑‍💼","Profile","gray",buildBio(c))}
+    ${infoBlock("📡","Official channels we monitor","blue",buildChannels(c))}
     ${infoBlock("🔗","Official & research links","gray",buildLinks(c))}
   </div>
   <div class="section-panel" data-panel="record">
