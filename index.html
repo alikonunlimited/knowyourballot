@@ -1518,6 +1518,17 @@ body::before {
 .chan-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:2px}
 
 .adcheck-box{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid var(--red);border-radius:14px;padding:18px;margin-bottom:24px}
+
+.fund-box{margin:16px 0;padding:16px;border:1.5px solid var(--border);border-left:4px solid #b7791f;border-radius:14px;background:var(--surface)}
+.fund-col-title{margin:14px 0 6px;font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em}
+.fund-item{border-top:1px solid var(--border);padding:10px 0}
+.fund-item summary{cursor:pointer;list-style:none}
+.fund-item summary::-webkit-details-marker{display:none}
+.fund-type{margin-left:8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--fg3)}
+.fund-disc{margin-left:8px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
+.fund-full{background:rgba(46,158,104,.14);color:#2E9E68}.fund-partial{background:rgba(227,160,8,.16);color:#B7791F}.fund-none{background:rgba(211,58,44,.14);color:#D33A2C}
+.fund-brief{font-size:13px;color:var(--fg2, inherit);margin-top:3px}
+.fund-donors{margin:8px 0}
 </style>
 
 <div class="app-header">
@@ -1678,6 +1689,7 @@ body::before {
 <script src="data/ads.js"></script>
 <script src="data/sources.js"></script>
 <script src="data/adchecks.js"></script>
+<script src="data/funders.js"></script>
 <script>
 let activeFilter = "all";
 let recentSearches = [];
@@ -2018,6 +2030,31 @@ function buildStances(list, kind, c) {
 
 
 
+
+function buildFunders(k) {
+  if (typeof FUNDERS === 'undefined') return '';
+  const list = Object.values(FUNDERS).filter(f => f.side === k || f.against === k);
+  if (!list.length) return '';
+  const race = list[0].race, rm = (typeof RACE_MONEY !== 'undefined') && RACE_MONEY[race];
+  const disc = {full:'Donors disclosed', partial:'Some donors hidden', none:'No donors disclosed'};
+  const card = f => `
+  <details class="fund-item">
+    <summary><span class="rec-name">${esc(f.name)}</span><span class="fund-type">${esc(f.type)}</span><span class="fund-disc fund-${f.disclosure}">${disc[f.disclosure]}</span><div class="fund-brief">${esc(f.brief)}</div></summary>
+    ${f.facts.map(x => `<div class="rec-detail">${esc(x)}</div>`).join('')}
+    ${f.donors.length ? `<div class="fund-donors">${f.donors.map(d => `<div class="data-row"><span class="data-label">${esc(d.name)}${d.note ? ` <span style="color:var(--fg3)">(${esc(d.note)})</span>` : ''}</span><span class="data-value money-val">${esc(d.amount)}</span></div>`).join('')}</div>` : ''}
+    <div class="links-row">${f.src.map(u => `<a class="ext-link" href="${esc(u)}" target="_blank" rel="noopener"><span>↗</span>${esc(new URL(u).hostname.replace(/^www\./,''))}</a>`).join('')}</div>
+  </details>`;
+  const helping = list.filter(f => f.side === k), against = list.filter(f => f.against === k);
+  return `<div class="fund-box">
+    <div class="un-kicker" style="color:var(--gold, #b7791f)">Follow the money · as of ${esc(FUNDERS_AS_OF)}</div>
+    <div class="un-title" style="margin-bottom:6px">Who's paying for the ads in this race</div>
+    ${rm ? `<p class="bio-text" style="margin:0 0 6px">${esc(rm.text)}</p>${srcLink(rm.src)}` : ''}
+    <p class="bio-text" style="margin:6px 0;font-size:12px;color:var(--fg3)">Tap a group to see its disclosed donors. Donor totals for national groups cover all their races this cycle, not only Ohio. "Dark money" groups are nonprofits that don't have to name their donors.</p>
+    <div class="fund-col-title">Helping ${esc(CANDIDATES[k].name)} (${helping.length})</div>${helping.map(card).join('')}
+    <div class="fund-col-title">Against ${esc(CANDIDATES[k].name)} (${against.length})</div>${against.map(card).join('')}
+  </div>`;
+}
+
 function buildAds(c, k) {
   const list = ADS[k] || [], tot = RACE_AD_TOTALS[k];
   let h = `<p class="bio-text" style="margin:0 0 8px">Ads run for or against ${esc(c.name)}, by sponsor, with spending where reported. Updated weekly (as of ${ADS_AS_OF}).</p>`;
@@ -2029,6 +2066,7 @@ function buildAds(c, k) {
     <div class="rec-detail" style="color:var(--fg3)">${esc(a.platform)} · ${esc(a.spend)}</div>
     ${srcLink(a.src)}
   </div>`).join('') : emptyNote('No reported ad campaigns found yet. Check the live ad libraries below.');
+  h += buildFunders(k);
   h += `<div style="margin-top:12px;font-size:11px;font-weight:600;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em">Live ad libraries</div><div class="links-row">${adLibraries(c,k).map(l=>`<a class="ext-link" href="${esc(l.url)}" target="_blank" rel="noopener"><span>↗</span>${esc(l.label)}</a>`).join('')}</div>`;
   return h;
 }
