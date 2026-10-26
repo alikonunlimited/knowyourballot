@@ -29,7 +29,7 @@ const CANDIDATES = {
     controversies: [
       {title:"Felony conviction — NY hush-money case", date:"2024–2025", sev:"high", body:"A Manhattan jury convicted him in May 2024 on 34 felony counts of falsifying business records.", outcome:"Sentenced Jan 10, 2025 to an unconditional discharge (no jail, fine or probation); conviction stands.", src:"https://abc7.com/15786139/"},
       {title:"Civil fraud case — Trump Organization", date:"2024–2025", sev:"high", body:"A New York judge found him liable for inflating his net worth and ordered a penalty of roughly $355 million plus interest.", outcome:"Aug 21, 2025: appeals court upheld the fraud liability but threw out the monetary penalty as excessive.", src:"https://www.pbs.org/newshour/politics/trumps-massive-civil-fraud-penalty-for-exaggerating-financial-statements-is-thrown-out-by-appeals-court"},
-      {title:"E. Jean Carroll verdicts", date:"2023–2025", sev:"high", body:"Juries found him liable for sexual abuse and defamation, awarding $5 million and $83.3 million.", outcome:"Both verdicts upheld on appeal (the $83.3M award on Sept 8, 2025).", src:"https://www.kezi.com/news/national/appeals-court-upholds-83-million-verdict-against-trump-for-defaming-e-jean-carroll/article_99471519-8b67-54c1-a060-bc87ea5b3924.html"},
+      {title:"E. Jean Carroll verdicts", date:"2023–2025", sev:"high", body:"Juries found him liable for sexual abuse and defamation, awarding $5 million and $83.3 million.", outcome:"Both verdicts upheld on appeal. The Supreme Court declined to hear his appeal of the $5 million verdict (Jun 29, 2026) and denied rehearing (Aug 17, 2026); his request that it review the $83.3 million award was pending as of October 2026.", src:"https://www.scotusblog.com/cases/trump-v-carroll/"},
       {title:"Two impeachments", date:"2019–2021", sev:"mid", body:"Impeached by the House in Dec 2019 (abuse of power, obstruction of Congress) and Jan 2021 (incitement of insurrection).", outcome:"Acquitted by the Senate both times; in 2021, 57 senators (including 7 Republicans) voted to convict, short of the 67 needed.", src:"https://www.senate.gov/about/powers-procedures/impeachment/impeachment-list.htm"},
       {title:"Federal 2020-election case dismissed", date:"2023–2024", sev:"mid", body:"Indicted by Special Counsel Jack Smith over efforts to overturn the 2020 election.", outcome:"Dismissed Nov 25, 2024 at Smith's request after Trump won the election, citing DOJ policy against prosecuting a sitting president.", src:"https://www.axios.com/2024/11/25/jack-smith-trump-dc-case-dismissed"},
       {title:"Georgia election case dropped", date:"2023–2025", sev:"mid", body:"Indicted in Fulton County in Aug 2023 on racketeering and related charges.", outcome:"Dropped Nov 26, 2025 by the replacement prosecutor.", src:"https://www.knkx.org/2025-11-26/the-georgia-election-interference-case-against-trump-and-others-has-been-dropped"},
@@ -60,7 +60,7 @@ const CANDIDATES = {
     name: "Kamala D. Harris", initials: "KH", party: "D", partyLabel: "Democrat",
     level: "Federal", state: "California", office: "Former Vice President of the United States (2021–2025)",
     since: "Left office Jan 20, 2025",
-    status: "Not on the 2026 ballot. Declined to run for California governor in 2026; has said she could \"possibly\" run for president in 2028.",
+    status: "Not on the 2026 ballot. Declined to run for California governor in 2026. Campaigning for Democrats in Georgia, Mississippi, Nevada, New Hampshire and Wisconsin before the midterms; asked in October 2026 about running for president in 2028, she said, \"I haven't decided yet\" (Reuters).",
     born: "1964-10-20", birthplace: "Oakland, California",
     education: "B.A., Howard University (1986); J.D., UC Hastings College of the Law (1989)",
     bio: "Former San Francisco district attorney, California attorney general and U.S. senator who served as the 49th vice president under Joe Biden. She became the Democratic presidential nominee in July 2024 after Biden withdrew and lost to Donald Trump. Since leaving office she published the campaign memoir 107 Days.",
@@ -118,6 +118,7 @@ const CANDIDATES = {
       {year:"1981", race:"Mayor of Burlington", result:"won", detail:"Won by 10 votes after a recount", src:"https://ballotpedia.org/Bernie_Sanders"},
     ],
     record: [
+      {name:"Bill to ban artificial superintelligence", stance:"for", date:"Oct 2026", detail:"Introduced legislation with Rep. Greg Casar to create a federal body overseeing advanced AI, pause advanced AI development until it can ensure the technology is safe, and ban artificial superintelligence.", src:"https://www.sanders.senate.gov/op-eds/dont-let-big-tech-dictate-humanitys-future/"},
       {name:"Iraq War authorization (2002)", stance:"against", date:"Oct 2002", detail:"Voted no in the House.", src:"https://clerk.house.gov/evs/2002/roll455.xml"},
       {name:"USA PATRIOT Act (2001)", stance:"against", date:"Oct 2001", detail:"Voted no; the bill passed the House 357–66.", src:"https://clerk.house.gov/evs/2001/roll398.xml"},
       {name:"Gun-maker liability shield — PLCAA (2005)", stance:"for", date:"Oct 2005", detail:"Voted yes; he later said he would vote to repeal it.", src:"https://clerk.house.gov/evs/2005/roll534.xml"},
@@ -161,6 +162,10 @@ const CANDIDATES = {
       {year:"2006", race:"U.S. Senate", result:"lost", detail:"Lost re-election to Sherrod Brown, 43.8% to 56.2%", src:"https://ballotpedia.org/Mike_DeWine"},
     ],
     record: [
+      {name:"Called for Ramaswamy ad to come down", stance:"action", date:"Oct 22, 2026", detail:"Said the Ramaswamy campaign ad featuring Amy Acton's estranged mother is \"deeply, deeply, deeply troubling\" and \"needs to come down,\" while keeping his endorsement: \"I endorse the whole ticket.\"", src:"https://www.news5cleveland.com/news/politics/ohio-politics/just-wrong-ohio-gov-mike-dewine-tells-ramaswamy-to-immediately-take-down-controversial-ad"},
+      {name:"Domestic violence programs", stance:"action", date:"Oct 22, 2026", detail:"Announced $1 million in one-time grants for Ohio's 55 domestic violence shelters ($18,000 each) and new grant programs for police ballistic shields, lethality-assessment training and victim-advocate co-responders.", src:"https://governor.ohio.gov/media/news-and-media/governor-dewine-announces-new-programs-to-support-domestic-violence-survivors-law-enforcement"},
+      {name:"Executive Order 2026-05D (dyed diesel)", stance:"action", date:"Oct 21, 2026", detail:"Temporarily allowed dyed diesel on public highways, following a federal order deferring certain diesel tax payments.", src:"https://www.wsaz.com/2026/10/21/governor-dewine-signs-executive-order-use-dyed-diesel-public-highways/"},
+      {name:"Rural health awards", stance:"action", date:"Oct 16, 2026", detail:"Announced $92 million in federal Rural Health Transformation Program awards, including $30.3 million for maternal care and $30.3 million split among 22 rural hospitals.", src:"https://governor.ohio.gov/media/news-and-media/governor-dewine-announces-92-million-to-expand-access-to-quality-healthcare-in-rural-ohio"},
       {name:"Six-week abortion ban (\"Heartbeat Bill\")", stance:"signed", date:"Apr 11, 2019", detail:"Banned abortion once cardiac activity is detected, with no exceptions for rape or incest.", src:"https://www.npr.org/2019/04/11/712455980/a-bill-banning-most-abortions-becomes-law-in-ohio"},
       {name:"House Bill 6 (nuclear/coal bailout)", stance:"signed", date:"Jul 2019", detail:"Signed the energy bill later found to have been passed through a FirstEnergy bribery scheme.", src:"https://www.news5cleveland.com/news/politics/ohio-politics/new-texts-show-firstenergy-allegedly-working-with-gov-dewine-to-pass-house-bill-6"},
       {name:"Gun proposals after Dayton shooting", stance:"action", date:"Aug 2019", detail:"Proposed a 17-point plan including a red-flag law; the legislature did not pass it.", src:"https://www.npr.org/2019/08/06/748805187/ohio-governor-proposes-new-gun-control-laws-marking-shift-from-past-gop-leadersh"},
@@ -196,7 +201,7 @@ const CANDIDATES = {
     name: "Andrew J. Ginther", initials: "AG", party: "D", partyLabel: "Democrat",
     level: "Local", state: "Ohio", office: "Mayor of Columbus",
     since: "Jan 1, 2016",
-    status: "Not on the 2026 ballot. Next mayoral election is November 2027; Council President Shannon Hardin is emerging as a rival.",
+    status: "Not on the 2026 ballot. Seeking a fourth term in November 2027; Council President Shannon Hardin announced a challenge on Aug 20, 2026.",
     born: "1975-04-27", birthplace: "Columbus, Ohio",
     education: "B.A. Political Science, Earlham College (1997)",
     bio: "Columbus's 53rd mayor, now in his third term. Previously a Columbus school board member and the youngest City Council president in the city's history. Served as president of the U.S. Conference of Mayors in 2024–2025. His tenure includes new local gun rules, a 2021 climate plan, and the July 2024 ransomware attack on city systems. In 2026 he has clashed publicly with Council President Shannon Hardin over storm repairs and the city budget.",
@@ -240,7 +245,7 @@ const CANDIDATES = {
     name: "Shannon G. Hardin", initials: "SH", party: "D", partyLabel: "Democrat",
     level: "Local", state: "Ohio", office: "President, Columbus City Council (District 9)",
     since: "Council 2014; President since Jan 2018",
-    status: "Not on the 2026 ballot. Positioned as a 2027 mayoral challenger to Andrew Ginther (ABC6, Oct 2026).",
+    status: "Not on the 2026 ballot. Announced Aug 20, 2026 that he is running for mayor of Columbus in 2027 against Andrew Ginther (WOSU).",
     born: "1987-04-07", birthplace: "Columbus, Ohio",
     education: "B.A., Morehouse College",
     bio: "Columbus native who worked for Mayor Michael B. Coleman before being appointed to City Council in 2014. Became council president in 2018, the first openly gay person in the role. He helped develop the LinkUS transit plan, whose COTA levy voters approved in November 2024. In 2026 he has publicly challenged Mayor Ginther over storm repairs and city finances.",
@@ -251,6 +256,7 @@ const CANDIDATES = {
       {year:"2015", race:"Columbus City Council", result:"won", detail:"70% over Republican Ashley Wnek", src:"https://ballotpedia.org/Shannon_Hardin"},
     ],
     record: [
+      {name:"Police and fire overtime review", stance:"for", date:"Oct 19, 2026", detail:"Council unanimously passed legislation requiring the city auditor to provide 10 years of police and fire overtime data before 2027 budget decisions; overtime is projected to run at least $23 million over budget this year. Hardin: \"This is just about accountability.\"", src:"https://abc6onyourside.com/on-your-side/columbus-councilmembers-pass-legislation-related-to-police-and-fire-overtime-underbudget-costs-administration-firefighters-officers-mayor-andrew-ginther-council-president-shannon-hardin"},
       {name:"LinkUS transit levy", stance:"for", date:"Nov 2024", detail:"Helped develop the bus-rapid-transit plan; voters approved the COTA levy.", src:"https://ballotpedia.org/Shannon_Hardin"},
       {name:"Barack Center storm repairs", stance:"action", date:"Oct 2026", detail:"Led council approval of $2.5M in emergency repairs and accused the mayor of mismanaging city finances.", src:"https://abc6onyourside.com/news/local/ginther-hardin-spar-over-storm-repairs-as-2027-columbus-mayoral-race-takes-shape"},
     ],
@@ -314,13 +320,14 @@ const CANDIDATES = {
 
   "ohio state board of education": {
     name: "Ohio State Board of Education", initials: "BE", party: "I", partyLabel: "Nonpartisan board",
-    level: "State", state: "Ohio", office: "State Board of Education — being reduced to 5 appointed members",
+    level: "State", state: "Ohio", office: "State Board of Education — becoming a 7-member appointed board",
     since: "",
-    status: "No board seats on the 2026 ballot. The 2025 state budget (HB 96) eliminates all 11 elected seats as current terms end.",
+    status: "No board seats on the 2026 ballot. The 2025 state budget (HB 96) eliminates all 11 elected seats as current terms end; HB 455 (effective Oct 9, 2026) sets the appointed board at seven members.",
     born: null, birthplace: "", education: "",
-    bio: "Historically a 19-member board — 11 elected by district and 8 appointed by the governor. A 2023 budget law (HB 33) moved most of its powers to the new governor-controlled Department of Education and Workforce. The 2025 budget (HB 96) goes further: it phases out every elected seat and shrinks the board to five gubernatorial appointees representing rural, suburban and urban districts, community schools and private schools.",
+    bio: "Historically a 19-member board — 11 elected by district and 8 appointed by the governor. A 2023 budget law (HB 33) moved most of its powers to the new governor-controlled Department of Education and Workforce. The 2025 budget (HB 96) goes further: it phases out every elected seat and shrinks the board to five gubernatorial appointees (raised to seven by HB 455 in 2026) representing rural, suburban and urban districts, community schools and private schools.",
     elections: [],
     record: [
+      {name:"HB 455 — appointed board set at seven", stance:"action", date:"Oct 9, 2026 (effective)", detail:"Raises the appointed board from five to seven members, all named by the governor with Senate consent; seats vacant on Jan 1, 2027 must be filled by that date.", src:"https://codes.ohio.gov/assets/laws/revised-code/authenticated/33/3301/3301.01/10-9-2026/3301.01-10-9-2026.pdf"},
       {name:"HB 33 — powers moved to governor's agency", stance:"action", date:"Jul 2023", detail:"Most board duties transferred to the Department of Education and Workforce.", src:"https://www.news5cleveland.com/news/state/overhaul-of-ohios-k-12-education-system-is-unconstitutional-new-lawsuit-says"},
       {name:"HB 96 — elected seats eliminated", stance:"action", date:"Jul 2025", detail:"Ends all 11 elected seats and cuts appointees from 8 to 5; DeWine did not veto these provisions.", src:"https://www.ohioschoolboards.org/node/727075"},
     ],
@@ -330,6 +337,7 @@ const CANDIDATES = {
     career: [
       {year:"2023", event:"HB 33 transfers powers", detail:"Board loses most authority"},
       {year:"2025", event:"HB 96 eliminates elected seats", detail:"Board shrinking to 5 appointees"},
+      {year:"2026", event:"HB 455 takes effect", detail:"Appointed board set at 7 members"},
     ],
     money: { note: "", figures: [], filings: [] },
     endorsements: [],
@@ -396,6 +404,7 @@ const CANDIDATES = {
       {year:"2024", race:"U.S. Senate — GOP primary", result:"won", detail:"50.5% over Matt Dolan (32.9%) and Frank LaRose (16.7%)", src:"https://ballotpedia.org/Bernie_Moreno"},
     ],
     record: [
+      {name:"RECLAIM Act (data-center incentives)", stance:"for", date:"Oct 15, 2026", detail:"Introduced a bill placing a 100% federal excise tax on state or local grants and tax breaks that large tech companies use for data centers, and barring federal subsidies for them: \"Taxpayers will not subsidize data centers, period.\"", src:"https://www.moreno.senate.gov/newsroom/press-releases/new-moreno-bill-targets-incentives-for-data-centers-with-one-hundred-percent-federal-tax/"},
       {name:"Exclusive Citizenship Act (S.3283)", stance:"for", date:"Dec 2025", detail:"Introduced a bill requiring dual citizens to renounce their other citizenship.", src:"https://www.congress.gov/bill/119th-congress/senate-bill/3283"},
       {name:"Chillicothe paper mill closure delay", stance:"action", date:"Apr 2025", detail:"Negotiated a one-year pause in the mill's closure with H.I.G. Capital.", src:"https://abc6onyourside.com/news/local/chillicothe-paper-mill-closure-paused-senator-bernie-moreno-intervention-pixelle-specialty-solutions-ohio-hig-capital"},
     ],
@@ -481,7 +490,9 @@ const CANDIDATES = {
       {year:"2022", race:"Chief Justice", result:"won", detail:"56.1% over Jennifer Brunner (43.9%)", src:"https://www.wvxu.org/2022-11-08/sharon-kennedy-wins-race-for-ohio-supreme-court-chief-justice-gop-justices-win-re-election-bids"},
       {year:"2012", race:"Ohio Supreme Court", result:"won", detail:"57.0% over incumbent Democrat Yvette McGee Brown", src:"https://ballotpedia.org/Sharon_Kennedy"},
     ],
-    record: [],
+    record: [
+      {name:"State v. Dowell", stance:"ruling", date:"Oct 21, 2026", detail:"Wrote the 6–1 majority holding that a person who resists an emergency mental-health commitment can be charged with obstructing official business even without proof of an illegal act; Justice Brunner dissented.", src:"https://www.courtnewsohio.gov/cases/2026/SCO/1021/251103_251210.asp"},
+    ],
     controversies: [
       {title:"Redistricting remarks to GOP group", date:"Mar 2022", sev:"low", body:"While redistricting cases were pending, told a Republican audience that redistricting was \"the fight of our life\" and criticized parties to the cases, prompting ethics questions.", outcome:"No disciplinary action reported.", src:"https://spectrumnews1.com/oh/columbus/news/2022/03/15/legal-analyst-discusses-ohio-justice-kennedy-s-redistricting-comments"},
     ],
@@ -510,7 +521,7 @@ const CANDIDATES = {
     status: "ON THE 2026 BALLOT: Brunner (D) vs. Colleen O'Donnell (R), Nov 3, 2026. She is the only Democrat on the court and the only statewide-elected Democrat in Ohio.",
     born: "1957-02-05", birthplace: "Springfield, Ohio",
     education: "B.A., Miami University (1978); J.D., Capital University Law School (1982)",
-    bio: "Election lawyer who served as Ohio Secretary of State from 2007 to 2011, then as a Tenth District appeals judge before winning a Supreme Court seat in 2020. Lost the 2022 chief justice race to Sharon Kennedy. She has sued to remove party labels from Ohio Supreme Court ballots, arguing they conflict with judicial ethics rules.",
+    bio: "Election lawyer who served as Ohio Secretary of State from 2007 to 2011, then as a Tenth District appeals judge before winning a Supreme Court seat in 2020. Lost the 2022 chief justice race to Sharon Kennedy. She sued to remove party labels from Ohio Supreme Court ballots, arguing they conflict with judicial ethics rules; a federal judge ruled against her in October 2026.",
     elections: [
       {year:"2026", race:"Ohio Supreme Court", result:"pending", detail:"Faces Republican Colleen O'Donnell, who won a four-way GOP primary with 32%", src:"https://www.vorys.com/publication-ohio-2026-primary-election-recap"},
       {year:"2022", race:"Chief Justice", result:"lost", detail:"43.9% to Sharon Kennedy's 56.1%", src:"https://www.wvxu.org/2022-11-08/sharon-kennedy-wins-race-for-ohio-supreme-court-chief-justice-gop-justices-win-re-election-bids"},
@@ -519,7 +530,8 @@ const CANDIDATES = {
       {year:"2006", race:"Ohio Secretary of State", result:"won", detail:"55.0% over Greg Hartmann", src:"https://ballotpedia.org/Jennifer_Brunner"},
     ],
     record: [
-      {name:"Lawsuit against judicial party labels", stance:"action", date:"Nov 2023", detail:"Sued to remove party labels from Supreme Court and appeals court ballots under the 2021 law; case pending in federal court.", src:"https://www.wosu.org/politics-government/2023-11-08/ohio-supreme-court-justice-sues-to-remove-partisan-labels-from-judicial-races"},
+      {name:"Lawsuit against judicial party labels", stance:"action", date:"Nov 2023 – Oct 2026", detail:"Sued to remove party labels from Supreme Court and appeals court ballots under the 2021 law. On Oct 14, 2026, U.S. District Judge Benita Pearson ruled for the state, finding Brunner had not shown the law violates the First or Fifth Amendments or equal protection.", src:"https://www.wfmj.com/news/local-news/judge-rejects-bid-to-take-political-party-tags-off-ohio-judicial-ballots/article_b47f437f-17ce-4fb4-b948-6169eb5ed743.html"},
+      {name:"State v. Dowell (dissent)", stance:"ruling", date:"Oct 21, 2026", detail:"Lone dissent from the 6–1 ruling that resisting an emergency mental-health commitment can be charged as obstructing official business.", src:"https://www.courtnewsohio.gov/cases/2026/SCO/1021/251103_251210.asp"},
     ],
     controversies: [
       {title:"2008 election rulings as Secretary of State", date:"2008", sev:"low", body:"Republicans challenged her handling of voter-registration mismatches and absentee ballots.", outcome:"The U.S. Supreme Court sided with her on registration mismatches; courts upheld her absentee-ballot order.", src:"https://ballotpedia.org/Jennifer_Brunner"},
@@ -595,6 +607,9 @@ const CANDIDATES = {
       {year:"2018", race:"Auditor of State", result:"won", detail:"49.7% over Zack Space (46.3%)", src:"https://www.ohiosos.gov/elections/election-results-and-data/2018-official-elections-results/"},
     ],
     record: [
+      {name:"Attorney general debate positions", stance:"action", date:"Oct 19, 2026", detail:"At the Youngstown State debate: \"I support capital punishment,\" saying it must be carried out fairly and transparently while it is law; said the FirstEnergy prosecution will go forward at the January retrial.", src:"https://www.tribtoday.com/news/local-news/2026/10/attorney-general-candidates-debate-on-ysu-campus/"},
+      {name:"Flock camera safeguards", stance:"action", date:"Oct 2026", detail:"Proposes treating Flock license-plate camera databases like other police databases, with defined penalties for misuse, and requiring a warrant to use them to track a suspect.", src:"https://www.daytondailynews.com/local/election-2026-ohio-auditor-columbus-area-councilman-vie-to-become-state-attorney-general/article_49d4f813-92ca-5e79-a224-9aef91b5d95d.html"},
+      {name:"Ohio Medicaid performance audit", stance:"action", date:"Oct 15, 2026", detail:"His office's audit of the Department of Medicaid's Next Generation initiative found no current strategic or operational plans and more than $145 million in unplanned expenses in a sample of contracts.", src:"https://highlandcountypress.com/news/audit-nonexistent-strategic-planning-culture-compliance-hampering-improvements-ohio-department"},
       {name:"Opposes abolishing the death penalty", stance:"against", date:"Jun 2026", detail:"Rejected Gov. DeWine's call to end capital punishment.", src:"https://www.dailysignal.com/2026/06/19/dewines-stance-death-penalty/"},
     ],
     controversies: [
@@ -634,6 +649,8 @@ const CANDIDATES = {
       {year:"2018", race:"Treasurer of State", result:"won", detail:"53.3% over Rob Richardson", src:"https://ballotpedia.org/Robert_Sprague"},
     ],
     record: [
+      {name:"Secretary of State platform", stance:"action", date:"Oct 20, 2026", detail:"Proposes photo ID for mail ballots, citizenship checks at registration, ending drop boxes and a new office division to help voters get ID; supports State Issue 3 (voter photo ID amendment).", src:"https://signalohio.org/ohio-secretary-of-state-candidate-robert-sprague-wants-upfront-citizenship-checks-when-registering-november-election-2026/"},
+      {name:"Comments on SB 5 and the 2020 election", stance:"action", date:"Oct 20, 2026", detail:"Called his 2011 vote for Senate Bill 5, the collective-bargaining law voters repealed, \"a mistake.\" Asked whether Joe Biden won in 2020, he first said \"I don't know what happened,\" then: \"Yes. I guess Joe Biden rightfully won.\"", src:"https://signalohio.org/ohio-secretary-of-state-candidate-robert-sprague-wants-upfront-citizenship-checks-when-registering-november-election-2026/"},
       {name:"OhioCrypto.com", stance:"action", date:"2018", detail:"Let businesses pay certain state taxes in cryptocurrency; suspended after a 2019 AG opinion said it needed Board of Deposit approval.", src:"https://ballotpedia.org/Robert_Sprague"},
       {name:"Anti-ESG letters to asset managers", stance:"action", date:"2023", detail:"Joined 21 state financial officers questioning asset managers' ESG practices.", src:"https://ballotpedia.org/States_send_letters_and_questionnaires_inquiring_about_ESG_at_firms_%282023%29"},
     ],
@@ -673,8 +690,9 @@ const CANDIDATES = {
       {year:"2018", race:"Secretary of State", result:"won", detail:"About 51% over Kathleen Clyde", src:"https://www.ohiosos.gov/elections/election-results-and-data/2018-official-elections-results/"},
     ],
     record: [
+      {name:"Response to threat mailed to his office", stance:"action", date:"Oct 14, 2026", detail:"Postal inspectors intercepted a mailing with a white powdery substance addressed to his office; the FBI is handling it. He told county boards to stay alert and said, \"Voters can have absolute confidence that the election process remains safe and secure.\"", src:"https://www.ohiosos.gov/office/media-center/categories/press-releases/2026-10-14a"},
       {name:"August 2023 Issue 1 (60% threshold)", stance:"for", date:"Aug 2023", detail:"Campaigned for raising the vote needed to amend the constitution to 60%; voters rejected it in the August 2023 special election.", src:"https://news.ballotpedia.org/2023/08/09/ohio-voters-defeat-issue-1-in-special-election/"},
-      {name:"Voter-fraud referrals to DOJ", stance:"action", date:"Nov 2025", detail:"Sent more than 1,000 alleged cases to the Trump Justice Department; many involved registration mismatches or clerical errors.", src:"https://ohiocapitaljournal.com/2025/11/06/ohio-secretary-of-state-sends-voter-fraud-allegations-to-trump-justice-department/"},
+      {name:"Voter-fraud referrals to DOJ", stance:"action", date:"Nov 2025", detail:"Sent more than 1,000 alleged cases to the Trump Justice Department; many involved registration mismatches or clerical errors. Ohio's crime-statistics dashboard (Oct 2026) shows no more than 16 felony convictions (nine for illegal voting, seven for illegal registration) from the 1,200+ cases he has referred since 2019, out of more than 35 million ballots cast; the attorney general's office says the data may be incomplete (Ohio Capital Journal, Oct 26, 2026).", src:"https://ohiocapitaljournal.com/2025/11/06/ohio-secretary-of-state-sends-voter-fraud-allegations-to-trump-justice-department/"},
       {name:"Proof-of-citizenship to register", stance:"for", date:"Nov 2025", detail:"Endorsed a bill requiring documentary proof of citizenship.", src:"https://ohiocapitaljournal.com/2025/11/05/ohio-secretary-of-state-endorses-proof-of-citizenship-elections-bill-warns-rollout-will-take-time/"},
     ],
     controversies: [

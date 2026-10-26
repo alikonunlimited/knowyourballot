@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-10-26 — Weekly update
+Scan: 553 sources opened, 357 readable, 196 blocked (plus 52 verification fetches of every added or changed link).
+- Trump: E. Jean Carroll outcome updated: Supreme Court declined the $5M appeal (Jun 29) and rehearing (Aug 17); the $83.3M petition is pending (SCOTUSblog).
+- Trump (World): Oct 16 waiver of new Russia sanctions and tariffs under the Graham sanctions law (TIME).
+- Trump (Civil rights): proposal to drop race and ethnicity questions from the 2030 census (Chicago Tribune via Spokesman-Review); DOJ joins suit against Evanston's reparations program (AP via ClickOrlando).
+- Harris: status updated; midterm campaign stops and "I haven't decided yet" on 2028 (Reuters via GV Wire).
+- Sanders: bill with Rep. Greg Casar to ban artificial superintelligence (sanders.senate.gov).
+- DeWine: called for the Ramaswamy ad to come down (News 5 Cleveland); Executive Order 2026-05D on dyed diesel (WSAZ); domestic-violence programs and $92M rural health awards (governor.ohio.gov).
+- Ginther and Hardin: status updated for Hardin's Aug 20 mayoral announcement (WOSU); council's Oct 19 overtime-data legislation (ABC6).
+- State Board of Education: corrected to a 7-member appointed board under HB 455, effective Oct 9, 2026 (Ohio Revised Code 3301.01).
+- Boyce (Civil rights): Jan 2025 withdrawal from the Columbus VA MLK event over DEI restrictions (ABC6).
+- Moreno: RECLAIM Act on data-center incentives (moreno.senate.gov).
+- Kennedy and Brunner: State v. Dowell, 6–1 majority by Kennedy, Brunner dissenting (Court News Ohio).
+- Brunner: party-label lawsuit outcome updated: federal judge ruled for the state on Oct 14 (WFMJ).
+- Faber: Medicaid performance audit (Highland County Press); Flock camera proposal (Dayton Daily News); AG debate positions (Tribune Chronicle).
+- Kulewicz: AG debate positions (Tribune Chronicle); price-gouging and false-claims proposals (Dayton Daily News).
+- Sprague: platform, his SB 5 "mistake" comment and 2020-election answer (Signal Ohio).
+- Russo: platform on Issue 3, drop boxes and voter ID (Signal Ohio).
+- LaRose: response to the threat mailed to his office (ohiosos.gov); voter-fraud referral outcome data (Ohio Capital Journal).
+- Husted: S.1138 southbound inspections bill (husted.senate.gov); said he would not have run the Ramaswamy ad (Statehouse News Bureau); FirstEnergy retrial outcome updated (CBS News).
+- Ramaswamy: tax plan (WOSU); data-center positions (Statehouse News Bureau); controversies for the ad featuring Acton's mother (Ohio Capital Journal) and the resolved credit-card reporting complaint (Ohio Capital Journal).
+- Acton: tax plan (WOSU); data-center moratorium (Statehouse News Bureau); Columbus Dispatch endorsement (Axios Columbus).
+- Edwards and Walsh: Browns stadium unclaimed-funds positions (Dayton Daily News); Edwards' 2021 vote against expelling Householder (Ohio Capital Journal).
+- O'Donnell: April 2026 judicial-ethics finding, no sanction (Bloomberg Law); business-group endorsements for O'Donnell and Hawkins (WYSU).
+- Ads: race total now $431.7M (AdImpact via FOX19); new governor ad-spending gap $79.2M (AdImpact via Statehouse News Bureau); Enough Promises Ohio against Brown (CNN via KEYT); Brown 490,000 health-care ad (PolitiFact); Acton and V-PAC data-center ads (Statehouse News Bureau); Ramaswamy's 30-second ad cut (Raw Story).
+- Ad Check: new "490,000 Ohioans' health care" (PolitiFact, Half True). The Acton Alzheimer's-drug claim changed from Missing context to Misleading (PolitiFact, Mostly False).
+- Sources: added Russo's Threads (linked from allisonrusso.com) and the Auditor's 2026 news archive.
+
 ## 2026-10-25 — New ads and ad fact-checks
 - Ad Check: Senate Leadership Fund's Soren Aldaco ads against Brown (PolitiFact: Pants on Fire; Ohio Capital Journal).
 - Ad Check: Brown's Iran-war-votes / "Who I'm For" ads against Husted (PolitiFact reporting: 13 of 14 votes procedural; FactCheck.org on the Epstein-donor comparison).

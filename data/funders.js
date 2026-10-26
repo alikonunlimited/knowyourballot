@@ -244,6 +244,7 @@ const AD_FUNDERS = {
   "brown-golden-boy": ["brown-campaign"],
   "winsenate-corruption": ["winsenate", "lcv-victory"],
   "brown-data-centers": ["brown-campaign"],
+  "brown-490k-health": ["brown-campaign"],
   "brown-wexner": ["brown-campaign"],
   "husted-epstein-associates": ["husted-campaign"],
   "nrsc-50-years": ["nrsc"],

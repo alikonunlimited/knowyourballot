@@ -109,6 +109,7 @@ const SOURCES = {
   "keith faber": [
     S("Auditor's office","https://ohioauditor.gov","official"),
     S("Auditor news","https://ohioauditor.gov/news","press"),
+    S("Auditor news archive (2026)","https://ohioauditor.gov/news/archive/2026","press"),
     S("Audit reports search","https://ohioauditor.gov/auditsearch/Search.aspx","documents"),
     S("Campaign site","https://www.keithfaber.org","campaign"),
     S("Campaign Facebook","https://www.facebook.com/keithfaber","social"),
@@ -181,6 +182,7 @@ const SOURCES = {
     S("Instagram","https://www.instagram.com/russo4ohio/","social"),
     S("TikTok","https://www.tiktok.com/@russo4ohio","social"),
     S("YouTube","https://www.youtube.com/channel/UCtollZ9SLos-e3fhRaVvZdQ","social"),
+    S("Threads","https://www.threads.com/@russo4ohio","social"),
   ],
   "annette blackwell": [
     S("Campaign site","https://www.blackwellforohio.com/","campaign"),

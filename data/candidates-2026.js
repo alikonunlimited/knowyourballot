@@ -22,12 +22,14 @@ Object.assign(CANDIDATES, {
       {year:"2010", race:"Ohio Secretary of State", result:"won", detail:"53.7% over Maryellen O'Shaughnessy", src:"https://ballotpedia.org/Jon_Husted"},
     ],
     record: [
+      {name:"Southbound cartel inspections bill (S.1138)", stance:"for", date:"Oct 14, 2026", detail:"Joined the bipartisan Hassan–Lankford bill requiring inspection of at least 10% of vehicles headed into Mexico and adding Homeland Security Investigations agents to counter gun, cash and drug smuggling.", src:"https://www.husted.senate.gov/media/press-releases/husted-joins-bill-to-disrupt-cartel-operations-prevent-flow-of-deadly-drugs-into-the-u-s/"},
+      {name:"Ramaswamy ad featuring Acton's mother", stance:"action", date:"Oct 21, 2026", detail:"Said he would not have run the ad.", src:"https://www.statenews.org/government-politics/2026-10-21/what-effect-will-ramaswamys-controversial-ad-have-on-the-campaign-for-ohio-governor"},
       {name:"Repeal of Biden-era appliance efficiency rule", stance:"for", date:"2025", detail:"Sponsored the Congressional Review Act resolution, which became his first bill signed into law (May 2025).", src:"https://spectrumnews1.com/oh/columbus/news/2025/05/15/husted-appliance-law-energy-efficiency"},
       {name:"Iran war powers resolutions", stance:"against", date:"2026", detail:"Voted against resolutions requiring congressional approval to continue the Iran war.", src:"https://ohiocapitaljournal.com/2026/03/05/on-war-with-iran-no-ohio-u-s-senate-candidate-gives-his-unqualified-support/"},
     ],
     controversies: [
       {title:"FirstEnergy's $1M dark-money payment", date:"2017 (revealed 2024)", sev:"mid", body:"FirstEnergy secretly gave $1 million to the nonprofit Freedom Frontier, which funded a super PAC backing Husted's 2018 governor bid, at the start of the HB 6 bribery scheme.", outcome:"His spokeswoman said he had no affiliation with the group. Neither Husted nor DeWine has been accused of wrongdoing.", src:"https://www.wcbe.org/wcbe-news/2024-04-10/firstenergy-made-secret-1-million-payment-in-2017-to-support-husted-campaign-in-ohio"},
-      {title:"Testimony in FirstEnergy executives' trial", date:"Mar 2026", sev:"low", body:"Testified as a defense witness that he dined with the two executives in 2018 while gathering information on candidates for the state's utility-regulator post.", outcome:"Not accused of wrongdoing; the trial ended in a mistrial and is set for retrial.", src:"https://www.statenews.org/government-politics/2026-03-11/ohio-u-s-sen-husted-testifies-as-defense-witness-in-firstenergy-execs-trial"},
+      {title:"Testimony in FirstEnergy executives' trial", date:"Mar 2026", sev:"low", body:"Testified as a defense witness that he dined with the two executives in 2018 while gathering information on candidates for the state's utility-regulator post.", outcome:"Not accused of wrongdoing. The March 2026 trial ended in a mistrial; the two former executives were reindicted in June 2026 and face a retrial in January.", src:"https://www.cbsnews.com/pittsburgh/news/bribery-investigation-ohio-firstenergy-jones-dowling-reindicted/"},
     ],
     career: [
       {year:"2001", event:"Ohio House of Representatives", detail:"Speaker 2005–2009"},
@@ -57,8 +59,13 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Governor — GOP primary", result:"won", detail:"Over 82% (unofficial); faces Amy Acton Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
       {year:"2024", race:"Republican presidential primary", result:"lost", detail:"Withdrew on Jan 15, 2024, after the Iowa caucuses, and endorsed Trump", src:"https://ballotpedia.org/Vivek_Ramaswamy"},
     ],
-    record: [],
+    record: [
+      {name:"Tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes eliminating the state income tax and capital gains tax, starting in 2027, and rolling property tax bills back to 2021 levels with a cap on future growth.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
+      {name:"Data centers", stance:"action", date:"Oct 2026", detail:"Opposes property-tax breaks for data centers and says they should supply their own power and cover neighbors' electricity costs; said he would sell his data-center-related investments if elected.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
+    ],
     controversies: [
+      {title:"Ad featuring Acton's estranged mother", date:"Oct 2026", sev:"low", body:"His campaign took responsibility for an ad in which Amy Acton's estranged mother calls her a liar. FactCheck.org and 13abc found records support key parts of Acton's account. Gov. DeWine said it should come down; Sen. Husted, Sec. of State LaRose and Auditor Faber said they would not have run it. Protesters appeared at GOP bus-tour stops on Oct 23.", outcome:"He said he will not pull the ad and that it \"had nothing, nothing to do with childhood abuse\"; from Oct 23 the campaign ran a 30-second version.", src:"https://ohiocapitaljournal.com/2026/10/25/ramaswamy-tries-to-reframe-controversial-ad-claiming-it-wasnt-about-child-sex-abuse-amid-protests/"},
+      {title:"Complaint over campaign credit-card reporting", date:"2026", sev:"mid", body:"State Sen. Kent Smith (D) filed a complaint after the campaign reported more than $500,000 in credit-card expenses without the required itemized details.", outcome:"Sept 16, 2026: the Secretary of State's Election Integrity Unit found \"no violation\" after the campaign revised its reports to itemize the charges; Smith says problems remain and has not appealed.", src:"https://ohiocapitaljournal.com/2026/10/07/ohio-election-integrity-unit-finds-no-violation-with-ramaswamys-campaign-credit-card-reporting/"},
       {title:"Called Jan. 6 an \"inside job\"", date:"Dec 2023", sev:"low", body:"Said at a presidential debate that \"Jan. 6 now does look like it was an inside job.\"", outcome:"PolitiFact rated the claim Pants on Fire.", src:"https://api.politifact.com/factchecks/2023/dec/07/vivek-ramaswamy/vivek-ramaswamy-said-jan-6-was-an-inside-job-at-al/"},
       {title:"Bodyguard arrested on drug charges", date:"Jan 2026", sev:"low", body:"An employee of the firm guarding his family was charged with fentanyl and methamphetamine trafficking.", outcome:"The campaign fired the security firm; no wrongdoing by Ramaswamy was alleged.", src:"https://www.wyso.org/2026-01-16/vivek-ramaswamy-fires-security-firm-after-bodyguard-was-arrested-for-drug-trafficking"},
     ],
@@ -96,6 +103,8 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Governor — Democratic primary", result:"won", detail:"Unopposed; faces Vivek Ramaswamy Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
     ],
     record: [
+      {name:"Tax and property-tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes a \"working families' tax cut\" (an earned income tax credit and child tax credits up to $1,000 for incomes up to $85,000), a $50,000 income cap for the homestead exemption, rebates of up to $1,000 when property taxes rise more than 4%, and full funding of the Fair School Funding Plan.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
+      {name:"Data-center moratorium", stance:"action", date:"Jul 2026", detail:"Called for a conditional moratorium on new data centers until they pay their own taxes, provide their own energy and meet labor, environmental and community-agreement conditions; it would need legislation.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
       {name:"Ohio Department of Health director", stance:"action", date:"2019–2020", detail:"Signed Ohio's early COVID-19 public-health orders, including school closures and gathering limits; resigned June 11, 2020.", src:"https://abcnews.com/US/amy-acton-ohios-embattled-health-director-resigns-amid/story?id=71202353"},
       {name:"Health-care cost platform", stance:"action", date:"Feb 2026", detail:"Campaign plan focused on lowering health-care costs.", src:"https://ohiocapitaljournal.com/2026/02/12/ohio-democratic-governor-candidate-amy-acton-makes-pitch-for-addressing-health-care-costs/"},
     ],
@@ -112,7 +121,9 @@ Object.assign(CANDIDATES, {
       figures: [],
       filings: [{label:"Ohio SOS campaign finance search", url:"https://www.ohiosos.gov/campaign-finance/search/"}]
     },
-    endorsements: [],
+    endorsements: [
+      {name:"Columbus Dispatch editorial board", detail:"Endorsed Acton (Oct 2026)", src:"https://www.axios.com/local/columbus/2026/10/21/vivek-ramaswamy-amy-acton-ad-mother-reaction"},
+    ],
     links: [
       {label:"Campaign launch (Statehouse News)", url:"https://www.statenews.org/government-politics/2025-01-07/amy-acton-former-odh-director-to-run-for-ohio-governor-as-a-democrat"},
       {label:"Ballotpedia", url:"https://ballotpedia.org/Amy_Acton"},
@@ -132,6 +143,8 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Attorney General — Democratic primary", result:"won", detail:"63.1% over Elliot Forhan (36.9%)", src:"https://ballotpedia.org/John_Kulewicz"},
     ],
     record: [
+      {name:"Attorney general debate positions", stance:"action", date:"Oct 19, 2026", detail:"At the Youngstown State debate, said a warrant should be required to search Flock camera records more than 48 hours old, that the death penalty should be reserved for the most severe offenses, and that he would proceed with the FirstEnergy retrial.", src:"https://www.tribtoday.com/news/local-news/2026/10/attorney-general-candidates-debate-on-ysu-campus/"},
+      {name:"Price-gouging and false-claims laws", stance:"action", date:"Oct 2026", detail:"Proposes working with the legislature on a price-gouging ban, noting Ohio is one of few states without one, and says a state false claims law is \"urgently\" needed.", src:"https://www.daytondailynews.com/local/election-2026-ohio-auditor-columbus-area-councilman-vie-to-become-state-attorney-general/article_49d4f813-92ca-5e79-a224-9aef91b5d95d.html"},
       {name:"Campaign priorities", stance:"action", date:"2026", detail:"Fair electric rates, fighting consumer fraud and protecting workers from wage theft.", src:"https://www.wfmj.com/news/political/kulewicz-projected-to-win-democratic-primary-for-oh-attorney-general/article_f61c29ab-ce8a-4880-a71d-69aea84af29a.html"},
     ],
     controversies: [],
@@ -162,6 +175,7 @@ Object.assign(CANDIDATES, {
       {year:"2018", race:"Ohio House, District 24", result:"won", detail:"57% over Erik Yassenoff", src:"https://ballotpedia.org/Allison_Russo"},
     ],
     record: [
+      {name:"Secretary of State platform", stance:"action", date:"Oct 20, 2026", detail:"Opposes State Issue 3 because it would lock a narrow list of IDs into the constitution; supports more than one ballot drop box per county; says \"I have no issue with voter ID or even photo ID\" but objects to rules that exclude groups of voters.", src:"https://signalohio.org/ohio-secretary-of-state-candidate-allison-russo-wants-more-voter-drop-boxes-november-election-2026/"},
       {name:"2023 legislative maps", stance:"for", date:"Sep 2023", detail:"Joined Republicans on the Redistricting Commission in unanimously approving new maps, calling it \"the best of two bad options.\"", src:"https://signalohio.org/ohio-democratic-secretary-of-state-candidate-allison-russo-criticized-for-past-vote-on-gop-map/"},
       {name:"Speaker vote", stance:"action", date:"Jan 2023", detail:"Backed moderate Republican Jason Stephens for Speaker along with House Democrats.", src:"https://ohiocapitaljournal.com/2023/01/04/moderate-republican-jason-stephens-snatches-ohio-house-speaker-position-in-surprise-upset/"},
     ],
@@ -222,6 +236,8 @@ Object.assign(CANDIDATES, {
       {year:"2016", race:"Ohio House, District 94", result:"won", detail:"57.8% over Sarah Grace", src:"https://ballotpedia.org/Jay_Edwards"},
     ],
     record: [
+      {name:"Browns stadium unclaimed funds", stance:"against", date:"Sep–Oct 2026", detail:"Has voiced opposition to using $600 million in unclaimed funds for a Browns stadium. His campaign received $15,000 each from Browns owners Jimmy and Dee Haslam; he says the donations don't affect his views.", src:"https://www.daytondailynews.com/local/former-gop-lawmaker-cincy-councilman-compete-for-ohio-treasurer-election-2026/article_52510efe-5bea-57e8-8910-534371cd62bd.html"},
+      {name:"Vote on expelling Speaker Larry Householder", stance:"against", date:"Jun 2021", detail:"Was one of 21 House Republicans who voted against expelling the indicted former speaker; the House expelled him 75–21.", src:"https://ohiocapitaljournal.com/2021/06/16/nearly-a-year-after-a-racketeering-indictment-ohio-house-expels-householder/"},
       {name:"Chair, House Finance Committee", stance:"action", date:"2023–2024", detail:"Led the committee that writes the state budget.", src:"https://ballotpedia.org/Jay_Edwards"},
       {name:"Unclaimed funds for sports stadiums", stance:"action", date:"2026", detail:"Said the money \"could have been spent a better way\" but he isn't opposed to such projects if the state can afford them.", src:"https://ohiocapitaljournal.com/?p=38743"},
     ],
@@ -249,7 +265,9 @@ Object.assign(CANDIDATES, {
       {year:"2025", race:"Cincinnati City Council", result:"won", detail:"Re-elected (7.2%, top-nine at-large)", src:"https://ballotpedia.org/Seth_Walsh"},
       {year:"2023", race:"Cincinnati City Council", result:"won", detail:"9.0%, top-nine at-large", src:"https://ballotpedia.org/Seth_Walsh"},
     ],
-    record: [],
+    record: [
+      {name:"Browns stadium unclaimed funds", stance:"against", date:"Sep–Oct 2026", detail:"Says the treasurer should join the lawsuit over using unclaimed funds for a Browns stadium (\"that's real peoples' money\") and called Edwards' acceptance of Haslam donations suspicious.", src:"https://www.daytondailynews.com/local/former-gop-lawmaker-cincy-councilman-compete-for-ohio-treasurer-election-2026/article_52510efe-5bea-57e8-8910-534371cd62bd.html"},
+    ],
     controversies: [],
     career: [
       {year:"2022", event:"Appointed to Cincinnati City Council", detail:"Replacing Greg Landsman"},
@@ -278,12 +296,16 @@ Object.assign(CANDIDATES, {
       {year:"2014", race:"Franklin County Common Pleas", result:"won", detail:"57.1% over Monica Hawkins", src:"https://ballotpedia.org/Colleen_O%27Donnell"},
     ],
     record: [],
-    controversies: [],
+    controversies: [
+      {title:"Judicial-ethics finding over use of \"judge\" title", date:"Apr 2026", sev:"low", body:"A three-judge panel found she violated judicial campaign conduct rules by sharing an Ohio Value Voters endorsement that repeatedly called her \"Judge O'Donnell,\" although she left the bench in January 2023.", outcome:"Apr 21, 2026: the panel recommended no sanction, calling the violation technical; the case was closed (Board of Professional Conduct No. 2026-006). Her campaign said there was \"nothing to this.\"", src:"https://news.bloomberglaw.com/litigation/ohio-justice-candidate-violated-ethics-rules-wont-be-punished"},
+    ],
     career: [
       {year:"2013", event:"Franklin County Common Pleas Judge", detail:"2013–2023"},
       {year:"2026", event:"GOP nominee for Ohio Supreme Court", detail:""},
     ],
-    money: MONEY_STATE, endorsements: [],
+    money: MONEY_STATE, endorsements: [
+      {name:"Ohio Chamber of Commerce PAC, Ohio Business Roundtable, NFIB-Ohio, Ohio Manufacturers' Association, Ohio Farm Bureau", detail:"Endorsed Aug 18, 2026", src:"https://wysu.org/ohio-news/2026-08-18/business-groups-again-endorse-republicans-for-ohio-supreme-court-but-say-its-not-partisan"},
+    ],
     links: [{label:"Ballotpedia", url:"https://ballotpedia.org/Colleen_O%27Donnell"}],
     opponents: ["jennifer brunner"],
   },
@@ -307,7 +329,9 @@ Object.assign(CANDIDATES, {
       {year:"2019", event:"Franklin County Common Pleas Judge", detail:"Elected 2018"},
       {year:"2024", event:"Ohio Supreme Court Justice", detail:"Took office Dec 10, 2024"},
     ],
-    money: MONEY_STATE, endorsements: [],
+    money: MONEY_STATE, endorsements: [
+      {name:"Ohio Chamber of Commerce PAC, Ohio Business Roundtable, NFIB-Ohio, Ohio Manufacturers' Association, Ohio Farm Bureau", detail:"Endorsed Aug 18, 2026", src:"https://wysu.org/ohio-news/2026-08-18/business-groups-again-endorse-republicans-for-ohio-supreme-court-but-say-its-not-partisan"},
+    ],
     links: [{label:"Ballotpedia", url:"https://ballotpedia.org/Dan_Hawkins_(Ohio)"}],
     opponents: ["marilyn zayas"],
   },
