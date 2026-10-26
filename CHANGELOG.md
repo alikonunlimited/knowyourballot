@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-25 — New ads and ad fact-checks
+- Ad Check: Senate Leadership Fund's Soren Aldaco ads against Brown (PolitiFact: Pants on Fire; Ohio Capital Journal).
+- Ad Check: Brown's Iran-war-votes / "Who I'm For" ads against Husted (PolitiFact reporting: 13 of 14 votes procedural; FactCheck.org on the Epstein-donor comparison).
+- Ad Check: Defend American Jobs (Fairshake) ad repeating the Social Security claim PolitiFact rated False (Signal Ohio; PolitiFact).
+- Ads tab: Ramaswamy campaign's $4M plan to promote the ad featuring Acton's mother (AP via AJC); Dan Hawkins' first Supreme Court TV ad, about $185K (Brennan Center).
+
 ## 2026-10-24 — Follow the money: who funds the ads
 - New `data/funders.js`: 20 groups paying for ads in the Ohio Senate and governor races (campaigns, party committees, super PACs, dark-money groups), with top disclosed donors and sources (FEC data via VoteLog, Ohio Capital Journal, Signal Ohio, Legis1, CNN, AP, Decrypt, NBC4, Newsweek).
 - Ads tab on Brown, Husted, Ramaswamy and Acton profiles now shows "Who's paying for the ads in this race."

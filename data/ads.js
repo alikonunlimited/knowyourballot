@@ -10,6 +10,8 @@ const ADS = {
     {date:"Sep 2026", sponsor:"Americans for Prosperity Action (Koch network)", side:"against", platform:"TV / digital", spend:"Not given in report", message:"Portrays Brown as aligned with the Democratic Socialists of America.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
     {date:"Jun 2026", sponsor:"Americans for Prosperity Ohio", side:"against", platform:"TV / digital", spend:"$1.75M one-week buy", message:"Supports Jon Husted.", src:"https://spectrumnews1.com/oh/columbus/news/2026/06/05/ad-spending-ohio-senate"},
     {date:"Sep 2026", sponsor:"Ohio Flyer PAC and Buckeyes PAC (\"pop-up\" PACs)", side:"against", platform:"Not specified", spend:"$3M+ combined in one week", message:"Donors not disclosed until mid-October.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
+    {date:"Sep 2026", sponsor:"Senate Leadership Fund", side:"against", platform:"TV / digital", spend:"Not reported", message:"Ads featuring Soren Aldaco on gender-transition surgery for minors. PolitiFact rated the claim Pants on Fire.", src:"https://politifact.com/factchecks/2026/oct/14/senate-leadership-fund/sherrod-brown-soren-aldaco-transition-ohio-texas/"},
+    {date:"Sep 2026", sponsor:"Defend American Jobs (Fairshake crypto super PAC network)", side:"against", platform:"TV", spend:"Part of $30M Fairshake announced against Brown", message:"Attacks Brown's past votes; doesn't mention crypto.", src:"https://signalohio.org/big-crypto-behind-critical-ads-of-sherrod-brown-again-without-talking-crypto/"},
   ],
   "jennifer brunner": [
     {date:"Oct 2020", sponsor:"Republican State Leadership Committee", side:"against", platform:"TV", spend:"Not reported", message:"Said Brunner freed a child predator; the Columbus Dispatch found the ad misleading. (Past race — included for context.)", src:"https://www.justicebrunner.com/news/campaign-ad-watch-gop-groups-attack-on-brunner-misleading-in-race-for-ohio-suprem"},
@@ -17,12 +19,17 @@ const ADS = {
   "jon husted": [
     {date:"Jun 2026", sponsor:"Americans for Prosperity Ohio", side:"for", platform:"TV / digital", spend:"$1.75M one-week buy", message:"Supports Husted.", src:"https://spectrumnews1.com/oh/columbus/news/2026/06/05/ad-spending-ohio-senate"},
     {date:"Sep 2026", sponsor:"No Going Back PAC, America PAC and other GOP-aligned super PACs", side:"for", platform:"TV, digital, mail", spend:"~$14M combined in one week (Senate Leadership Fund + 5 others)", message:"Attack Sherrod Brown to bolster Husted.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
+    {date:"Oct 14 & 22, 2026", sponsor:"Sherrod Brown campaign", side:"against", platform:"TV (largest Ohio markets)", spend:"Not reported", message:"\"Who I'm For\": says Husted voted 14 times for the Iran war and is \"the face of data centers.\"", src:"https://sherrodbrown.substack.com/p/my-new-ad"},
   ],
   "vivek ramaswamy": [
     {date:"May–Jun 2026", sponsor:"Ramaswamy campaign + V-PAC: Victors, Not Victims (super PAC)", side:"for", platform:"Broadcast TV, streaming, cable, digital, radio", spend:"Nearly $9M (May 15–June 30)", message:"Themes of reinvigorating the \"American dream.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
   ],
   "amy acton": [
     {date:"May–Jun 2026", sponsor:"Acton campaign + 314 Action PAC", side:"for", platform:"Digital", spend:"Nearly $100K (AdImpact)", message:"Affordability; \"You can't buy Ohio.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
+    {date:"Oct 20, 2026", sponsor:"Ramaswamy for Ohio Governor campaign", side:"against", platform:"TV and streaming", spend:"$4M to promote it (campaign's stated plan)", message:"One-minute ad with Acton's estranged mother calling her \"a liar.\" It first spread online without a \"paid for by\" tag; the campaign later said it made the ad.", src:"https://www.ajc.com/news/2026/10/ramaswamy-takes-responsibility-for-ad-with-amy-actons-mother-and-will-spend-millions-to-promote-it/"},
+  ],
+  "dan hawkins": [
+    {date:"Oct 17, 2026", sponsor:"Dan Hawkins campaign", side:"for", platform:"TV", spend:"About $185K on TV for his campaign so far (est., Brennan Center)", message:"\"When the Unthinkable Happens\": highlights his work leading the Franklin County special victims unit.", src:"https://www.brennancenter.org/our-work/research-reports/buying-time-2026-ohio"},
   ],
 };
 const RACE_AD_TOTALS = {

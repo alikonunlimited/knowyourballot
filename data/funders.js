@@ -249,7 +249,10 @@ const AD_FUNDERS = {
   "nrsc-50-years": ["nrsc"],
   "vpac-acton": ["v-pac"],
   "acton-on-ramaswamy": ["acton-campaign"],
-  "ramaswamy-amys-mom": ["ramaswamy-campaign"]
+  "ramaswamy-amys-mom": ["ramaswamy-campaign"],
+  "slf-aldaco": ["slf"],
+  "brown-iran-votes": ["brown-campaign"],
+  "fairshake-social-security": ["fairshake"]
 };
 
 /* Race-wide totals shown above the group list */
