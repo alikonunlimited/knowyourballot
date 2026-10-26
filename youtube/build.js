@@ -25,7 +25,7 @@ const party = k => CANDIDATES[k] ? CANDIDATES[k].party : '';
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const firstSentence = t => (t.match(/^.*?[.!?](\s|$)/) || [t])[0].trim();
 const esc = t => String(t).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-const quoted = t => '“' + String(t).replace(/^Quote: /,'').replace(/"([^"]*)"/g, '‘$1’') + '”';
+const quoted = t => { let x = String(t).replace(/^Quote: /,'').trim(); if (/^"[^"]*"\.?$/.test(x)) x = x.replace(/^"|"\.?$/g, ''); return '“' + x.replace(/"([^"]*)"/g, '‘$1’') + '”'; };
 const words = t => t.split(/\s+/).filter(Boolean).length;
 const secs = t => Math.round(words(t) / 150 * 60);   // ~150 spoken words per minute
 const domain = u => { try { return new URL(u).hostname.replace(/^www\./,''); } catch(e) { return u; } };
