@@ -23,6 +23,18 @@ const AD_CHECKS = [
     youtube: {short:"", full:""},
   },
   {
+    id: "brown-490k-health", race: "U.S. Senate", title: "490,000 Ohioans' health care",
+    sponsor: "Sherrod Brown campaign", supports: "sherrod brown", about: ["jon husted"],
+    date: "Sep 18, 2026", platform: "Online (X)",
+    adLink: {label:"PolitiFact fact-check", url:"https://politifact.com/factchecks/2026/oct/09/sherrod-brown/jon-husted-health-insurance-490000-ohio-senate/"},
+    summary: "A voter says Husted voted to take health coverage away from 490,000 Ohioans.",
+    claims: [
+      {claim:"Husted voted \"to kick 490,000 Ohioans off their healthcare.\"", verdict:"Missing context", finding:"Husted voted for the 2025 One Big Beautiful Bill Act, which cut Medicaid and did not extend enhanced ACA subsidies. The 490,000 figure comes from a Democratic congressional staff analysis; the nonpartisan KFF estimates 350,000–580,000 Ohioans could lose coverage. These are 10-year projections, the work requirements don't start until December 2027, and the ad leaves out Husted's own (unsuccessful) bill to extend the subsidies for two years.", rater:"PolitiFact (Half True)", src:"https://politifact.com/factchecks/2026/oct/09/sherrod-brown/jon-husted-health-insurance-490000-ohio-senate/"},
+    ],
+    bottomLine: "The number is within credible estimates, but it is a 10-year projection and the ad omits Husted's subsidy-extension bill.",
+    youtube: {short:"", full:""},
+  },
+  {
     id: "winsenate-corruption", race: "U.S. Senate", title: "\"Corruption Scheme\"",
     sponsor: "WinSenate and LCV Victory Fund (Democratic-aligned outside groups)", supports: "sherrod brown", about: ["jon husted"],
     date: "Aug–Sep 2026", platform: "TV",
@@ -148,7 +160,7 @@ const AD_CHECKS = [
     summary: "Attacks Vivek Ramaswamy's biotech record.",
     claims: [
       {claim:"Ramaswamy \"made billions preying on our most vulnerable.\"", verdict:"Opinion", finding:"\"Preying\" is a characterization, and the ad gives no evidence for the \"billions\" figure. The business practices described were legal.", rater:"KnowYourBallot, from ABC6 reporting", src:"https://abc6onyourside.com/news/election/super-pac-omits-key-context-claims-vivek-ramaswamy-amy-acton-ohio-governor-race-gubernatorial-politics-government-november-nov-3-2026-midterms-covid-dog-gate-drug-seniors"},
-      {claim:"He pushed an Alzheimer's drug he \"knew didn't work.\"", verdict:"Missing context", finding:"His company bought the drug after it failed four trials and it then failed a fifth. It was never approved or marketed to patients; ABC6 said the company more likely pitched it to investors as promising.", rater:"KnowYourBallot, from ABC6 reporting", src:"https://abc6onyourside.com/news/election/super-pac-omits-key-context-claims-vivek-ramaswamy-amy-acton-ohio-governor-race-gubernatorial-politics-government-november-nov-3-2026-midterms-covid-dog-gate-drug-seniors"},
+      {claim:"He pushed an Alzheimer's drug he \"knew didn't work.\"", verdict:"Misleading", finding:"He did promote the drug, intepirdine, as effective in 2015 without clearly noting earlier trials were mixed, and it failed its Phase 3 trial in 2017. But there's no evidence he knew it wouldn't work: his company paid for a large final trial, and an expert called it a failed bet rather than fraud. The ad's \"hundreds of millions\" figure isn't supported by filings.", rater:"PolitiFact (Mostly False); ABC6", src:"https://www.politifact.com/factchecks/2026/oct/12/amy-acton/ramaswamy-alzheimers-drug-intepirdine-ohio/"},
       {claim:"His company \"charged sick kids $3 million.\"", verdict:"Missing context", finding:"This refers to Rethymic, a one-time treatment for babies born without a thymus, listed at $2.7 million before insurance.", rater:"KnowYourBallot, from ABC6 reporting", src:"https://abc6onyourside.com/news/election/super-pac-omits-key-context-claims-vivek-ramaswamy-amy-acton-ohio-governor-race-gubernatorial-politics-government-november-nov-3-2026-midterms-covid-dog-gate-drug-seniors"},
       {claim:"Quote: \"We are making money... that's what's most important.\"", verdict:"False", finding:"The line is a paraphrase from a 2023 Forbes article recalling a scientist's memory of a 2011 conversation. Ramaswamy denies saying it.", rater:"KnowYourBallot, from ABC6 reporting", src:"https://abc6onyourside.com/news/election/super-pac-omits-key-context-claims-vivek-ramaswamy-amy-acton-ohio-governor-race-gubernatorial-politics-government-november-nov-3-2026-midterms-covid-dog-gate-drug-seniors"},
     ],
