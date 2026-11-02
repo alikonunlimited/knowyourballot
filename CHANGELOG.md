@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-11-02 — Weekly update
+Scan: 307 sources opened, 181 readable, 126 blocked (six parallel sweeps; WebSearch budget ran out partway, so some social and outlet checks were not completed — see PR).
+- Trump (World): Oct 30 remarks on Iran talks (Times of Israel); Oct 20 remarks urging Ukraine to make a deal (PBS NewsHour).
+- Trump (Civil rights): Oct 22 Education/Justice decision not to rely on seven civil-rights guidance documents, including race-related school-discipline and admissions guidance (K-12 Dive).
+- Harris (Civil rights): Oct 29–30 Georgia remarks on the Voting Rights Act ruling (AP via Action News Jax); status notes final Georgia stops.
+- Sanders: Solar for All letter with 111 colleagues (sanders.senate.gov); October midterm tour (The Nation).
+- DeWine: Oct 26 Tax Credit Authority projects (governor.ohio.gov).
+- Faber: response to Oct 25 cyberattack on the Auditor's office (ABC6); AG race positions (Ohio Capital Journal via Yahoo).
+- LaRose: Oct 27 referral of Field Forward Ohio over late voter-registration forms (News5 Cleveland); final early-voting weekend (Journal-News).
+- Sprague: debate dispute with Russo (Ohio Capital Journal via Yahoo); comment on the Ramaswamy ad (WTOV9).
+- Brown: Cleveland rally with Obama (sherrodbrown.com); immigration positions (Statehouse News Bureau); Columbus Dispatch and Akron Beacon Journal endorsements (via Yahoo).
+- Husted: Chillicothe rally with Trump (WVXU); health-care positions (Statehouse News Bureau); FOP of Ohio and Trump endorsements added (jonhustedforsenate.com; Ohio Manufacturers' Association).
+- Moreno: letter to Mayor Ginther on the Ghana nursing partnership (moreno.senate.gov); Trump Accounts expansion (moreno.senate.gov).
+- Ginther: Moreno letter and city response (WOSU); 2027 budget priorities (10TV via Yahoo).
+- Hardin: police and fire staffing plan (10TV via Yahoo).
+- State Board of Education: HB 455 license-revocation offenses (sboe.ohio.gov); board-members link updated to the new address.
+- Kennedy, Brunner, Fischer: A.A. v. S.P., Oct 28 (Court News Ohio); Fischer wrote O'Malley v. Laborers' Local 860, Oct 27 (Court News Ohio); Brunner party-label suit: appeal undecided as of Oct 27 (Signal Ohio).
+- Brunner, O'Donnell, Hawkins, Zayas: Judge4Yourself bar ratings (judge4yourself.com); O'Donnell police groups and Ohio Right to Life (Signal Ohio).
+- Ramaswamy: "Amy's Mom" ad outcome updated: run over Oct 29, about $1M of a stated $4M spent (AdImpact via AP/FOX19); day-one executive orders pledge (10TV via Yahoo); pre-general finance report (Ohio Capital Journal via Yahoo).
+- Acton: closing tax pledge (10TV via Yahoo); pre-general finance report (Ohio Capital Journal via Yahoo); Plain Dealer (Newsweek) and Ironton Tribune endorsements.
+- Ads: Senate race now over $500M (AdImpact via WTVG/Cleveland 19); Acton response ad (actonforgovernor.com); Buckeye Freedom PAC ad against Husted (Newsweek); O'Donnell's first TV ad (Brennan Center).
+- Ad Check: new "Can't Afford Amy Acton" — "double your state income tax" (PolitiFact: False). New Short rendered; Governor full video re-rendered.
+- UN A/RES/80/250: no new connections found.
+
 ## 2026-10-26 — Weekly update
 Scan: 553 sources opened, 357 readable, 196 blocked (plus 52 verification fetches of every added or changed link).
 - Trump: E. Jean Carroll outcome updated: Supreme Court declined the $5M appeal (Jun 29) and rehearing (Aug 17); the $83.3M petition is pending (SCOTUSblog).

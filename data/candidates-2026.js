@@ -22,6 +22,8 @@ Object.assign(CANDIDATES, {
       {year:"2010", race:"Ohio Secretary of State", result:"won", detail:"53.7% over Maryellen O'Shaughnessy", src:"https://ballotpedia.org/Jon_Husted"},
     ],
     record: [
+      {name:"Chillicothe rally with President Trump", stance:"action", date:"Oct 28, 2026", detail:"Said of Brown: \"He's been in office for over 50 years. Can you name a single thing that he's done to make your life better?\"", src:"https://www.wvxu.org/2026-10-29/president-donald-trump-rallies-supporters-in-chillicothe-in-third-ohio-rally-ahead-of-midterms"},
+      {name:"Health care positions", stance:"action", date:"Oct 29, 2026", detail:"Says he is working across party lines on \"renewing the premium tax credit\"; backs more frequent Medicaid eligibility checks; sponsored a bill to make more drugs available over the counter.", src:"https://www.statenews.org/government-politics/2026-10-29/2026-race-for-u-s-senate-where-the-candidates-stand-on-health-issues"},
       {name:"Southbound cartel inspections bill (S.1138)", stance:"for", date:"Oct 14, 2026", detail:"Joined the bipartisan Hassan–Lankford bill requiring inspection of at least 10% of vehicles headed into Mexico and adding Homeland Security Investigations agents to counter gun, cash and drug smuggling.", src:"https://www.husted.senate.gov/media/press-releases/husted-joins-bill-to-disrupt-cartel-operations-prevent-flow-of-deadly-drugs-into-the-u-s/"},
       {name:"Ramaswamy ad featuring Acton's mother", stance:"action", date:"Oct 21, 2026", detail:"Said he would not have run the ad.", src:"https://www.statenews.org/government-politics/2026-10-21/what-effect-will-ramaswamys-controversial-ad-have-on-the-campaign-for-ohio-governor"},
       {name:"Repeal of Biden-era appliance efficiency rule", stance:"for", date:"2025", detail:"Sponsored the Congressional Review Act resolution, which became his first bill signed into law (May 2025).", src:"https://spectrumnews1.com/oh/columbus/news/2025/05/15/husted-appliance-law-energy-efficiency"},
@@ -39,7 +41,10 @@ Object.assign(CANDIDATES, {
       {year:"2025", event:"Appointed U.S. Senator", detail:"Replacing JD Vance"},
     ],
     money: MONEY_FED("Jon%20Husted"),
-    endorsements: [],
+    endorsements: [
+      {name:"Donald Trump", detail:"Endorsed Apr 9, 2025", src:"https://www.ohiomfg.com/our-communities/trump-endorses-jon-husted-for-senate/"},
+      {name:"Fraternal Order of Police of Ohio", detail:"Endorsed Jul 21, 2026", src:"https://www.jonhustedforsenate.com/press-releases/jon-husted-earns-endorsement-of-fraternal-order-of-police-of-ohio/"},
+    ],
     links: [
       {label:"Senate office", url:"https://www.husted.senate.gov/"},
       {label:"Ballotpedia", url:"https://ballotpedia.org/Jon_Husted"},
@@ -60,11 +65,12 @@ Object.assign(CANDIDATES, {
       {year:"2024", race:"Republican presidential primary", result:"lost", detail:"Withdrew on Jan 15, 2024, after the Iowa caucuses, and endorsed Trump", src:"https://ballotpedia.org/Vivek_Ramaswamy"},
     ],
     record: [
+      {name:"Day-one executive orders pledge", stance:"action", date:"Oct 30, 2026", detail:"Pledged to sign seven executive orders \"before midnight the first day I take office,\" targeting places where property taxes more than doubled since 2020, sanctuary-city policies, data-center approvals and Medicaid fraud; some would need a federal waiver or legislative action.", src:"https://www.yahoo.com/news/politics/articles/election-day-days-away-ramaswamy-205157621.html"},
       {name:"Tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes eliminating the state income tax and capital gains tax, starting in 2027, and rolling property tax bills back to 2021 levels with a cap on future growth.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
       {name:"Data centers", stance:"action", date:"Oct 2026", detail:"Opposes property-tax breaks for data centers and says they should supply their own power and cover neighbors' electricity costs; said he would sell his data-center-related investments if elected.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
     ],
     controversies: [
-      {title:"Ad featuring Acton's estranged mother", date:"Oct 2026", sev:"low", body:"His campaign took responsibility for an ad in which Amy Acton's estranged mother calls her a liar. FactCheck.org and 13abc found records support key parts of Acton's account. Gov. DeWine said it should come down; Sen. Husted, Sec. of State LaRose and Auditor Faber said they would not have run it. Protesters appeared at GOP bus-tour stops on Oct 23.", outcome:"He said he will not pull the ad and that it \"had nothing, nothing to do with childhood abuse\"; from Oct 23 the campaign ran a 30-second version.", src:"https://ohiocapitaljournal.com/2026/10/25/ramaswamy-tries-to-reframe-controversial-ad-claiming-it-wasnt-about-child-sex-abuse-amid-protests/"},
+      {title:"Ad featuring Acton's estranged mother", date:"Oct 2026", sev:"low", body:"His campaign took responsibility for an ad in which Amy Acton's estranged mother calls her a liar. FactCheck.org and 13abc found records support key parts of Acton's account. Gov. DeWine said it should come down; Sen. Husted, Sec. of State LaRose and Auditor Faber said they would not have run it. Protesters appeared at GOP bus-tour stops on Oct 23.", outcome:"He said it \"had nothing, nothing to do with childhood abuse.\" From Oct 23 the campaign ran a 30-second version. On Oct 29 Ramaswamy said the ad's planned run was over. The campaign had said it would spend $4M on it; AdImpact data showed about $1M spent (AP, Oct 30).", src:"https://www.fox19.com/2026/10/30/controversial-attack-ad-featuring-democrats-estranged-mother-is-off-air-ohio/"},
       {title:"Complaint over campaign credit-card reporting", date:"2026", sev:"mid", body:"State Sen. Kent Smith (D) filed a complaint after the campaign reported more than $500,000 in credit-card expenses without the required itemized details.", outcome:"Sept 16, 2026: the Secretary of State's Election Integrity Unit found \"no violation\" after the campaign revised its reports to itemize the charges; Smith says problems remain and has not appealed.", src:"https://ohiocapitaljournal.com/2026/10/07/ohio-election-integrity-unit-finds-no-violation-with-ramaswamys-campaign-credit-card-reporting/"},
       {title:"Called Jan. 6 an \"inside job\"", date:"Dec 2023", sev:"low", body:"Said at a presidential debate that \"Jan. 6 now does look like it was an inside job.\"", outcome:"PolitiFact rated the claim Pants on Fire.", src:"https://api.politifact.com/factchecks/2023/dec/07/vivek-ramaswamy/vivek-ramaswamy-said-jan-6-was-an-inside-job-at-al/"},
       {title:"Bodyguard arrested on drug charges", date:"Jan 2026", sev:"low", body:"An employee of the firm guarding his family was charged with fentanyl and methamphetamine trafficking.", outcome:"The campaign fired the security firm; no wrongdoing by Ramaswamy was alleged.", src:"https://www.wyso.org/2026-01-16/vivek-ramaswamy-fires-security-firm-after-bodyguard-was-arrested-for-drug-trafficking"},
@@ -77,7 +83,10 @@ Object.assign(CANDIDATES, {
     ],
     money: {
       note: "State campaign finance reports are searchable at the Ohio Secretary of State.",
-      figures: [{label:"Top donors to pro-Ramaswamy super PAC V-PAC", value:"Jeff Yass $10M · Elon Musk $5M · Ratmir Timashev $5M", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"}],
+      figures: [
+      {label:"Pre-general campaign finance report (Oct 2026)", value:"Raised $1.5M; spent $51.1M; made another $5M personal loan to his campaign (total outstanding debt $41.3M)", src:"https://www.yahoo.com/news/politics/articles/final-ohio-campaign-finance-report-080045388.html"},
+      {label:"Top donors to pro-Ramaswamy super PAC V-PAC", value:"Jeff Yass $10M · Elon Musk $5M · Ratmir Timashev $5M", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
+      ],
       filings: [{label:"Ohio SOS campaign finance search", url:"https://www.ohiosos.gov/campaign-finance/search/"}]
     },
     endorsements: [
@@ -103,6 +112,7 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Governor — Democratic primary", result:"won", detail:"Unopposed; faces Vivek Ramaswamy Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
     ],
     record: [
+      {name:"Closing pledge on taxes", stance:"action", date:"Oct 30, 2026", detail:"Told voters \"I will not be raising taxes\" and said she is \"ready to come in fighting on day one\" on costs, citing her working-families tax cut, child tax credit, medical-debt relief and property-tax proposals; several would need legislative approval.", src:"https://www.yahoo.com/news/politics/articles/election-day-days-away-ramaswamy-205157621.html"},
       {name:"Tax and property-tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes a \"working families' tax cut\" (an earned income tax credit and child tax credits up to $1,000 for incomes up to $85,000), a $50,000 income cap for the homestead exemption, rebates of up to $1,000 when property taxes rise more than 4%, and full funding of the Fair School Funding Plan.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
       {name:"Data-center moratorium", stance:"action", date:"Jul 2026", detail:"Called for a conditional moratorium on new data centers until they pay their own taxes, provide their own energy and meet labor, environmental and community-agreement conditions; it would need legislation.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
       {name:"Ohio Department of Health director", stance:"action", date:"2019–2020", detail:"Signed Ohio's early COVID-19 public-health orders, including school closures and gathering limits; resigned June 11, 2020.", src:"https://abcnews.com/US/amy-acton-ohios-embattled-health-director-resigns-amid/story?id=71202353"},
@@ -118,10 +128,14 @@ Object.assign(CANDIDATES, {
     ],
     money: {
       note: "State campaign finance reports are searchable at the Ohio Secretary of State.",
-      figures: [],
+      figures: [
+      {label:"Pre-general campaign finance report (Oct 2026)", value:"Raised $3.9M; spent $26.2M", src:"https://www.yahoo.com/news/politics/articles/final-ohio-campaign-finance-report-080045388.html"},
+    ],
       filings: [{label:"Ohio SOS campaign finance search", url:"https://www.ohiosos.gov/campaign-finance/search/"}]
     },
     endorsements: [
+      {name:"Ironton Tribune editorial board", detail:"Endorsed Acton Oct 29, 2026", src:"https://irontontribune.com/2026/10/29/endorsement-editorial-acton-is-the-clear-choice-for-governor/"},
+      {name:"Cleveland Plain Dealer editorial board", detail:"Reversed its no-endorsement policy to endorse Acton (Oct 2026), citing the Ramaswamy ad", src:"https://www.newsweek.com/ohios-newspaper-breaks-endorsement-policy-slam-vivek-ramaswamy-ohio-midterms-amy-acton-advert-12617572"},
       {name:"Columbus Dispatch editorial board", detail:"Endorsed Acton (Oct 2026)", src:"https://www.axios.com/local/columbus/2026/10/21/vivek-ramaswamy-amy-acton-ad-mother-reaction"},
     ],
     links: [
@@ -304,6 +318,8 @@ Object.assign(CANDIDATES, {
       {year:"2026", event:"GOP nominee for Ohio Supreme Court", detail:""},
     ],
     money: MONEY_STATE, endorsements: [
+      {name:"Police groups and Ohio Right to Life", detail:"Reported Oct 27, 2026", src:"https://signalohio.org/is-ohio-on-the-cusp-of-an-all-republican-state-supreme-court/"},
+      {name:"Judge4Yourself bar ratings", detail:"Cleveland Metropolitan Bar Assn.: Satisfactory; Cuyahoga Criminal Defense Lawyers Assn.: Not Recommended; Norman S. Minor Bar Assn.: Good (updated Oct 16, 2026)", src:"https://www.judge4yourself.com/judicial-candidate-ratings/"},
       {name:"Ohio Chamber of Commerce PAC, Ohio Business Roundtable, NFIB-Ohio, Ohio Manufacturers' Association, Ohio Farm Bureau", detail:"Endorsed Aug 18, 2026", src:"https://wysu.org/ohio-news/2026-08-18/business-groups-again-endorse-republicans-for-ohio-supreme-court-but-say-its-not-partisan"},
     ],
     links: [{label:"Ballotpedia", url:"https://ballotpedia.org/Colleen_O%27Donnell"}],
@@ -330,6 +346,7 @@ Object.assign(CANDIDATES, {
       {year:"2024", event:"Ohio Supreme Court Justice", detail:"Took office Dec 10, 2024"},
     ],
     money: MONEY_STATE, endorsements: [
+      {name:"Judge4Yourself bar ratings", detail:"Cleveland Metropolitan Bar Assn.: Satisfactory; Cuyahoga Criminal Defense Lawyers Assn.: Satisfactory; Norman S. Minor Bar Assn.: Not Recommended (updated Oct 16, 2026)", src:"https://www.judge4yourself.com/judicial-candidate-ratings/"},
       {name:"Ohio Chamber of Commerce PAC, Ohio Business Roundtable, NFIB-Ohio, Ohio Manufacturers' Association, Ohio Farm Bureau", detail:"Endorsed Aug 18, 2026", src:"https://wysu.org/ohio-news/2026-08-18/business-groups-again-endorse-republicans-for-ohio-supreme-court-but-say-its-not-partisan"},
     ],
     links: [{label:"Ballotpedia", url:"https://ballotpedia.org/Dan_Hawkins_(Ohio)"}],
@@ -355,7 +372,9 @@ Object.assign(CANDIDATES, {
       {year:"2016", event:"First District Court of Appeals", detail:"Re-elected 2018, 2024"},
       {year:"2022", event:"Runs for Ohio Supreme Court", detail:"Lost to Pat DeWine"},
     ],
-    money: MONEY_STATE, endorsements: [],
+    money: MONEY_STATE, endorsements: [
+      {name:"Judge4Yourself bar ratings", detail:"Cleveland Metropolitan Bar Assn.: Excellent; Cuyahoga Criminal Defense Lawyers Assn.: Excellent; Norman S. Minor Bar Assn.: Good (updated Oct 16, 2026)", src:"https://www.judge4yourself.com/judicial-candidate-ratings/"},
+    ],
     links: [
       {label:"Ballotpedia", url:"https://ballotpedia.org/Marilyn_Zayas"},
       {label:"2022 candidate profile (WCPO)", url:"https://www.wcpo.com/news/government/state-government/ohio-state-government-news/governor-dewines-son-appeals-court-judge-run-for-ohio-supreme-court-talk-about-integrity"},

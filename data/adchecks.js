@@ -180,6 +180,18 @@ const AD_CHECKS = [
     bottomLine: "Public records support Acton's account. Republicans including Gov. DeWine and Sen. Husted criticized the ad; Trump and VP Vance defended it.",
     youtube: {short:"", full:""},
   },
+  {
+    id: "ramaswamy-cant-afford-acton", race: "Governor", title: "\"Can't Afford Amy Acton\"",
+    sponsor: "Ramaswamy campaign (\"Can't Afford Amy Acton\" website) and pro-Ramaswamy ads", supports: "vivek ramaswamy", about: ["amy acton"],
+    date: "Oct 2026", platform: "Website, social media ads; repeated by President Trump at an Oct 12 Youngstown rally",
+    adLink: {label:"PolitiFact fact-check", url:"https://politifact.com/factchecks/2026/oct/27/donald-trump/ramaswamy-acton-21-billion-income-tax-spending/"},
+    summary: "Says Amy Acton's plans would cost more than $21 billion a year and she would have to double the state income tax.",
+    claims: [
+      {claim:"Acton \"is trying to double your state income tax.\"", verdict:"False", finding:"The claim rests on the Ramaswamy campaign's $21 billion annual cost estimate, which PolitiFact found relies on broad, poorly sourced assumptions beyond Acton's actual proposals (for example, treating largely one-time medical-debt relief as an annual cost and assuming universal government-paid child care). Ohio collected about $11 billion in income tax in fiscal 2025. Acton's campaign says she would not raise the income tax, though she has not released a detailed funding plan.", rater:"PolitiFact (False)", src:"https://politifact.com/factchecks/2026/oct/27/donald-trump/ramaswamy-acton-21-billion-income-tax-spending/"},
+    ],
+    bottomLine: "PolitiFact found no evidence Acton supports doubling the income tax; the $21 billion figure behind the claim is poorly sourced.",
+    youtube: {short:"", full:""},
+  },
 ];
 const AD_CHECK_RACES = ["U.S. Senate", "Governor"];
 const YOUTUBE_CHANNEL = ""; // set to the KnowYourBallot channel URL once created

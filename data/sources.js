@@ -64,7 +64,7 @@ const SOURCES = {
     S("Franklin County campaign finance","https://vote.franklincountyohio.gov/candidates/campaign-finance","finance"),
   ],
   "ohio state board of education": [
-    S("Board members","https://sboe.ohio.gov/about-us/board-members/02-board-members","official"),
+    S("Board members","https://sboe.ohio.gov/about-the-state-board/board-members/02-board-members","official"),
     S("Ballotpedia","https://ballotpedia.org/Ohio_State_Board_of_Education","news"),
   ],
   "sherrod brown": [

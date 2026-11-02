@@ -2,8 +2,11 @@
    Political ads — updated weekly. Each item must have a source.
    sponsor: who paid. side: "for" (supports this official) | "against".
    ============================================================ */
-const ADS_AS_OF = "October 2026";
+const ADS_AS_OF = "November 2026";
 const ADS = {
+  "colleen o'donnell": [
+    {date:"Oct 23, 2026", sponsor:"Colleen O'Donnell campaign", side:"for", platform:"TV", spend:"No estimate listed (Brennan Center)", message:"\"We Need Justice\": says O'Donnell is committed to upholding the constitution and interpreting laws as written.", src:"https://www.brennancenter.org/our-work/research-reports/buying-time-2026-ohio"},
+  ],
   "sherrod brown": [
     {date:"Sep 2026", sponsor:"No Going Back PAC (tied to Trump's MAGA Inc.)", side:"against", platform:"TV, digital, mail", spend:"$6.7M (Sep 10–11, per FEC)", message:"Attacks Brown on transgender rights and bank bailouts.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
     {date:"Sep 2026", sponsor:"America PAC (Elon Musk)", side:"against", platform:"TV / digital", spend:"Not disclosed in report", message:"Attacks Brown on transgender rights and bank bailouts.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
@@ -18,6 +21,7 @@ const ADS = {
     {date:"Oct 2020", sponsor:"Republican State Leadership Committee", side:"against", platform:"TV", spend:"Not reported", message:"Said Brunner freed a child predator; the Columbus Dispatch found the ad misleading. (Past race — included for context.)", src:"https://www.justicebrunner.com/news/campaign-ad-watch-gop-groups-attack-on-brunner-misleading-in-race-for-ohio-suprem"},
   ],
   "jon husted": [
+    {date:"Oct 2026", sponsor:"Buckeye Freedom PAC (formed Oct 2026)", side:"against", platform:"Online (group's website)", spend:"Not reported by a named tracker", message:"Urges conservatives to vote for Libertarian Bill Redpath instead of Husted: \"Both parties suck, vote for the real conservative.\"", src:"https://www.newsweek.com/ohio-senate-race-brown-husted-third-party-midterms-12637655"},
     {date:"Jun 2026", sponsor:"Americans for Prosperity Ohio", side:"for", platform:"TV / digital", spend:"$1.75M one-week buy", message:"Supports Husted.", src:"https://spectrumnews1.com/oh/columbus/news/2026/06/05/ad-spending-ohio-senate"},
     {date:"Sep 2026", sponsor:"No Going Back PAC, America PAC and other GOP-aligned super PACs", side:"for", platform:"TV, digital, mail", spend:"~$14M combined in one week (Senate Leadership Fund + 5 others)", message:"Attack Sherrod Brown to bolster Husted.", src:"https://gvwire.com/2026/09/21/trump-linked-pop-up-pacs-blitz-ohio-with-ads-against-brown-in-costly-senate-race/"},
     {date:"Sep 18, 2026", sponsor:"Sherrod Brown campaign", side:"against", platform:"Online (X)", spend:"Not reported", message:"A voter says Husted voted \"to kick 490,000 Ohioans off their healthcare.\" PolitiFact rated it Half True.", src:"https://politifact.com/factchecks/2026/oct/09/sherrod-brown/jon-husted-health-insurance-490000-ohio-senate/"},
@@ -28,8 +32,9 @@ const ADS = {
     {date:"May–Jun 2026", sponsor:"Ramaswamy campaign + V-PAC: Victors, Not Victims (super PAC)", side:"for", platform:"Broadcast TV, streaming, cable, digital, radio", spend:"Nearly $9M (May 15–June 30)", message:"Themes of reinvigorating the \"American dream.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
   ],
   "amy acton": [
+    {date:"Oct 29–30, 2026", sponsor:"Amy Acton campaign", side:"for", platform:"TV and online", spend:"Not reported", message:"Responds to Ramaswamy's ad with Acton's own account of her childhood.", src:"https://actonforgovernor.com/cnn-acton-campaign-launches-new-ad-in-response-to-vivek-ramaswamy/"},
     {date:"May–Jun 2026", sponsor:"Acton campaign + 314 Action PAC", side:"for", platform:"Digital", spend:"Nearly $100K (AdImpact)", message:"Affordability; \"You can't buy Ohio.\"", src:"https://ohiocapitaljournal.com/2026/07/21/massive-spending-gap-in-ohio-governor-race-ramaswamy-drops-9m-on-ads-acton-spends-just-100k/"},
-    {date:"Oct 20, 2026", sponsor:"Ramaswamy for Ohio Governor campaign", side:"against", platform:"TV and streaming", spend:"$4M to promote it (campaign's stated plan)", message:"One-minute ad with Acton's estranged mother calling her \"a liar.\" It first spread online without a \"paid for by\" tag; the campaign later said it made the ad. From Oct 23 it switched to a 30-second version that drops the mother's claim that Acton never lived in a tent (ad tracker Medium Buying, via Raw Story).", src:"https://www.ajc.com/news/2026/10/ramaswamy-takes-responsibility-for-ad-with-amy-actons-mother-and-will-spend-millions-to-promote-it/"},
+    {date:"Oct 20, 2026", sponsor:"Ramaswamy for Ohio Governor campaign", side:"against", platform:"TV and streaming", spend:"$4M pledged; about $1M spent (AdImpact, per AP, Oct 30, 2026). Ramaswamy said Oct 29 its planned run was over.", message:"One-minute ad with Acton's estranged mother calling her \"a liar.\" It first spread online without a \"paid for by\" tag; the campaign later said it made the ad. From Oct 23 it switched to a 30-second version that drops the mother's claim that Acton never lived in a tent (ad tracker Medium Buying, via Raw Story).", src:"https://www.ajc.com/news/2026/10/ramaswamy-takes-responsibility-for-ad-with-amy-actons-mother-and-will-spend-millions-to-promote-it/"},
     {date:"Oct 24, 2026", sponsor:"V-PAC: Victors, Not Victims (pro-Ramaswamy super PAC)", side:"against", platform:"TV", spend:"Not reported by a named tracker", message:"Attacks Acton over investments in nine data centers it says raise energy costs.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
   ],
   "dan hawkins": [
@@ -37,8 +42,8 @@ const ADS = {
   ],
 };
 const RACE_AD_TOTALS = {
-  "jon husted": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"$431.7M spent or reserved (AdImpact, reported Oct 22, 2026) — second-most of any Senate race this cycle", src:"https://www.fox19.com/2026/10/22/ohios-us-senate-race-is-one-most-competitive-expensive-nation/"},
-  "sherrod brown": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"$431.7M spent or reserved (AdImpact, reported Oct 22, 2026) — second-most of any Senate race this cycle", src:"https://www.fox19.com/2026/10/22/ohios-us-senate-race-is-one-most-competitive-expensive-nation/"},
+  "jon husted": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"More than $500M spent or reserved (AdImpact, reported Oct 27, 2026); more than $40M more booked for Oct 27 through Election Day ($21.3M Republican, $19.1M Democratic; AdImpact via NBC4, Oct 31)", src:"https://www.cleveland19.com/2026/10/27/ohios-us-senate-race-tops-half-a-billion-dollars-ad-spending/"},
+  "sherrod brown": {label:"Brown vs. Husted 2026 — total ad spending to date", value:"More than $500M spent or reserved (AdImpact, reported Oct 27, 2026); more than $40M more booked for Oct 27 through Election Day ($21.3M Republican, $19.1M Democratic; AdImpact via NBC4, Oct 31)", src:"https://www.cleveland19.com/2026/10/27/ohios-us-senate-race-tops-half-a-billion-dollars-ad-spending/"},
   "vivek ramaswamy": {label:"Ramaswamy vs. Acton 2026 — ad spending gap", value:"$79.2M more spent on ads for Ramaswamy than for Acton (AdImpact, via Statehouse News Bureau, Oct 26, 2026)", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
   "amy acton": {label:"Ramaswamy vs. Acton 2026 — ad spending gap", value:"$79.2M more spent on ads for Ramaswamy than for Acton (AdImpact, via Statehouse News Bureau, Oct 26, 2026)", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
 };
