@@ -241,6 +241,7 @@ const FUNDERS = {
 
 /* Which funders paid for each fact-checked ad (keys of AD_CHECKS ids) */
 const AD_FUNDERS = {
+  "ramaswamy-cant-afford-acton": ["ramaswamy-campaign"],
   "brown-golden-boy": ["brown-campaign"],
   "winsenate-corruption": ["winsenate", "lcv-victory"],
   "brown-data-centers": ["brown-campaign"],
