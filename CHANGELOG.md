@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-11-09 — Weekly update (election results)
+Scan: 522 sources opened, 378 readable, 144 blocked (six parallel sweeps; the shared search budget ran out partway, so some per-outlet, fact-checker and social checks were not completed — see PR). All results below are unofficial until the Ohio SOS certifies them (county canvass due Nov 24).
+- Races box: now shows Nov 3 results with unofficial winners; RACES_2026 gains a `winner` field.
+- Brown: won the U.S. Senate special, 50.0% to 45.2% (Decision Desk HQ); victory speech (FOX19); Nov 6 priorities (WCPO); status, office and bio updated.
+- Husted: lost the Senate special; concession (Columbus Dispatch via Yahoo); status, office and bio updated.
+- Moreno: Oct 31 letter to Chillicothe's mayor (moreno.senate.gov); Nov 3 congratulations to Brown and Acton (his X account).
+- Acton: won governor's race by nearly 8 points (Statehouse News via WOUB); victory speech (FOX19); transition team (Morning Journal); now Governor-elect.
+- Ramaswamy: lost governor's race; concession (CityBeat); status and office updated.
+- DeWine: status names Acton as successor, inauguration Jan 11, 2027.
+- Kulewicz: won AG, 50.3% to 49.7% (WFMJ); plans (KUTV). Faber: lost AG; concession (WHIO).
+- Russo: won Secretary of State, 50.3% to 46.8% (Statehouse News); Issue 3 comments (ABC6); plans (Ohio Capital Journal via Yahoo). Sprague: lost; concession (Signal Ohio).
+- LaRose: won Auditor, 50.8% to 49.2% (Statehouse News); Election Day monitoring (Statehouse News); Toledo extended-voting dispute (WTOL via Yahoo); record turnout (Spectrum News). Blackwell: lost; office now Mayor of Maple Heights.
+- Walsh: won Treasurer, 50.6% to 49.4% (Statehouse News); victory statement (FOX19); council succession (Local 12). Edwards: lost; concession (WOSU).
+- Yost: status notes Kulewicz's election as AG.
+- Brunner: re-elected, 51.4% to 48.6% (Ohio Capital Journal via Yahoo); Estate of Price and OHSAA/Feister opinions (Court News Ohio; supremecourt.ohio.gov). O'Donnell: lost.
+- Zayas: won, 51.0% to 49.0%; justice-elect; court becomes 5–2 Republican. Hawkins: lost; term ends Dec 31; Estate of Price (Court News Ohio).
+- Kennedy, Fischer: Estate of Price (Nov 2) and OHSAA/Feister (Nov 5) decisions; Kennedy bio notes the coming 5–2 court.
+- Trump: midterm response (Newsweek); veto warning (theGrio); Oval Office National Monument proclamation (Roll Call Factbase). World: Qeshm Island strike (Stars and Stripes); Israel aid remarks (Al Jazeera); Dmitriev meeting (Reuters via The Star); Iran talks (AFP via Malay Mail). Civil rights: DOJ opposes Evanston's motion to dismiss (FOX 32).
+- Harris: midterm statement (theGrio); status updated.
+- Sanders: midterm response and HELP chairmanship plans (VTDigger).
+- Hardin: Issue 9 council expansion passed (ABC6). Ginther: Greenleaf Park groundbreaking (10TV via Yahoo).
+- Ads: governor's race final spending, $200M+ for Ramaswamy's side vs. at least $44M for Acton's (AdImpact via NBC4/CityBeat).
+- Ad Check: no new ad fact-checks found in the window.
+- UN A/RES/80/250: no new connections found.
+
 ## 2026-11-02 — Weekly update
 Scan: 307 sources opened, 181 readable, 126 blocked (six parallel sweeps; WebSearch budget ran out partway, so some social and outlet checks were not completed — see PR).
 - Trump (World): Oct 30 remarks on Iran talks (Times of Israel); Oct 20 remarks urging Ukraine to make a deal (PBS NewsHour).

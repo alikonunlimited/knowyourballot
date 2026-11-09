@@ -10,18 +10,20 @@ Object.assign(CANDIDATES, {
 
   "jon husted": {
     name: "Jon Husted", initials: "JH", party: "R", partyLabel: "Republican",
-    level: "Federal", state: "Ohio", office: "U.S. Senator, Ohio (appointed)",
+    level: "Federal", state: "Ohio", office: "U.S. Senator, Ohio (appointed; lost Nov 3, 2026 special election)",
     since: "Jan 21, 2025",
-    status: "ON THE 2026 BALLOT: Republican nominee in the U.S. Senate special election vs. Sherrod Brown (D), Nov 3, 2026.",
+    status: "Lost the Nov 3, 2026 U.S. Senate special election to Sherrod Brown (D) and conceded on election night (results unofficial until certified). He serves until Brown is sworn in.",
     born: "1967-08-25", birthplace: "Royal Oak, Michigan (raised in Montpelier, Ohio)",
     education: "Bachelor's and master's degrees, University of Dayton",
-    bio: "Former Ohio House Speaker, state senator, two-term Secretary of State and Lieutenant Governor under Mike DeWine. DeWine appointed him in January 2025 to the Senate seat JD Vance left to become vice president. He is running to finish that term against former Sen. Sherrod Brown in what AdImpact reports is the most expensive Senate race of the 2026 cycle.",
+    bio: "Former Ohio House Speaker, state senator, two-term Secretary of State and Lieutenant Governor under Mike DeWine. DeWine appointed him in January 2025 to the Senate seat JD Vance left to become vice president. He lost the Nov 3, 2026 special election for the rest of that term to former Sen. Sherrod Brown, in what AdImpact reported was the most expensive Senate race of the 2026 cycle.",
     elections: [
+      {year:"2026", race:"U.S. Senate special — general", result:"lost", detail:"45.2% to Sherrod Brown's 50.0% (unofficial; 2,077,750 to 2,301,042 votes, Decision Desk HQ count as of Nov 5)", src:"https://votes.decisiondeskhq.com/races/2026-11-03/ohio-us-senate-special-election-general"},
       {year:"2026", race:"U.S. Senate special — GOP primary", result:"won", detail:"Won the nomination; faces Sherrod Brown Nov 3", src:"https://www.vorys.com/publication-ohio-2026-primary-election-recap"},
       {year:"2014", race:"Ohio Secretary of State", result:"won", detail:"59.8% over Nina Turner (35.5%)", src:"https://ballotpedia.org/Jon_Husted"},
       {year:"2010", race:"Ohio Secretary of State", result:"won", detail:"53.7% over Maryellen O'Shaughnessy", src:"https://ballotpedia.org/Jon_Husted"},
     ],
     record: [
+      {name:"Concession speech", stance:"action", date:"Nov 3, 2026", detail:"\"I honor the decision of the voters, and I congratulate Sherrod Brown and all of those who won elections tonight in Ohio.\" Also said, \"No matter whether you're a Democrat or Republican, I want you to succeed.\"", src:"https://www.yahoo.com/news/politics/articles/sen-jon-husted-said-election-182743733.html"},
       {name:"Chillicothe rally with President Trump", stance:"action", date:"Oct 28, 2026", detail:"Said of Brown: \"He's been in office for over 50 years. Can you name a single thing that he's done to make your life better?\"", src:"https://www.wvxu.org/2026-10-29/president-donald-trump-rallies-supporters-in-chillicothe-in-third-ohio-rally-ahead-of-midterms"},
       {name:"Health care positions", stance:"action", date:"Oct 29, 2026", detail:"Says he is working across party lines on \"renewing the premium tax credit\"; backs more frequent Medicaid eligibility checks; sponsored a bill to make more drugs available over the counter.", src:"https://www.statenews.org/government-politics/2026-10-29/2026-race-for-u-s-senate-where-the-candidates-stand-on-health-issues"},
       {name:"Southbound cartel inspections bill (S.1138)", stance:"for", date:"Oct 14, 2026", detail:"Joined the bipartisan Hassan–Lankford bill requiring inspection of at least 10% of vehicles headed into Mexico and adding Homeland Security Investigations agents to counter gun, cash and drug smuggling.", src:"https://www.husted.senate.gov/media/press-releases/husted-joins-bill-to-disrupt-cartel-operations-prevent-flow-of-deadly-drugs-into-the-u-s/"},
@@ -54,17 +56,19 @@ Object.assign(CANDIDATES, {
 
   "vivek ramaswamy": {
     name: "Vivek Ramaswamy", initials: "VR", party: "R", partyLabel: "Republican",
-    level: "State", state: "Ohio", office: "Candidate for Governor of Ohio",
+    level: "State", state: "Ohio", office: "Former candidate for Governor of Ohio",
     since: "",
-    status: "ON THE 2026 BALLOT: Republican nominee for Governor vs. Amy Acton (D), Nov 3, 2026. Running mate: Senate President Rob McColley.",
+    status: "Lost the Nov 3, 2026 governor's race to Amy Acton (D) by nearly 8 points (unofficial; AP call). Conceded on election night.",
     born: "1985-08-09", birthplace: "Cincinnati, Ohio",
     education: "B.A. Biology, Harvard (2007); J.D., Yale Law School (2013)",
     bio: "Cincinnati-born biotech entrepreneur who founded Roivant Sciences and co-founded Strive Asset Management, an anti-ESG investment firm. Ran for the 2024 GOP presidential nomination, finishing fourth in Iowa before endorsing Trump, and was briefly named co-lead of the Department of Government Efficiency before leaving to run for governor. Endorsed by Donald Trump, the Ohio Republican Party and Gov. DeWine.",
     elections: [
+      {year:"2026", race:"Governor", result:"lost", detail:"Unofficial: lost to Amy Acton by nearly 8 points (364,388 votes)", src:"https://woub.org/2026/11/06/2026-election-ohio-close-races-surprise-endings-historic-results/"},
       {year:"2026", race:"Governor — GOP primary", result:"won", detail:"Over 82% (unofficial); faces Amy Acton Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
       {year:"2024", race:"Republican presidential primary", result:"lost", detail:"Withdrew on Jan 15, 2024, after the Iowa caucuses, and endorsed Trump", src:"https://ballotpedia.org/Vivek_Ramaswamy"},
     ],
     record: [
+      {name:"Concession", stance:"action", date:"Nov 3, 2026", detail:"Conceded in Columbus, calling it a \"tough night for us here in Ohio\" and saying \"It was a tough race. It was a bitter race, at times, in both directions.\" He said he called Acton and left a message.", src:"https://www.citybeat.com/news/amy-acton-wins-ohio-governors-race-2026/"},
       {name:"Day-one executive orders pledge", stance:"action", date:"Oct 30, 2026", detail:"Pledged to sign seven executive orders \"before midnight the first day I take office,\" targeting places where property taxes more than doubled since 2020, sanctuary-city policies, data-center approvals and Medicaid fraud; some would need a federal waiver or legislative action.", src:"https://www.yahoo.com/news/politics/articles/election-day-days-away-ramaswamy-205157621.html"},
       {name:"Tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes eliminating the state income tax and capital gains tax, starting in 2027, and rolling property tax bills back to 2021 levels with a cap on future growth.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
       {name:"Data centers", stance:"action", date:"Oct 2026", detail:"Opposes property-tax breaks for data centers and says they should supply their own power and cover neighbors' electricity costs; said he would sell his data-center-related investments if elected.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
@@ -102,16 +106,19 @@ Object.assign(CANDIDATES, {
 
   "amy acton": {
     name: "Amy Acton", initials: "AA", party: "D", partyLabel: "Democrat",
-    level: "State", state: "Ohio", office: "Candidate for Governor of Ohio",
+    level: "State", state: "Ohio", office: "Governor-elect of Ohio",
     since: "",
-    status: "ON THE 2026 BALLOT: Democratic nominee for Governor vs. Vivek Ramaswamy (R), Nov 3, 2026. Running mate: David Pepper.",
+    status: "GOVERNOR-ELECT: Won the Nov 3, 2026 governor's race over Vivek Ramaswamy (R) by nearly 8 points (unofficial; AP call). Takes office January 2027; public inauguration Jan 11, 2027. Running mate: David Pepper.",
     born: "1966-02-16", birthplace: "Youngstown, Ohio",
     education: "B.S., Youngstown State University; M.D., Northeast Ohio Medical University (1990); M.P.H., Ohio State University",
     bio: "Physician and public-health official who, as Gov. DeWine's Director of Health, led Ohio's early COVID-19 response in 2020 — the first woman in that job. She resigned in June 2020 amid legislative efforts to curb her authority and protests at her home. Her campaign centers on health-care costs, Medicaid and affordability.",
     elections: [
+      {year:"2026", race:"Governor", result:"won", detail:"Unofficial: beat Vivek Ramaswamy by nearly 8 points (364,388 votes); first woman elected Ohio governor", src:"https://woub.org/2026/11/06/2026-election-ohio-close-races-surprise-endings-historic-results/"},
       {year:"2026", race:"Governor — Democratic primary", result:"won", detail:"Unopposed; faces Vivek Ramaswamy Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
     ],
     record: [
+      {name:"Victory speech", stance:"action", date:"Nov 3, 2026", detail:"Said \"Tonight, Ohio has chosen unity and decency over division and hate\" and \"I will work with anyone and everyone, as I always have, to make life better for Ohioans.\"", src:"https://www.fox19.com/2026/11/04/amy-acton-elected-ohios-71st-governor/"},
+      {name:"Transition team", stance:"action", date:"Nov 6, 2026", detail:"Launched the transition website govelectacton.com, which takes applications for administration jobs, and named John Haseley, former chief of staff to Gov. Ted Strickland, to chair her transition.", src:"https://www.morningjournalnews.com/news/local-news/2026/11/acton-launches-transition-website-names-team-chairman/"},
       {name:"Closing pledge on taxes", stance:"action", date:"Oct 30, 2026", detail:"Told voters \"I will not be raising taxes\" and said she is \"ready to come in fighting on day one\" on costs, citing her working-families tax cut, child tax credit, medical-debt relief and property-tax proposals; several would need legislative approval.", src:"https://www.yahoo.com/news/politics/articles/election-day-days-away-ramaswamy-205157621.html"},
       {name:"Tax and property-tax plan", stance:"action", date:"Oct 21, 2026", detail:"Proposes a \"working families' tax cut\" (an earned income tax credit and child tax credits up to $1,000 for incomes up to $85,000), a $50,000 income cap for the homestead exemption, rebates of up to $1,000 when property taxes rise more than 4%, and full funding of the Fair School Funding Plan.", src:"https://www.wosu.org/2026-10-21/2026-race-for-ohio-governor-the-candidates-on-tax-policies-theyd-put-in-place"},
       {name:"Data-center moratorium", stance:"action", date:"Jul 2026", detail:"Called for a conditional moratorium on new data centers until they pay their own taxes, provide their own energy and meet labor, environmental and community-agreement conditions; it would need legislation.", src:"https://www.statenews.org/government-politics/2026-10-26/candidates-for-ohio-governor-focus-on-data-centers-in-last-week-of-campaign"},
@@ -147,16 +154,18 @@ Object.assign(CANDIDATES, {
 
   "john kulewicz": {
     name: "John J. Kulewicz", initials: "JK", party: "D", partyLabel: "Democrat",
-    level: "State", state: "Ohio", office: "Upper Arlington City Council; candidate for Ohio Attorney General",
+    level: "State", state: "Ohio", office: "Ohio Attorney General-elect; Upper Arlington City Council",
     since: "",
-    status: "ON THE 2026 BALLOT: Democratic nominee for Attorney General vs. Keith Faber (R), Nov 3, 2026.",
+    status: "WON: Elected Ohio Attorney General Nov 3, 2026, 50.3% to 49.7% over Keith Faber (R) (unofficial; Faber conceded Nov 4). Takes office January 2027.",
     born: null, birthplace: "",
     education: "B.A. American History, Ohio State University; J.D., Yale Law School",
     bio: "Retired after 44 years as a litigation and appeals partner at Columbus law firm Vorys, Sater, Seymour and Pease, where he argued cases at the U.S. and Ohio Supreme Courts. Elected to Upper Arlington City Council in 2019. His campaign stresses fair electric rates, consumer-fraud enforcement and wage-theft protection.",
     elections: [
+      {year:"2026", race:"Attorney General", result:"won", detail:"50.3% (2,285,117) to Keith Faber's 49.7% (2,256,710), a 28,407-vote margin; unofficial, Faber conceded Nov 4", src:"https://www.wfmj.com/news/local-news/john-kulewicz-to-serve-as-next-ohio-attorney-general/article_bf8755e4-ebc8-4e48-a485-3164c81aee85.html"},
       {year:"2026", race:"Attorney General — Democratic primary", result:"won", detail:"63.1% over Elliot Forhan (36.9%)", src:"https://ballotpedia.org/John_Kulewicz"},
     ],
     record: [
+      {name:"Claims victory; plans as attorney general", stance:"action", date:"Nov 4, 2026", detail:"Said Faber called to concede and that \"in seventy days, I will begin serving\" as attorney general. Named Medicaid fraud enforcement a priority and said he would continue the FirstEnergy executives' prosecution.", src:"https://kutv.com/news/nation-world/ohios-presumed-ag-elect-wants-to-investigate-fraud-allegation-prosecution-gap-justice-crime-investigation-public-policy"},
       {name:"Attorney general debate positions", stance:"action", date:"Oct 19, 2026", detail:"At the Youngstown State debate, said a warrant should be required to search Flock camera records more than 48 hours old, that the death penalty should be reserved for the most severe offenses, and that he would proceed with the FirstEnergy retrial.", src:"https://www.tribtoday.com/news/local-news/2026/10/attorney-general-candidates-debate-on-ysu-campus/"},
       {name:"Price-gouging and false-claims laws", stance:"action", date:"Oct 2026", detail:"Proposes working with the legislature on a price-gouging ban, noting Ohio is one of few states without one, and says a state false claims law is \"urgently\" needed.", src:"https://www.daytondailynews.com/local/election-2026-ohio-auditor-columbus-area-councilman-vie-to-become-state-attorney-general/article_49d4f813-92ca-5e79-a224-9aef91b5d95d.html"},
       {name:"Campaign priorities", stance:"action", date:"2026", detail:"Fair electric rates, fighting consumer fraud and protecting workers from wage theft.", src:"https://www.wfmj.com/news/political/kulewicz-projected-to-win-democratic-primary-for-oh-attorney-general/article_f61c29ab-ce8a-4880-a71d-69aea84af29a.html"},
@@ -177,18 +186,21 @@ Object.assign(CANDIDATES, {
 
   "allison russo": {
     name: "Allison Russo", initials: "AR", party: "D", partyLabel: "Democrat",
-    level: "State", state: "Ohio", office: "State Representative, Ohio House District 7",
+    level: "State", state: "Ohio", office: "Ohio Secretary of State-elect; State Representative, Ohio House District 7",
     since: "Jan 2019",
-    status: "ON THE 2026 BALLOT: Democratic nominee for Secretary of State vs. Robert Sprague (R), Nov 3, 2026.",
+    status: "WON: Elected Ohio Secretary of State Nov 3, 2026, 50.3% to Robert Sprague's (R) 46.8% (unofficial; AP call; Sprague conceded). Takes office January 2027, succeeding Frank LaRose.",
     born: "1976-10-15", birthplace: "",
     education: "B.S., Mississippi University for Women; M.P.H. (epidemiology), University of Alabama at Birmingham; Ph.D. health policy, George Washington University",
     bio: "Health-policy researcher who has served in the Ohio House since 2019 and led House Democrats as Minority Leader from 2022 to 2025. Sat on the Ohio Redistricting Commission, where she voted for the 2023 legislative maps. Lost a 2021 special election for Congress before winning the 2026 Democratic nomination for Secretary of State.",
     elections: [
+      {year:"2026", race:"Secretary of State", result:"won", detail:"50.3% (2,287,160) over Robert Sprague (46.8%) and Libertarian Tom Pruss (2.9%); unofficial, a 157,179-vote margin", src:"https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"},
       {year:"2026", race:"Secretary of State — Democratic primary", result:"won", detail:"67.4% over Bryan Hambley", src:"https://ballotpedia.org/Allison_Russo"},
       {year:"2021", race:"U.S. House, Ohio 15th (special)", result:"lost", detail:"41.7% to Mike Carey's 58.3%", src:"https://ohiocapitaljournal.com/2021/11/02/republican-mike-carey-wins-oh-15-special-election/"},
       {year:"2018", race:"Ohio House, District 24", result:"won", detail:"57% over Erik Yassenoff", src:"https://ballotpedia.org/Allison_Russo"},
     ],
     record: [
+      {name:"Comments on Issue 3 voter ID amendment", stance:"action", date:"Nov 4, 2026", detail:"After the voter photo ID amendment passed, said she is concerned about its effect on early, mail-in and drop-box voting: \"I suspect some of those questions will end up being challenged in the judicial process.\"", src:"https://abc6onyourside.com/news/election/ohio-secretary-of-state-elect-voices-concerns-after-voter-id-measure-passes-allison-russo-abc-investigates-constitution-issue-3-representative-ohio-supreme-court-legal-action-questions"},
+      {name:"Plans as Secretary of State", stance:"action", date:"Nov 9, 2026", detail:"Said reviewing LaRose's directives with county election officials would be \"one of the first orders of business,\" and that she will look at early-voting hours and propose plain, unbiased ballot language.", src:"https://www.yahoo.com/news/politics/articles/incoming-dem-ohio-secretary-state-085525160.html"},
       {name:"Secretary of State platform", stance:"action", date:"Oct 20, 2026", detail:"Opposes State Issue 3 because it would lock a narrow list of IDs into the constitution; supports more than one ballot drop box per county; says \"I have no issue with voter ID or even photo ID\" but objects to rules that exclude groups of voters.", src:"https://signalohio.org/ohio-secretary-of-state-candidate-allison-russo-wants-more-voter-drop-boxes-november-election-2026/"},
       {name:"2023 legislative maps", stance:"for", date:"Sep 2023", detail:"Joined Republicans on the Redistricting Commission in unanimously approving new maps, calling it \"the best of two bad options.\"", src:"https://signalohio.org/ohio-democratic-secretary-of-state-candidate-allison-russo-criticized-for-past-vote-on-gop-map/"},
       {name:"Speaker vote", stance:"action", date:"Jan 2023", detail:"Backed moderate Republican Jason Stephens for Speaker along with House Democrats.", src:"https://ohiocapitaljournal.com/2023/01/04/moderate-republican-jason-stephens-snatches-ohio-house-speaker-position-in-surprise-upset/"},
@@ -211,13 +223,14 @@ Object.assign(CANDIDATES, {
 
   "annette blackwell": {
     name: "Annette Blackwell", initials: "AB", party: "D", partyLabel: "Democrat",
-    level: "State", state: "Ohio", office: "Mayor of Maple Heights; candidate for Ohio Auditor",
+    level: "State", state: "Ohio", office: "Mayor of Maple Heights",
     since: "Mayor since 2016",
-    status: "ON THE 2026 BALLOT: Democratic nominee for Auditor of State vs. Frank LaRose (R), Nov 3, 2026.",
+    status: "Lost the 2026 Auditor of State race to Frank LaRose (R), 49.2% to 50.8% (unofficial, Nov 3, 2026). Remains Mayor of Maple Heights.",
     born: null, birthplace: "",
     education: "Bachelor's degree, Ursuline College",
     bio: "Maple Heights' first Black and first woman mayor, in office since 2016. Before that she spent years as a property-tax analyst and worked at KeyBank and University Hospitals. She led the city out of state fiscal emergency; it has since received clean-audit awards from the Auditor's office.",
     elections: [
+      {year:"2026", race:"Auditor of State", result:"lost", detail:"49.2% (2,237,955) to Frank LaRose's 50.8% (2,310,105); unofficial", src:"https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"},
       {year:"2026", race:"Auditor of State — Democratic primary", result:"won", detail:"Unopposed; faces Frank LaRose Nov 3", src:"https://ballotpedia.org/Annette_Blackwell"},
     ],
     record: [
@@ -238,18 +251,20 @@ Object.assign(CANDIDATES, {
 
   "jay edwards": {
     name: "Jay Edwards", initials: "JE", party: "R", partyLabel: "Republican",
-    level: "State", state: "Ohio", office: "Former State Representative; candidate for Ohio Treasurer",
+    level: "State", state: "Ohio", office: "Former State Representative",
     since: "",
-    status: "ON THE 2026 BALLOT: Republican nominee for Treasurer vs. Seth Walsh (D), Nov 3, 2026 (open seat).",
+    status: "Lost the 2026 Treasurer race to Seth Walsh (D), 49.4% to 50.6% (unofficial, Nov 3, 2026); conceded Nov 4.",
     born: null, birthplace: "Nelsonville, Ohio",
     education: "B.A. Mathematics, Ohio University",
     bio: "Former realtor and property investor from Nelsonville who represented Ohio House District 94 from 2017 to 2024 and chaired the House Finance Committee in 2023–2024. Backed by Vice President JD Vance, he narrowly won the 2026 GOP primary for Treasurer over state Sen. Kristina Roegner.",
     elections: [
+      {year:"2026", race:"Treasurer", result:"lost", detail:"49.4% (2,232,758) to Seth Walsh's 50.6% (2,282,546), a 49,788-vote margin; unofficial, conceded", src:"https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"},
       {year:"2026", race:"Treasurer — GOP primary", result:"won", detail:"53.1% over Kristina Roegner (46.9%)", src:"https://ballotpedia.org/Jay_Edwards"},
       {year:"2022", race:"Ohio House, District 94", result:"won", detail:"60.4% over Tanya Conrath", src:"https://ballotpedia.org/Jay_Edwards"},
       {year:"2016", race:"Ohio House, District 94", result:"won", detail:"57.8% over Sarah Grace", src:"https://ballotpedia.org/Jay_Edwards"},
     ],
     record: [
+      {name:"Concedes Treasurer race", stance:"action", date:"Nov 4, 2026", detail:"Wrote on Facebook: \"Last night didn't go our way\" and \"I lost this one. I'm not done.\"", src:"https://www.wosu.org/politics-government/2026-11-04/kulewicz-apparently-wins-race-for-ohio-attorney-general-dems-win-and-lead-in-other-statewide-races"},
       {name:"Browns stadium unclaimed funds", stance:"against", date:"Sep–Oct 2026", detail:"Has voiced opposition to using $600 million in unclaimed funds for a Browns stadium. His campaign received $15,000 each from Browns owners Jimmy and Dee Haslam; he says the donations don't affect his views.", src:"https://www.daytondailynews.com/local/former-gop-lawmaker-cincy-councilman-compete-for-ohio-treasurer-election-2026/article_52510efe-5bea-57e8-8910-534371cd62bd.html"},
       {name:"Vote on expelling Speaker Larry Householder", stance:"against", date:"Jun 2021", detail:"Was one of 21 House Republicans who voted against expelling the indicted former speaker; the House expelled him 75–21.", src:"https://ohiocapitaljournal.com/2021/06/16/nearly-a-year-after-a-racketeering-indictment-ohio-house-expels-householder/"},
       {name:"Chair, House Finance Committee", stance:"action", date:"2023–2024", detail:"Led the committee that writes the state budget.", src:"https://ballotpedia.org/Jay_Edwards"},
@@ -268,18 +283,21 @@ Object.assign(CANDIDATES, {
 
   "seth walsh": {
     name: "Seth Walsh", initials: "SW", party: "D", partyLabel: "Democrat",
-    level: "Local", state: "Ohio", office: "Cincinnati City Council; candidate for Ohio Treasurer",
+    level: "Local", state: "Ohio", office: "Ohio Treasurer-elect; Cincinnati City Council",
     since: "Council since late 2022",
-    status: "ON THE 2026 BALLOT: Democratic nominee for Treasurer vs. Jay Edwards (R), Nov 3, 2026 (open seat).",
+    status: "WON: Elected Ohio Treasurer Nov 3, 2026, 50.6% to 49.4% over Jay Edwards (R) (unofficial; Edwards conceded). Takes office Jan. 11, 2027; leaving Cincinnati City Council.",
     born: null, birthplace: "",
     education: "",
     bio: "Cincinnati City Council member, appointed in 2022 and elected in 2023 and 2025. Previously CEO of the College Hill Community Urban Redevelopment Corporation, which he says had a $2 million-plus operating budget and over $30 million in assets. Lost a 2016 race for Hamilton County Treasurer.",
     elections: [
+      {year:"2026", race:"Treasurer", result:"won", detail:"50.6% (2,282,546) to Jay Edwards' 49.4% (2,232,758), a 49,788-vote margin; unofficial", src:"https://www.statenews.org/government-politics/2026-11-05/2026-election-in-ohio-delivered-close-races-surprise-endings-and-historic-results"},
       {year:"2026", race:"Treasurer — Democratic primary", result:"won", detail:"Unopposed; faces Jay Edwards Nov 3", src:"https://ballotpedia.org/Seth_Walsh"},
       {year:"2025", race:"Cincinnati City Council", result:"won", detail:"Re-elected (7.2%, top-nine at-large)", src:"https://ballotpedia.org/Seth_Walsh"},
       {year:"2023", race:"Cincinnati City Council", result:"won", detail:"9.0%, top-nine at-large", src:"https://ballotpedia.org/Seth_Walsh"},
     ],
     record: [
+      {name:"Victory statement", stance:"action", date:"Nov 4, 2026", detail:"Said \"Ohioans made their voices heard and chose a future rooted in accountability and transparency.\"", src:"https://www.fox19.com/2026/11/04/two-cincinnati-council-members-leave-by-end-year-what-happens-next/"},
+      {name:"Council succession plan", stance:"action", date:"Nov 5, 2026", detail:"Under the city charter he and Council Member Meeka Owens each named the other in their succession plans; he said he expects his successor to be chosen before the holidays.", src:"https://local12.com/news/local/how-will-cincinnati-replace-two-council-members-who-were-elected-new-roles-seth-walsh-meeka-owens-election-elect-voting-voters-november-ballot-treasurer-commissioner-democrat-democrats"},
       {name:"Browns stadium unclaimed funds", stance:"against", date:"Sep–Oct 2026", detail:"Says the treasurer should join the lawsuit over using unclaimed funds for a Browns stadium (\"that's real peoples' money\") and called Edwards' acceptance of Haslam donations suspicious.", src:"https://www.daytondailynews.com/local/former-gop-lawmaker-cincy-councilman-compete-for-ohio-treasurer-election-2026/article_52510efe-5bea-57e8-8910-534371cd62bd.html"},
     ],
     controversies: [],
@@ -297,13 +315,14 @@ Object.assign(CANDIDATES, {
 
   "colleen o'donnell": {
     name: "Colleen O'Donnell", initials: "CO", party: "R", partyLabel: "Republican",
-    level: "State", cat: "judicial", state: "Ohio", office: "Former Franklin County Common Pleas Judge; candidate for Ohio Supreme Court",
+    level: "State", cat: "judicial", state: "Ohio", office: "Former Franklin County Common Pleas Judge",
     since: "",
-    status: "ON THE 2026 BALLOT: Republican nominee for Ohio Supreme Court vs. Justice Jennifer Brunner (D), Nov 3, 2026.",
+    status: "Lost the Nov 3, 2026 Ohio Supreme Court race to Justice Jennifer Brunner (D), 48.6%–51.4% (unofficial).",
     born: null, birthplace: "",
     education: "B.A. Political Science, Miami University (2003); J.D., Case Western Reserve University (2006)",
     bio: "Served as a Franklin County Common Pleas judge from 2013 to 2023 after work as a federal law clerk, an assistant attorney general in consumer protection and a Columbus litigator. Lost bids for the Tenth District Court of Appeals in 2020 and re-election in 2022, then won a four-way 2026 GOP primary for the Supreme Court seat held by Jennifer Brunner.",
     elections: [
+      {year:"2026", race:"Ohio Supreme Court", result:"lost", detail:"48.6% to Jennifer Brunner (51.4%); unofficial results, not yet certified", src:"https://www.yahoo.com/news/politics/articles/democratic-candidates-jennifer-brunner-marilyn-222656700.html"},
       {year:"2026", race:"Ohio Supreme Court — GOP primary", result:"won", detail:"Won four-way primary over Andrew King, Jill Flagg Lanzinger and Ronald Lewis", src:"https://www.vorys.com/publication-ohio-2026-primary-election-recap"},
       {year:"2022", race:"Franklin County Common Pleas", result:"lost", detail:"44.8% to Andria Noble", src:"https://ballotpedia.org/Colleen_O%27Donnell"},
       {year:"2020", race:"Tenth District Court of Appeals", result:"lost", detail:"48.5% to Michael Mentel", src:"https://ballotpedia.org/Colleen_O%27Donnell"},
@@ -328,18 +347,20 @@ Object.assign(CANDIDATES, {
 
   "dan hawkins": {
     name: "Dan Hawkins", initials: "DH", party: "R", partyLabel: "Republican",
-    level: "State", cat: "judicial", state: "Ohio", office: "Justice, Supreme Court of Ohio",
+    level: "State", cat: "judicial", state: "Ohio", office: "Justice, Supreme Court of Ohio (term ends Dec 31, 2026)",
     since: "Dec 10, 2024",
-    status: "ON THE 2026 BALLOT: Hawkins (R) vs. Marilyn Zayas (D) for a full term on the Ohio Supreme Court, Nov 3, 2026.",
+    status: "Lost the Nov 3, 2026 race for a full term to Marilyn Zayas (D), 49.0%–51.0% (unofficial). His current term ends Dec 31, 2026.",
     born: null, birthplace: "",
     education: "B.S. Criminal Justice, Bowling Green State University (1998); J.D., Ohio State University (2001)",
     bio: "Former Franklin County assistant prosecutor, municipal judge and Common Pleas judge who won a 2024 special election for the Ohio Supreme Court and took office in December 2024. His current term ends Dec 31, 2026.",
     elections: [
+      {year:"2026", race:"Ohio Supreme Court", result:"lost", detail:"49.0% to Marilyn Zayas (51.0%); unofficial results, not yet certified", src:"https://www.yahoo.com/news/politics/articles/democratic-candidates-jennifer-brunner-marilyn-222656700.html"},
       {year:"2026", race:"Ohio Supreme Court — GOP primary", result:"won", detail:"Unopposed; faces Marilyn Zayas Nov 3", src:"https://www.vorys.com/publication-ohio-2026-primary-election-recap"},
       {year:"2024", race:"Ohio Supreme Court (special)", result:"won", detail:"55.0% over Lisa Forbes (45.0%)", src:"https://ballotpedia.org/Dan_Hawkins_(Ohio)"},
       {year:"2018", race:"Franklin County Common Pleas", result:"won", detail:"50.3% over Carl Aveni", src:"https://ballotpedia.org/Dan_Hawkins_(Ohio)"},
     ],
-    record: [], controversies: [],
+    record: [
+      {name:"Estate of Price v. Kidney Care Specialists", stance:"ruling", date:"Nov 2, 2026", detail:"Joined Justice Deters' 7–0 majority holding that a trial court must weigh all of a prospective juror's answers on a for-cause challenge, overruling two earlier precedents but affirming the verdict.", src:"https://courtnewsohio.gov/cases/2026/SCO/1102/241373.asp"},], controversies: [],
     career: [
       {year:"2001", event:"Franklin County Prosecutor's Office", detail:""},
       {year:"2019", event:"Franklin County Common Pleas Judge", detail:"Elected 2018"},
@@ -355,13 +376,14 @@ Object.assign(CANDIDATES, {
 
   "marilyn zayas": {
     name: "Marilyn Zayas", initials: "MZ", party: "D", partyLabel: "Democrat",
-    level: "State", cat: "judicial", state: "Ohio", office: "Judge, Ohio First District Court of Appeals",
+    level: "State", cat: "judicial", state: "Ohio", office: "Judge, Ohio First District Court of Appeals; Ohio Supreme Court justice-elect",
     since: "Nov 2016",
-    status: "ON THE 2026 BALLOT: Zayas (D) vs. Justice Dan Hawkins (R) for the Ohio Supreme Court, Nov 3, 2026.",
+    status: "Won the Nov 3, 2026 Ohio Supreme Court race over Justice Dan Hawkins (R), 51.0%–49.0% (unofficial). Takes office in January 2027, making the court 5–2 Republican.",
     born: null, birthplace: "",
     education: "B.A., City College of New York (1987); J.D., University of Cincinnati College of Law (1997)",
     bio: "Cincinnati appeals judge since 2016 who previously worked as an IT manager at Procter & Gamble and spent nearly 20 years in private law practice. She has served as a visiting judge on the Ohio Supreme Court and sits on its Ethics, Professionalism and Diversity Committee. She lost a 2022 Supreme Court race to Justice Pat DeWine.",
     elections: [
+      {year:"2026", race:"Ohio Supreme Court", result:"won", detail:"51.0% over Justice Dan Hawkins (49.0%); unofficial results, not yet certified", src:"https://www.yahoo.com/news/politics/articles/democratic-candidates-jennifer-brunner-marilyn-222656700.html"},
       {year:"2026", race:"Ohio Supreme Court — Democratic primary", result:"won", detail:"Unopposed; faces Dan Hawkins Nov 3", src:"https://ballotpedia.org/Marilyn_Zayas"},
       {year:"2024", race:"First District Court of Appeals", result:"won", detail:"56.2% over Stacy Lefton", src:"https://ballotpedia.org/Marilyn_Zayas"},
       {year:"2022", race:"Ohio Supreme Court", result:"lost", detail:"43.7% to Pat DeWine (56.3%)", src:"https://ballotpedia.org/Marilyn_Zayas"},
@@ -383,15 +405,15 @@ Object.assign(CANDIDATES, {
   },
 });
 
-/* Head-to-head races on the Nov 3, 2026 ballot */
+/* Head-to-head races on the Nov 3, 2026 ballot. winner = unofficial result (AP calls / Ohio SOS unofficial count, Nov 2026) until certified. */
 const RACES_2026 = [
-  {race:"U.S. Senate (special)", a:"jon husted", b:"sherrod brown"},
-  {race:"Governor", a:"vivek ramaswamy", b:"amy acton"},
-  {race:"Attorney General", a:"keith faber", b:"john kulewicz"},
-  {race:"Secretary of State", a:"robert sprague", b:"allison russo"},
-  {race:"Auditor of State", a:"frank larose", b:"annette blackwell"},
-  {race:"Treasurer", a:"jay edwards", b:"seth walsh"},
-  {race:"Ohio Supreme Court", a:"colleen o'donnell", b:"jennifer brunner"},
-  {race:"Ohio Supreme Court", a:"dan hawkins", b:"marilyn zayas"},
+  {race:"U.S. Senate (special)", a:"jon husted", b:"sherrod brown", winner:"sherrod brown"},
+  {race:"Governor", a:"vivek ramaswamy", b:"amy acton", winner:"amy acton"},
+  {race:"Attorney General", a:"keith faber", b:"john kulewicz", winner:"john kulewicz"},
+  {race:"Secretary of State", a:"robert sprague", b:"allison russo", winner:"allison russo"},
+  {race:"Auditor of State", a:"frank larose", b:"annette blackwell", winner:"frank larose"},
+  {race:"Treasurer", a:"jay edwards", b:"seth walsh", winner:"seth walsh"},
+  {race:"Ohio Supreme Court", a:"colleen o'donnell", b:"jennifer brunner", winner:"jennifer brunner"},
+  {race:"Ohio Supreme Court", a:"dan hawkins", b:"marilyn zayas", winner:"marilyn zayas"},
 ];
 const OPPONENT_PAIRS = RACES_2026.reduce((m,r)=>{ (m[r.a]=m[r.a]||[]).push(r.b); (m[r.b]=m[r.b]||[]).push(r.a); return m; }, {});

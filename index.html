@@ -1849,9 +1849,11 @@ function renderRaces(){
   const el=document.getElementById('racesBox'); if(!el||typeof RACES_2026==='undefined') return;
   const pill=k=>{const c=CANDIDATES[k]; if(!c) return ''; const p=(c.party||'I').toLowerCase();
     return `<button class="race-cand party-${p}" onclick="openCandidate('${k.replace(/'/g,"\\'")}')"><span class="race-dot avatar-${p}">${esc(c.party)}</span>${esc(c.name)}</button>`;};
-  el.innerHTML=`<div class="un-kicker" style="color:var(--accent2)">Your Nov 3, 2026 ballot · Ohio</div>
+  const won=r=>r.winner?`<div class="race-name" style="margin-top:2px;font-weight:600">Winner (unofficial): ${esc((CANDIDATES[r.winner]||{}).name||'')}</div>`:'';
+  el.innerHTML=`<div class="un-kicker" style="color:var(--accent2)">Nov 3, 2026 results · Ohio</div>
     <div class="un-title" style="margin-bottom:10px">Compare the candidates, race by race</div>
-    ${RACES_2026.map(r=>`<div class="race-row"><div class="race-name">${esc(r.race)}</div><div class="race-pair">${pill(r.a)}<span class="race-vs">vs</span>${pill(r.b)}</div></div>`).join('')}`;
+    ${RACES_2026.map(r=>`<div class="race-row"><div class="race-name">${esc(r.race)}</div><div class="race-pair">${pill(r.a)}<span class="race-vs">vs</span>${pill(r.b)}</div>${won(r)}</div>`).join('')}
+    <div class="race-name" style="margin-top:8px">Results are unofficial until the Ohio Secretary of State certifies them (county canvass due Nov 24).</div>`;
 }
 
 
