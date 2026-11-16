@@ -12,7 +12,7 @@ Object.assign(CANDIDATES, {
     name: "Jon Husted", initials: "JH", party: "R", partyLabel: "Republican",
     level: "Federal", state: "Ohio", office: "U.S. Senator, Ohio (appointed; lost Nov 3, 2026 special election)",
     since: "Jan 21, 2025",
-    status: "Lost the Nov 3, 2026 U.S. Senate special election to Sherrod Brown (D) and conceded on election night (results unofficial until certified). He serves until Brown is sworn in.",
+    status: "Lost the Nov 3, 2026 U.S. Senate special election to Sherrod Brown (D) and conceded on election night (results unofficial until certified). His term ends Dec 15, 2026 under Ohio law; the Secretary of State's office said LaRose \"will follow the law, which requires Senator Husted to fulfill his full term.\"",
     born: "1967-08-25", birthplace: "Royal Oak, Michigan (raised in Montpelier, Ohio)",
     education: "Bachelor's and master's degrees, University of Dayton",
     bio: "Former Ohio House Speaker, state senator, two-term Secretary of State and Lieutenant Governor under Mike DeWine. DeWine appointed him in January 2025 to the Senate seat JD Vance left to become vice president. He lost the Nov 3, 2026 special election for the rest of that term to former Sen. Sherrod Brown, in what AdImpact reported was the most expensive Senate race of the 2026 cycle.",
@@ -23,6 +23,9 @@ Object.assign(CANDIDATES, {
       {year:"2010", race:"Ohio Secretary of State", result:"won", detail:"53.7% over Maryellen O'Shaughnessy", src:"https://ballotpedia.org/Jon_Husted"},
     ],
     record: [
+      {name:"Lame-duck judicial confirmation", stance:"for", date:"Nov 12, 2026", detail:"Voted to confirm Gregory Carl Cook as U.S. District Judge for the Northern District of Alabama (confirmed 49–27, roll call 260).", src:"https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00260.htm"},
+      {name:"Permitting overhaul advances (Bipartisan American Affordability and Jobs Act)", stance:"for", date:"Nov 9, 2026", detail:"Voted yes as the Senate invoked cloture, 73–25, to take up the Capito–Heinrich permitting bill, which changes NEPA, Clean Water Act and Endangered Species Act reviews and includes a Ratepayer Protection Act meant to make new data centers pay their own power costs (roll call 257, on H.R. 2347). Final passage is pending.", src:"https://www.senate.gov/legislative/LIS/roll_call_votes/vote1192/vote_119_2_00257.htm"},
+      {name:"Dayton Aviation Heritage park expansion", stance:"for", date:"Nov 11, 2026", detail:"His bill expanding the boundary of Dayton Aviation Heritage National Historical Park, co-led by Sen. Moreno, passed the Senate by unanimous consent on Nov 10 (S. 2434): \"I'm proud to support efforts that keep Dayton Aviation Heritage National Park showcasing its accomplishments.\"", src:"https://www.husted.senate.gov/media/press-releases/husted-led-bill-to-expand-dayton-aviation-heritage-national-historical-park-passes-senate/"},
       {name:"Concession speech", stance:"action", date:"Nov 3, 2026", detail:"\"I honor the decision of the voters, and I congratulate Sherrod Brown and all of those who won elections tonight in Ohio.\" Also said, \"No matter whether you're a Democrat or Republican, I want you to succeed.\"", src:"https://www.yahoo.com/news/politics/articles/sen-jon-husted-said-election-182743733.html"},
       {name:"Chillicothe rally with President Trump", stance:"action", date:"Oct 28, 2026", detail:"Said of Brown: \"He's been in office for over 50 years. Can you name a single thing that he's done to make your life better?\"", src:"https://www.wvxu.org/2026-10-29/president-donald-trump-rallies-supporters-in-chillicothe-in-third-ohio-rally-ahead-of-midterms"},
       {name:"Health care positions", stance:"action", date:"Oct 29, 2026", detail:"Says he is working across party lines on \"renewing the premium tax credit\"; backs more frequent Medicaid eligibility checks; sponsored a bill to make more drugs available over the counter.", src:"https://www.statenews.org/government-politics/2026-10-29/2026-race-for-u-s-senate-where-the-candidates-stand-on-health-issues"},
@@ -117,6 +120,8 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Governor — Democratic primary", result:"won", detail:"Unopposed; faces Vivek Ramaswamy Nov 3", src:"https://www.wyso.org/2026-05-05/vivek-ramaswamy-scores-big-win-in-gop-primary-for-governor-will-face-amy-acton-this-fall"},
     ],
     record: [
+      {name:"Transition co-chairs named", stance:"action", date:"Nov 2026", detail:"Named three co-chairs under transition chair John Haseley: Elisabeth Hire (operations), Gale King (talent) and Janetta King (policy).", src:"https://warrencountypost.com/g/lebanon-oh/n/398328/governor-elect-amy-acton-announces-transition-co-chairs"},
+      {name:"First post-election interview", stance:"action", date:"Nov 6, 2026", detail:"Told NBC4 her early priorities include \"transparency around the voucher situation\" and preparing for Medicaid cuts she said \"are going to be devastating in January '27.\" Pledged at least one Republican in her cabinet. On not answering Vivek Ramaswamy's concession call: \"I am not going to normalize this behavior.\"", src:"https://www.yahoo.com/news/politics/articles/ohio-next-governor-amy-acton-224737688.html"},
       {name:"Victory speech", stance:"action", date:"Nov 3, 2026", detail:"Said \"Tonight, Ohio has chosen unity and decency over division and hate\" and \"I will work with anyone and everyone, as I always have, to make life better for Ohioans.\"", src:"https://www.fox19.com/2026/11/04/amy-acton-elected-ohios-71st-governor/"},
       {name:"Transition team", stance:"action", date:"Nov 6, 2026", detail:"Launched the transition website govelectacton.com, which takes applications for administration jobs, and named John Haseley, former chief of staff to Gov. Ted Strickland, to chair her transition.", src:"https://www.morningjournalnews.com/news/local-news/2026/11/acton-launches-transition-website-names-team-chairman/"},
       {name:"Closing pledge on taxes", stance:"action", date:"Oct 30, 2026", detail:"Told voters \"I will not be raising taxes\" and said she is \"ready to come in fighting on day one\" on costs, citing her working-families tax cut, child tax credit, medical-debt relief and property-tax proposals; several would need legislative approval.", src:"https://www.yahoo.com/news/politics/articles/election-day-days-away-ramaswamy-205157621.html"},
@@ -165,6 +170,8 @@ Object.assign(CANDIDATES, {
       {year:"2026", race:"Attorney General — Democratic primary", result:"won", detail:"63.1% over Elliot Forhan (36.9%)", src:"https://ballotpedia.org/John_Kulewicz"},
     ],
     record: [
+      {name:"Transition director named", stance:"action", date:"Nov 13, 2026", detail:"Named campaign manager Colin Flanagan transition director. \"I have been in continuous communication with all former living Ohio Attorneys General.\"", src:"https://warrencountypost.com/g/lebanon-oh/n/398161/ohio-attorney-general-elect-kulewicz-names-transition-director-he-prepares"},
+      {name:"Priorities as attorney general-elect", stance:"action", date:"Nov 10, 2026", detail:"Listed \"consumer fraud, wage theft, monopoly pricing, utility rate discrimination\" as priorities. On federal claims of \"billions of dollars of Medicaid provider fraud,\" said prosecutions \"only amount to millions of dollars\" and \"I want to find out why.\" Said the attorney general \"has standing to challenge the fairness of the rates.\"", src:"https://www.springfieldnewssun.com/local/incoming-ohio-ag-says-he-ll-put-pocketbook-paycheck-issues-front-and-center/article_4776d005-82f5-5b12-a63b-f56ee1356343.html"},
       {name:"Claims victory; plans as attorney general", stance:"action", date:"Nov 4, 2026", detail:"Said Faber called to concede and that \"in seventy days, I will begin serving\" as attorney general. Named Medicaid fraud enforcement a priority and said he would continue the FirstEnergy executives' prosecution.", src:"https://kutv.com/news/nation-world/ohios-presumed-ag-elect-wants-to-investigate-fraud-allegation-prosecution-gap-justice-crime-investigation-public-policy"},
       {name:"Attorney general debate positions", stance:"action", date:"Oct 19, 2026", detail:"At the Youngstown State debate, said a warrant should be required to search Flock camera records more than 48 hours old, that the death penalty should be reserved for the most severe offenses, and that he would proceed with the FirstEnergy retrial.", src:"https://www.tribtoday.com/news/local-news/2026/10/attorney-general-candidates-debate-on-ysu-campus/"},
       {name:"Price-gouging and false-claims laws", stance:"action", date:"Oct 2026", detail:"Proposes working with the legislature on a price-gouging ban, noting Ohio is one of few states without one, and says a state false claims law is \"urgently\" needed.", src:"https://www.daytondailynews.com/local/election-2026-ohio-auditor-columbus-area-councilman-vie-to-become-state-attorney-general/article_49d4f813-92ca-5e79-a224-9aef91b5d95d.html"},
@@ -199,6 +206,8 @@ Object.assign(CANDIDATES, {
       {year:"2018", race:"Ohio House, District 24", result:"won", detail:"57% over Erik Yassenoff", src:"https://ballotpedia.org/Allison_Russo"},
     ],
     record: [
+      {name:"Priorities as secretary of state-elect", stance:"action", date:"Nov 13, 2026", detail:"Said \"my intention is to work as hard as I can to help protect those access points to our elections\" and that her office is looking at the budget so \"our election workers have the resources that they need for safe, secure, and fair elections.\" She has met with LaRose.", src:"https://www.cleveland19.com/2026/11/14/ohios-newly-elected-secretary-state-outlines-election-priorities/"},
+      {name:"Transition leaders named", stance:"action", date:"Nov 10, 2026", detail:"Named Hamilton County Democratic Party Chairman Alex Linser transition director and Rachel Rossi, her senior adviser for more than seven years, deputy transition director.", src:"https://www.vindy.com/news/2026/11/kulewicz-russo-name-transition-directors/"},
       {name:"Comments on Issue 3 voter ID amendment", stance:"action", date:"Nov 4, 2026", detail:"After the voter photo ID amendment passed, said she is concerned about its effect on early, mail-in and drop-box voting: \"I suspect some of those questions will end up being challenged in the judicial process.\"", src:"https://abc6onyourside.com/news/election/ohio-secretary-of-state-elect-voices-concerns-after-voter-id-measure-passes-allison-russo-abc-investigates-constitution-issue-3-representative-ohio-supreme-court-legal-action-questions"},
       {name:"Plans as Secretary of State", stance:"action", date:"Nov 9, 2026", detail:"Said reviewing LaRose's directives with county election officials would be \"one of the first orders of business,\" and that she will look at early-voting hours and propose plain, unbiased ballot language.", src:"https://www.yahoo.com/news/politics/articles/incoming-dem-ohio-secretary-state-085525160.html"},
       {name:"Secretary of State platform", stance:"action", date:"Oct 20, 2026", detail:"Opposes State Issue 3 because it would lock a narrow list of IDs into the constitution; supports more than one ballot drop box per county; says \"I have no issue with voter ID or even photo ID\" but objects to rules that exclude groups of voters.", src:"https://signalohio.org/ohio-secretary-of-state-candidate-allison-russo-wants-more-voter-drop-boxes-november-election-2026/"},
@@ -225,7 +234,7 @@ Object.assign(CANDIDATES, {
     name: "Annette Blackwell", initials: "AB", party: "D", partyLabel: "Democrat",
     level: "State", state: "Ohio", office: "Mayor of Maple Heights",
     since: "Mayor since 2016",
-    status: "Lost the 2026 Auditor of State race to Frank LaRose (R), 49.2% to 50.8% (unofficial, Nov 3, 2026). Remains Mayor of Maple Heights.",
+    status: "Lost the 2026 Auditor of State race to Frank LaRose (R), 49.2% to 50.8% (unofficial, Nov 3, 2026); conceded Nov 4. Remains Mayor of Maple Heights.",
     born: null, birthplace: "",
     education: "Bachelor's degree, Ursuline College",
     bio: "Maple Heights' first Black and first woman mayor, in office since 2016. Before that she spent years as a property-tax analyst and worked at KeyBank and University Hospitals. She led the city out of state fiscal emergency; it has since received clean-audit awards from the Auditor's office.",
@@ -243,6 +252,7 @@ Object.assign(CANDIDATES, {
     ],
     money: MONEY_STATE, endorsements: [],
     links: [
+      {label:"Concession (USA Today Network via Yahoo, Nov 4, 2026)", url:"https://www.yahoo.com/news/politics/articles/ohio-auditor-election-results-democrat-230127313.html"},
       {label:"Ballotpedia", url:"https://ballotpedia.org/Annette_Blackwell"},
       {label:"Profile (Ohio Capital Journal)", url:"https://ohiocapitaljournal.com/2026/08/05/democratic-candidate-for-ohio-auditor-continues-a-life-of-learning-as-she-aims-for-top-job/"},
     ],
@@ -285,7 +295,7 @@ Object.assign(CANDIDATES, {
     name: "Seth Walsh", initials: "SW", party: "D", partyLabel: "Democrat",
     level: "Local", state: "Ohio", office: "Ohio Treasurer-elect; Cincinnati City Council",
     since: "Council since late 2022",
-    status: "WON: Elected Ohio Treasurer Nov 3, 2026, 50.6% to 49.4% over Jay Edwards (R) (unofficial; Edwards conceded). Takes office Jan. 11, 2027; leaving Cincinnati City Council.",
+    status: "WON: Elected Ohio Treasurer Nov 3, 2026, 50.6% to 49.4% over Jay Edwards (R) (unofficial; Edwards conceded). Takes office Jan. 11, 2027. On leave from Cincinnati City Council since Nov 9; he will resign once the election is certified.",
     born: null, birthplace: "",
     education: "",
     bio: "Cincinnati City Council member, appointed in 2022 and elected in 2023 and 2025. Previously CEO of the College Hill Community Urban Redevelopment Corporation, which he says had a $2 million-plus operating budget and over $30 million in assets. Lost a 2016 race for Hamilton County Treasurer.",
@@ -296,6 +306,7 @@ Object.assign(CANDIDATES, {
       {year:"2023", race:"Cincinnati City Council", result:"won", detail:"9.0%, top-nine at-large", src:"https://ballotpedia.org/Seth_Walsh"},
     ],
     record: [
+      {name:"Leave of absence from Cincinnati council", stance:"action", date:"Nov 9, 2026", detail:"Began a leave of absence from Cincinnati City Council and will resign once the election is certified; pay received during the leave goes back to the city's general fund. He and Councilmember Meeka Owens will select his successor.", src:"https://www.wlwt.com/article/seth-walsh-cincinnati-council-leave-of-absence-state-treasurer/74358611"},
       {name:"Victory statement", stance:"action", date:"Nov 4, 2026", detail:"Said \"Ohioans made their voices heard and chose a future rooted in accountability and transparency.\"", src:"https://www.fox19.com/2026/11/04/two-cincinnati-council-members-leave-by-end-year-what-happens-next/"},
       {name:"Council succession plan", stance:"action", date:"Nov 5, 2026", detail:"Under the city charter he and Council Member Meeka Owens each named the other in their succession plans; he said he expects his successor to be chosen before the holidays.", src:"https://local12.com/news/local/how-will-cincinnati-replace-two-council-members-who-were-elected-new-roles-seth-walsh-meeka-owens-election-elect-voting-voters-november-ballot-treasurer-commissioner-democrat-democrats"},
       {name:"Browns stadium unclaimed funds", stance:"against", date:"Sep–Oct 2026", detail:"Says the treasurer should join the lawsuit over using unclaimed funds for a Browns stadium (\"that's real peoples' money\") and called Edwards' acceptance of Haslam donations suspicious.", src:"https://www.daytondailynews.com/local/former-gop-lawmaker-cincy-councilman-compete-for-ohio-treasurer-election-2026/article_52510efe-5bea-57e8-8910-534371cd62bd.html"},
@@ -381,7 +392,7 @@ Object.assign(CANDIDATES, {
     status: "Won the Nov 3, 2026 Ohio Supreme Court race over Justice Dan Hawkins (R), 51.0%–49.0% (unofficial). Takes office in January 2027, making the court 5–2 Republican.",
     born: null, birthplace: "",
     education: "B.A., City College of New York (1987); J.D., University of Cincinnati College of Law (1997)",
-    bio: "Cincinnati appeals judge since 2016 who previously worked as an IT manager at Procter & Gamble and spent nearly 20 years in private law practice. She has served as a visiting judge on the Ohio Supreme Court and sits on its Ethics, Professionalism and Diversity Committee. She lost a 2022 Supreme Court race to Justice Pat DeWine.",
+    bio: "Cincinnati appeals judge since 2016 who previously worked as an IT manager at Procter & Gamble and spent nearly 20 years in private law practice. She has served as a visiting judge on the Ohio Supreme Court and sits on its Ethics, Professionalism and Diversity Committee. She lost a 2022 Supreme Court race to Justice Pat DeWine. State Court Report wrote that her 2026 win made her \"the first Latina elected to the state's supreme court.\"",
     elections: [
       {year:"2026", race:"Ohio Supreme Court", result:"won", detail:"51.0% over Justice Dan Hawkins (49.0%); unofficial results, not yet certified", src:"https://www.yahoo.com/news/politics/articles/democratic-candidates-jennifer-brunner-marilyn-222656700.html"},
       {year:"2026", race:"Ohio Supreme Court — Democratic primary", result:"won", detail:"Unopposed; faces Dan Hawkins Nov 3", src:"https://ballotpedia.org/Marilyn_Zayas"},
@@ -398,6 +409,7 @@ Object.assign(CANDIDATES, {
       {name:"Judge4Yourself bar ratings", detail:"Cleveland Metropolitan Bar Assn.: Excellent; Cuyahoga Criminal Defense Lawyers Assn.: Excellent; Norman S. Minor Bar Assn.: Good (updated Oct 16, 2026)", src:"https://www.judge4yourself.com/judicial-candidate-ratings/"},
     ],
     links: [
+      {label:"First Latina elected to the court (State Court Report, Nov 10, 2026)", url:"https://statecourtreport.org/our-work/analysis-opinion/ballot-box-vote-judicial-diversity"},
       {label:"Ballotpedia", url:"https://ballotpedia.org/Marilyn_Zayas"},
       {label:"2022 candidate profile (WCPO)", url:"https://www.wcpo.com/news/government/state-government/ohio-state-government-news/governor-dewines-son-appeals-court-judge-run-for-ohio-supreme-court-talk-about-integrity"},
     ],

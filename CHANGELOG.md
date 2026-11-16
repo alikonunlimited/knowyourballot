@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-11-16 — Weekly update
+Scan: 457 sources opened, 346 readable, 111 blocked (six parallel sweeps; plus 44 verification fetches of every added or changed link, 43 readable). The shared search budget ran out near the end of three sweeps, so a few per-outlet, Auditor and civil-rights outlet checks were not completed — see PR. Results remain unofficial until certified (county canvass Nov 24, certification by Dec 4).
+- Trump (record): wildfire-suppression water-rule exemption, Nov 10 (whitehouse.gov); 60 Minutes remarks on midterm losses (whitehouse.gov); Ohio Senate "15 down" claim, found false (FactCheck.org); BBC defamation suit allowed to proceed in part (Al Jazeera).
+- Trump (World): "We don't need a deal with Iran" (CBS News); Abu Dhabi Ukraine–Russia talks (ABC News); State Department report on $12.26B in Venezuelan oil and mineral revenue (Al Jazeera); threat to double tariffs on Mexico over a migrant caravan (BNN Bloomberg).
+- Trump (Civil rights): Civil Rights Division head Harmeet Dhillon resigned Nov 5 (NPR Illinois); September "steal your money for reparations" remark, reported by AP alongside the UN vote (AP via News4Jax).
+- Trump: E. Jean Carroll outcome updated — Carroll's Oct 30 opposition to the $83.3M petition; Court has not acted (AOL).
+- Harris: status adds her November comment on a 2028 timeline (Washington Sun).
+- Sanders: Nov 11 joint statement opposing more Iran war funding (sanders.senate.gov); won't back Schumer as leader (WCAX).
+- DeWine: Nov 5 opposition to curbing the next governor's powers (News 5 Cleveland); Honda Marysville plant, Nov 9 (governor's office); end-of-term clemency review (Statehouse News Bureau).
+- Acton: first post-election interview (NBC4 via Yahoo); transition co-chairs (Warren County Post).
+- Kulewicz: priorities as AG-elect (Ohio Capital Journal via Springfield News-Sun); transition director (Warren County Post).
+- Brown: status adds canvass/certification dates and swearing-in "no later than Dec. 16" (NBC4 via Yahoo); chief of staff Abigail Duggan (Tribune Chronicle); backs Schumer (NBC4 via Yahoo). World: Iran war and Hegseth comments (NBC4 via Yahoo).
+- Husted: status — term ends Dec 15 under Ohio law (Ohio Capital Journal via Yahoo); Dayton Aviation park bill passed Senate (husted.senate.gov); permitting-bill cloture vote (senate.gov roll call 257); judicial confirmation vote (senate.gov roll call 260).
+- Moreno: elected NRSC chairman for 2028 cycle (moreno.senate.gov); permitting-bill cloture vote (senate.gov roll call 257); lame-duck push (Washington Sun).
+- LaRose: Lucas County Board of Elections placed under Level 3 oversight (Yahoo News).
+- Blackwell: status notes Nov 4 concession (USA Today Network via Yahoo).
+- Russo: transition leaders (Vindicator); priorities as SOS-elect (Cleveland 19).
+- Walsh: leave from Cincinnati council and status update (WLWT).
+- Ginther: 2027 operating budget proposal (WOSU).
+- Hardin: IAFF Local 67 endorsement (Columbus Dispatch via Yahoo); water-rate hearing and budget response (WOSU).
+- Kennedy: column on jail veteran-screening law (Court News Ohio).
+- Zayas: bio notes she is the first Latina elected to the court (State Court Report).
+- Ads: Brown vs. Husted final ad spending about $525.5M (AdImpact via ABC News).
+- Sources: Husted press-release link updated to its current address.
+- Ad Check: no new ad fact-checks found.
+- UN A/RES/80/250: no new connections in the window; added Trump's September reparations remark, which AP reported alongside the U.S. "no" vote.
+- DATA_AS_OF and ADS_AS_OF already read "November 2026"; no bump needed.
+
 ## 2026-11-09 — Weekly update (election results)
 Scan: 522 sources opened, 378 readable, 144 blocked (six parallel sweeps; the shared search budget ran out partway, so some per-outlet, fact-checker and social checks were not completed — see PR). All results below are unofficial until the Ohio SOS certifies them (county canvass due Nov 24).
 - Races box: now shows Nov 3 results with unofficial winners; RACES_2026 gains a `winner` field.
