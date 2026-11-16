@@ -139,7 +139,7 @@ const SOURCES = {
   ],
   "jon husted": [
     S("Senate office","https://www.husted.senate.gov/","official"),
-    S("Press releases","https://www.husted.senate.gov/news/press-releases/","press"),
+    S("Press releases","https://www.husted.senate.gov/media/press-releases/","press"),
     S("X","https://x.com/SenJonHusted","social"),
     S("Facebook","https://www.facebook.com/SenJonHusted/","social"),
     S("Instagram","https://www.instagram.com/senjonhusted/","social"),
