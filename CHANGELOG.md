@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-11-23 — Weekly update
+Scan: 566 sources opened, 457 readable, 109 blocked (six parallel sweeps plus a re-check of VoteLog figures; every added link was opened by the sweeps). The shared web-search budget ran out partway through all six sweeps, so some per-outlet, social-platform, PolitiFact/FactCheck.org and civil-rights outlet checks were not completed — see PR. Nov 3 results remain unofficial (county canvass deadline Nov 24, state certification by Dec 4); no statewide race fell within Ohio's 0.25% automatic-recount margin.
+- Trump (record): Executive Order 14438 on contractors and congressional requests, Nov 20 (whitehouse.gov); BBC suit deposition deadline moved to Jan 22, 2027 (Euronews).
+- Trump (controversies): hush-money outcome adds the Nov 5 state appeal argument and Nov 16 2nd Circuit hearing (PBS/AP); E. Jean Carroll outcome — reply filed Nov 16, petition set for Dec 4 conference (supremecourt.gov docket 26-141).
+- Trump (World): Xi–Putin–Trump meeting in Shenzhen (AP via Alaska's News Source); "not rushing" on Iran (Axios); Iran "dirty bomb" warning (JNS); Venezuela "acquisition" remark (GMA News); Philippines trade-deal announcement (PhilNews); Mexico/Canada trade remarks (IANS).
+- Trump (Civil rights): Craig Trainor named acting head of DOJ Civil Rights Division; LDF and 17 other groups object (CBS News).
+- Harris: courtesy meeting with President Macron, Nov 20 (AFP via NAMPA).
+- Sanders: Iran war powers vote yes (senate.gov roll call 269; also World); permitting bill no (roll call 270); judicial confirmations no (roll call 265); Medicare for All phase-in plan (sanders.senate.gov); rules out 2028 run (The Hill); Nov 14 op-ed (sanders.senate.gov).
+- Moreno: Iran war powers vote no (roll call 269; World entry with Fox remarks via Dayton Daily News); permitting final passage yes (roll call 270, updated existing item); judicial confirmations yes (roll call 265); Fiona the hippo resolution (moreno.senate.gov).
+- Husted: farewell floor speech (husted.senate.gov); Iran war powers vote no (roll call 269; also World); permitting final passage yes (husted.senate.gov, updated existing item); judicial confirmations yes (roll call 263); Military Families Affordable Homes Act and Law Enforcement Officers Equity Act introduced (husted.senate.gov).
+- Brown: post-election WKRC interview on rail safety and tariffs (Local 12).
+- DeWine: weighing SB 278 concealed-carry bill (WKYC via Yahoo); honorary co-chair of Acton inaugural (NBC4 via Yahoo); death-sentence commutation remarks (The Intercept).
+- Acton: inaugural committee (NBC4 via Yahoo); response to efforts to limit governor's powers (Ohio Capital Journal via News From the States); plans to continue some DeWine programs (NBC4 via Yahoo); 4,100+ job applications (NBC4 via Yahoo).
+- LaRose: declines to break county-board ties on cross-county provisional ballots (Cincinnati Enquirer via Yahoo); response to SB 494 (Statehouse News Bureau); voter-roll audit proposal (Signal Ohio).
+- Russo: opposes voter-roll audit proposal (Ironton Tribune); comments on SB 494 (WVXU).
+- Ginther: status adds Rep. Munira Abdullahi's mayoral challenge (WOSU); response to Abdullahi (WOSU); Lufthansa route subsidy (Columbus Dispatch via Yahoo); 2027 budget health-center and Columbus Promise funding (Columbus Dispatch via Yahoo).
+- Hardin: status adds Abdullahi challenge (WOSU); campaign response (WOSU); spending criticism (Columbus Dispatch via Yahoo).
+- Kennedy, Brunner, Fischer, Hawkins: State v. Kincaid, Nov 17 (Court News Ohio).
+- Follow the money: FUNDERS_AS_OF to November 2026; Senate outside spending updated to $415.0M through Nov 16 and nine groups' totals refreshed (VoteLog, FEC data).
+- Sources: State Board of Education board-members link updated to its new address.
+- Ad Check: no new ad fact-checks found.
+- UN A/RES/80/250: no new connections found (dedicated reparations/civil-rights outlet sweep cut short by the search budget).
+- DATA_AS_OF and ADS_AS_OF already read "November 2026"; no bump needed.
+
 ## 2026-11-16 — Weekly update
 Scan: 457 sources opened, 346 readable, 111 blocked (six parallel sweeps; plus 44 verification fetches of every added or changed link, 43 readable). The shared search budget ran out near the end of three sweeps, so a few per-outlet, Auditor and civil-rights outlet checks were not completed — see PR. Results remain unofficial until certified (county canvass Nov 24, certification by Dec 4).
 - Trump (record): wildfire-suppression water-rule exemption, Nov 10 (whitehouse.gov); 60 Minutes remarks on midterm losses (whitehouse.gov); Ohio Senate "15 down" claim, found false (FactCheck.org); BBC defamation suit allowed to proceed in part (Al Jazeera).
