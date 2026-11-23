@@ -2,7 +2,7 @@
    Rules: every figure is quoted from a cited source with its date. Donor lists for national groups
    are cycle-wide (all races), not Ohio-only. "Dark money" = a nonprofit that is not required to
    disclose its donors. Updated weekly with the rest of the site. */
-const FUNDERS_AS_OF = "October 2026";
+const FUNDERS_AS_OF = "November 2026";
 const FEC = q => 'https://www.fec.gov/data/committees/?q=' + encodeURIComponent(q);
 const SRC_VOTELOG = "https://votelog.org/investigations/ohio-senate-general-money";
 const SRC_OCJ_Q2 = "https://www.newsfromthestates.com/article/sherrod-brown-comfortably-outraises-jon-husted-outside-groups-enter-ohios-us-senate-race";
@@ -54,7 +54,7 @@ const FUNDERS = {
     name: "Senate Leadership Fund (SLF PAC)", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "partial",
     facts: [
       "The main outside group for Senate Majority Leader John Thune (Signal Ohio).",
-      "Announced plans to spend $79 million backing Husted (NBC4, May 2026). Spent $80.4 million in the race through Oct. 23, per FEC data compiled by VoteLog.",
+      "Announced plans to spend $79 million backing Husted (NBC4, May 2026). Spent $95.6 million in the general election ($92.9 million opposing Brown, $2.7 million supporting Husted) through Nov. 16, per FEC data compiled by VoteLog.",
       "One Nation, its top non-individual donor, is an affiliated nonprofit that does not disclose its own donors."
     ],
     donors: [
@@ -69,7 +69,7 @@ const FUNDERS = {
     brief: "Super PAC funded by Trump's MAGA Inc. ($200M, cycle-wide)",
     name: "No Going Back PAC", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "partial",
     facts: [
-      "Spent more than $20 million against Brown and $7.6 million supporting Husted as of Oct. 14, 2026 (Legis1, from FEC filings).",
+      "Spent $28.7 million in the general election: $21.1 million against Brown and $7.6 million supporting Husted, through Nov. 16 (VoteLog, FEC data).",
       "Its own FEC reports listed no donors as of mid-October. The New York Times and Reuters reported it is funded by MAGA Inc., President Trump's main super PAC; FEC data compiled by VoteLog later showed $200 million from MAGA Inc. (cycle-wide)."
     ],
     donors: [{ name: "MAGA Inc. (pro-Trump super PAC)", amount: "$200,000,000", note: "cycle-wide" }],
@@ -79,7 +79,7 @@ const FUNDERS = {
     brief: "Elon Musk's super PAC",
     name: "America PAC", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "full",
     facts: [
-      "Elon Musk's super PAC. Spent $9.4 million in the Ohio Senate race through Oct. 23 (VoteLog, FEC data).",
+      "Elon Musk's super PAC. Spent $9.7 million in the Ohio Senate race ($6.9 million opposing Brown, $2.9 million supporting Husted) through Nov. 16 (VoteLog, FEC data).",
       "Newsweek, citing a Guardrails Action analysis, reported $7.9 million from Musk's super PAC to help Husted (Oct. 19, 2026)."
     ],
     donors: [{ name: "Elon Musk", amount: "$20,100,000", note: "cycle-wide" }],
@@ -89,7 +89,7 @@ const FUNDERS = {
     brief: "Koch network super PAC; funded by Koch Inc. and Stand Together",
     name: "Americans for Prosperity Action", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "partial",
     facts: [
-      "Part of the Koch political network. Spent $20.7 million in the race through Oct. 23 (VoteLog, FEC data).",
+      "Part of the Koch political network. Spent $22.6 million in the race ($12.4 million opposing Brown, $10.2 million supporting Husted) through Nov. 16 (VoteLog, FEC data).",
       "Stand Together is a Koch-founded nonprofit that does not disclose its donors."
     ],
     donors: [
@@ -103,7 +103,7 @@ const FUNDERS = {
     brief: "Pro-Husted super PAC; top donor a dark-money group that hides its donors ($1M)",
     name: "Ohio Flyer PAC", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "partial",
     facts: [
-      "Set up solely to support Husted. Spent $8.4 million: $7.3 million against Brown and $1.1 million for Husted (VoteLog, FEC data).",
+      "Set up solely to support Husted. Spent $8.6 million: $7.4 million against Brown and $1.1 million for Husted, through Nov. 16 (VoteLog, FEC data).",
       "Its largest donor, A Public Voice Inc., is a Virginia dark-money group that does not disclose its donors (Ohio Capital Journal)."
     ],
     donors: [
@@ -130,7 +130,7 @@ const FUNDERS = {
     name: "Fairshake / Defend American Jobs (crypto industry super PACs)", type: "super PAC", race: "U.S. Senate", side: "jon husted", against: "sherrod brown", disclosure: "full",
     facts: [
       "Fairshake reported a $5.2 million and a $1.95 million media buy against Brown in October 2026 and had signaled at least $30 million against him (Decrypt, from FEC filings).",
-      "Its Republican-race affiliate, Defend American Jobs, spent $55.8 million in the race through Oct. 23 (VoteLog, FEC data).",
+      "Its Republican-race affiliate, Defend American Jobs, spent $56.6 million in the race ($36.9 million supporting Husted, $19.7 million opposing Brown) through Nov. 16 (VoteLog, FEC data).",
       "Decrypt reports Fairshake is funded largely by Coinbase, Ripple and Andreessen Horowitz."
     ],
     donors: [
@@ -162,7 +162,7 @@ const FUNDERS = {
     brief: "Senate Majority PAC affiliate; biggest funder Majority Forward, a dark-money group",
     name: "WinSenate", type: "super PAC", race: "U.S. Senate", side: "sherrod brown", against: "jon husted", disclosure: "partial",
     facts: [
-      "A Senate Majority PAC affiliate. Spent $62.5 million in the race through Oct. 23 (VoteLog, FEC data).",
+      "A Senate Majority PAC affiliate. Spent $87.4 million in the general election ($78.3 million opposing Husted, $9.1 million supporting Brown) through Nov. 16 (VoteLog, FEC data).",
       "Signal Ohio reports its biggest funder is Majority Forward, a dark-money group, with other money from Fred Eychaner, Reed Hastings, Coinbase and unions for plumbers and pipefitters, government employees and teachers."
     ],
     donors: [{ name: "Senate Majority PAC", amount: "$171,120,000", note: "cycle-wide" }],
@@ -171,7 +171,7 @@ const FUNDERS = {
   "lcv-victory": {
     brief: "League of Conservation Voters' super PAC (environmental group)",
     name: "LCV Victory Fund", type: "super PAC", race: "U.S. Senate", side: "sherrod brown", against: "jon husted", disclosure: "full",
-    facts: ["The League of Conservation Voters' super PAC. Spent $5.3 million in the race through Oct. 23 (VoteLog, FEC data)."],
+    facts: ["The League of Conservation Voters' super PAC. Spent $5.9 million in the race, nearly all opposing Husted, through Nov. 16 (VoteLog, FEC data)."],
     donors: [
       { name: "League of Conservation Voters", amount: "$18,020,601", note: "cycle-wide" },
       { name: "Amos Hostetter", amount: "$600,000", note: "cycle-wide" },
@@ -182,7 +182,7 @@ const FUNDERS = {
     brief: "Has disclosed no donors",
     name: "Buckeye Freedom PAC", type: "super PAC", race: "U.S. Senate", side: null, against: "jon husted", disclosure: "none",
     facts: [
-      "Spent about $1.6 million mainly targeting Husted and promoting Libertarian Bill Redpath (VoteLog; CNN).",
+      "Spent about $1.9 million opposing Husted, mainly while promoting Libertarian Bill Redpath (VoteLog, through Nov. 16; CNN).",
       "Had not disclosed any donors as of Oct. 22, 2026 (CNN)."
     ],
     donors: [], src: [SRC_VOTELOG, "https://www.applevalleynewsnow.com/news/politics/national-politics/conservatives-funded-efforts-to-undercut-sherrod-brown-with-black-voters-in-ohio-filing-shows/article_20dfca1d-72e7-5e85-bd61-283c304ee92c.html"]
@@ -259,6 +259,6 @@ const AD_FUNDERS = {
 
 /* Race-wide totals shown above the group list */
 const RACE_MONEY = {
-  "U.S. Senate": { text: "Outside groups spent $349.3 million in the Brown–Husted race through Oct. 23, 2026: $230.8 million helping Husted (or opposing Brown) and $118.5 million helping Brown (or opposing Husted), per FEC data compiled by VoteLog.", src: SRC_VOTELOG },
+  "U.S. Senate": { text: "Outside groups spent $415.0 million in the Brown–Husted general election through Nov. 16, 2026: $257.9 million helping Husted (or opposing Brown) and $157.1 million helping Brown (or opposing Husted), per FEC data compiled by VoteLog.", src: SRC_VOTELOG },
   "Governor": { text: "Ramaswamy had loaned his campaign $41.3 million through Oct. 14, 2026 (Signal Ohio), while Acton has out-raised him in donations every month since July (Ohio Capital Journal).", src: SRC_OCJ_GOV_OCT }
 };
